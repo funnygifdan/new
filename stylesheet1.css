@@ -1,0 +1,290 @@
+html,body {background-color:rgb(0, 0, 0); color: white;}
+/*single table */
+* {
+  box-sizing: border-box;
+}
+.row {
+  margin-left:auto;
+  margin-right:auto;
+} 
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+ 
+  border: .1px solid;
+  border-color:rgb(20, 255, 12);
+  margin-left:auto;
+  margin-right:auto;
+  background-color:gray;
+  color:rgb(0, 0, 0);
+  max-width: 700px;  
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+ 
+  
+}
+
+th {
+  background-color: rgb(0, 0, 0);
+  text-align: left;
+  padding: 16px;
+  color: #f1f1f1;
+  border: .5px solid;
+  border-color:rgb(36, 36, 36);
+  color:rgb(255, 255, 255);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+}
+
+td {
+  text-align: left;
+  padding: 16px;
+  background-color:rgb(0, 0, 0);
+  text-align: center;
+  border: .5px solid;
+  border-color:rgb(36, 36, 36);
+  color:rgb(255, 255, 255);
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+}
+
+tr:nth-child(even) {
+  background-color:gray;
+  color:rgb(20, 255, 12);
+}
+p, li {
+  text-align: left;
+  
+}
+/* Border */
+p.thickborder {
+  border-style: solid;
+  border-width: thick;
+  color:rgb(20, 255, 12);
+} 
+
+
+h1 {
+  font-size: 10px;
+  text-align: center;
+  color:rgb(20, 255, 12);
+  background-color: black; 
+}
+h2 {
+  font-size: 20px;
+  text-align: center;
+  color: #fffafa;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+h3 {
+  font-size: 30px;
+  text-align: center;
+  color: #ffffff;
+ 
+}
+h4 {
+  font-size: 40px;
+  text-align: center;
+  color: #f1f1f1;
+ 
+}
+h5 {
+  text-align: center;
+  font-size: 50px;
+  color:rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgb(20, 255, 12), 0 0 25px rgb(255, 255, 255), 0 0 5px rgb(20, 255, 12);
+}
+* {
+  box-sizing: border-box;
+}
+
+
+.header {
+  opacity: 0.5;
+  color:rgb(255, 255, 255);
+  padding: 30px;
+  text-align: center;
+}                               
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 50px;
+  background-color:rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+ 
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.parallax {
+  /* The image used */
+  background-image: url('images/disney4.jpg');
+
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:rgb(0, 0, 0);
+  color: #f1f1f1;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  text-decoration: none;
+  font-size: 12px;
+  color: #ffffff;
+  display: block;
+  height: 45px;
+  background-color:rgb(0, 0, 0);
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color:rgb(20, 255, 12);
+  font-size: 12px;
+  border: #f1f1f1;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 12px; /* Increased text to enable scrolling */
+  padding: 0px 5px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color:rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color:rgb(0, 0, 0);
+  color: #f1f1f1;
+  border-style: outset;
+  border-color: #f1f1f1;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+  padding-top: 10px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.img {
+  /* The image used */
+  background-image: url('images/disney4.jpg');
+
+  /* Full height */
+  height: 500px;
+  
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+@media only screen and (max-device-width: 1366px) {
+  .img {
+    background-attachment: scroll;
+  }
+}
+
+ul.a {
+  list-style-type: circle;
+  text-align: center;
+  
+}
