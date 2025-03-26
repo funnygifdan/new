@@ -63,8 +63,7 @@ a:hover {
     width: 60%;
     height: auto;
     min-height: 250px;
-    background: url('IMG_1039.jpeg') no-repeat center center;
-    background-size: cover;
+    background-color: black;
     border: 2px solid gray;
     box-shadow: 2px 2px 5px white;
     flex-direction: column;
