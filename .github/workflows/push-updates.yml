@@ -1,24 +1,26 @@
 name: Auto Commit and Push
 
 on:
-  workflow_dispatch:  # Allows manual execution from GitHub Actions UI
+  workflow_dispatch:  # Allows manual execution
 
 jobs:
   push_changes:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Grants write access to commit & push changes
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
-          persist-credentials: false  # Prevents permission conflicts
+          persist-credentials: false  # Prevents authentication conflicts
 
       - name: Configure Git User
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@github.com"
 
-      - name: Update Files (Example Change)
+      - name: Make Changes (Example)
         run: |
           echo "Last updated: $(date)" > last_update.txt  # Example change
           git add .
@@ -26,6 +28,6 @@ jobs:
 
       - name: Push Changes
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Uses GitHub-provided token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
