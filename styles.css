@@ -6,7 +6,10 @@ body {
     font-size: 32px;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 a {
@@ -43,7 +46,7 @@ a:hover {
 }
 
 #menu-button {
-    width: 35px;
+    width: 50px;
     height: 100%;
     background-color: black;
     color: #00FF00;
@@ -55,26 +58,33 @@ a:hover {
     justify-content: center;
     transition: background-color 0.3s ease;
 }
+
+#menu-button:hover {
+    background-color: #222;
+}
+
 /* Side Menu */
 .side-menu {
     position: absolute;
     top: 60px;
     left: 0;
     width: 60%;
-    height: auto;
-    min-height: 250px;
-    background-color: black;
+    height: 100vh;
+    background: url('IMG_1039.jpeg') no-repeat center center;
+    background-size: cover;
     border: 2px solid gray;
     box-shadow: 2px 2px 5px white;
     flex-direction: column;
     display: none;
     z-index: 1100;
-    padding-bottom: 50px; /* Ensures space for the close button */
     text-align: center;
+    overflow-y: auto;
 }
+
 .side-menu.active {
     display: flex;
 }
+
 .side-menu a {
     display: block;
     width: 100%;
@@ -87,13 +97,18 @@ a:hover {
     border: 2px solid gray;
     box-shadow: 0px 2px 5px white;
 }
-/* Close Buttonl */
+
+.side-menu a:hover {
+    background: #222;
+    color: #f0f0f0;
+}
+
+/* Close Button - Sticky to Bottom */
 #close-menu {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: black;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    background: red;
     color: white;
     border: none;
     font-size: 24px;
@@ -101,10 +116,13 @@ a:hover {
     cursor: pointer;
     box-shadow: 0px 2px 5px white;
 }
-/* Footer */
+
+#close-menu:hover {
+    background: darkred;
+}
+
+/* Footer - Sticky to Bottom */
 .footer {
-    top: 1500px;
-    width: 100%;
     background-color: black;
     border: 2px solid gray;
     box-shadow: 0px -4px 6px white;
@@ -113,12 +131,14 @@ a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: fixed;
+    margin-top: auto;
+    width: 100%;
 }
+
 /* Paragraph Box */
 .paragraph-box {
-    position: fixed;
-    top: 50%;
+    position: absolute;
+    top: 800px;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #3a3a3a;
@@ -128,4 +148,54 @@ a:hover {
     width: 300px;
     height: 300px;
     text-align: center;
+}
+
+/* Dropdown Buttons */
+.dropdown-btn {
+    background-color: black;
+    color: #00FF00;
+    font-size: 32px;
+    border: 2px solid gray;
+    padding: 12px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    box-shadow: 0px 2px 5px white;
+    position: relative;
+}
+
+.dropdown-btn:hover {
+    background-color: #222;
+    color: #f0f0f0;
+}
+
+/* Dropdown Container */
+.dropdown-container {
+    display: none;
+    position: absolute;
+    left: 100%; /* Moves dropdown to the right */
+    top: 0;
+    background-color: black;
+    padding-left: 10px;
+    width: max-content;
+    box-shadow: 2px 2px 5px white;
+}
+
+/* Dropdown Links */
+.dropdown-container a {
+    display: block;
+    background-color: black;
+    color: #00FF00;
+    padding: 12px;
+    text-decoration: none;
+    border: 2px solid gray;
+    box-shadow: 0px 2px 5px white;
+    font-size: 28px;
+    width: 200px;
+}
+
+.dropdown-container a:hover {
+    background-color: #222;
+    color: #f0f0f0;
 }
