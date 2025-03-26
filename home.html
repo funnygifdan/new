@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Page</title>
+
     <!-- Google Font - Rock Salt -->
     <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
 
@@ -12,34 +13,38 @@
         body {
             font-size: 16px;
             color: #00FF00;
-            background-color: #28343c;
+            background: url('IMG_1039.jpeg') no-repeat center center fixed;
+            background-size: cover;
             font-family: 'Rock Salt', cursive;
             margin: 0;
             padding: 0;
             text-align: center;
+            overflow-x: hidden;
         }
 
-        /* Sidebar Menu Styling */
+        /* Sidebar Menu */
         .sidenav {
-            width: 100%;
-            height: auto; /* Adjusts height dynamically */
-            background-color: #000; 
+            width: 50%; /* Half the screen width */
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: -50%; /* Hidden off-screen initially */
+            background-color: #000;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between; /* Aligns left and right */
+            flex-direction: column;
             align-items: center;
-            padding: 10px 20px;
-            transition: all 0.3s ease; /* Smooth transition when opening */
+            padding-top: 20px;
+            transition: left 0.4s ease-in-out;
+            z-index: 1000;
         }
 
         .sidenav a {
             color: #00FF00;
             text-decoration: none;
-            padding: 10px 20px;
-            font-size: 13px; /* Menu font size */
-            border: 1px solid #00FF00;
-            box-shadow: 2px 2px 5px #00FF00;
-            margin: 5px;
+            padding: 10px;
+            font-size: 13px;
+            box-shadow: 2px 2px 5px white; /* White shadow */
+            margin: 10px;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -47,36 +52,27 @@
         .sidenav a:hover {
             background-color: #333;
             color: #f0f0f0;
-            box-shadow: 4px 4px 10px #00FF00;
+            box-shadow: 4px 4px 10px white; /* White shadow on hover */
         }
 
-        /* Mobile Menu Button */
+        /* Menu Toggle Button */
         .menu-toggle {
-            display: none;
+            display: block;
             background: none;
             border: none;
             color: #00FF00;
             font-size: 24px;
             cursor: pointer;
             padding: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .sidenav {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .sidenav a {
-                width: 80%; /* Full width links for mobile */
-                text-align: center;
-            }
-
-            .menu-toggle {
-                display: block;
-                margin: 10px;
-                font-weight: bold;
-            }
+            font-weight: bold;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #000;
+            box-shadow: 2px 2px 5px white;
+            width: 50%; /* Half the original width */
+            z-index: 1100;
+            transition: all 0.3s ease;
         }
 
         /* Responsive Paragraph Box */
@@ -88,13 +84,24 @@
             padding: 20px;
             margin: 20px auto;
             border-radius: 10px;
-            box-shadow: 5px 5px 15px #f0f0f0; /* Soft white shadow */
+            box-shadow: 5px 5px 15px #f0f0f0;
             text-align: center;
-            transition: margin-top 0.3s ease; /* Smooth movement */
+            transition: margin-top 0.3s ease;
         }
 
         .menu-open ~ .content-box {
-            margin-top: 100px; /* Pushes the paragraph down when menu opens */
+            margin-top: 100px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: gray;
+            padding: 10px;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
         }
     </style>
 </head>
@@ -123,30 +130,30 @@
     I love you so much and hope you know that no matter what, I am your father.</h3>
 </div>
 
+<!-- Footer -->
+<div class="footer">
+    &copy; 2025 Funcryptology - All Rights Reserved
+</div>
+
+<!-- JavaScript for Menu Toggle -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var menu = document.getElementById("menu");
-        var contentBox = document.querySelector(".content-box");
 
         // Ensure the menu is hidden on page load
-        menu.style.display = "none";
-        contentBox.classList.remove("menu-open");
+        menu.style.left = "-50%";
     });
 
     function toggleMenu() {
         var menu = document.getElementById("menu");
-        var contentBox = document.querySelector(".content-box");
 
-        if (menu.style.display === "flex") {
-            menu.style.display = "none";
-            contentBox.classList.remove("menu-open");
+        if (menu.style.left === "0px") {
+            menu.style.left = "-50%"; // Hide menu
         } else {
-            menu.style.display = "flex";
-            contentBox.classList.add("menu-open");
+            menu.style.left = "0px"; // Slide in menu
         }
     }
 </script>
-
 
 </body>
 </html>
