@@ -11,83 +11,8 @@ body {
 
 /* Top Navbar */
 #top-navbar {
-    background-color: #505050; /* Darker gray */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: #000; /* Black */
+    border: 2px solid #696969; /* Medium gray border */
+    box-shadow: 0px 4px 8px white; /* White shadow effect */
     position: fixed;
-    top: 0;
-    width: 100%;
-    height: 50px;
-    z-index: 1000;
-}
-
-/* Footer */
-#footer {
-    background-color: #505050; /* Darker gray */
-    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.5);
-    position: fixed;
-    bottom: -2000px;
-    width: 100%;
-    height: 50px;
-}
-
-/* Sidebar Menu */
-#sidebar-menu {
-    background-color: #000;
-    width: 125px;
-    position: absolute;
-    top: 50px; /* Pulls down under the navbar */
-    left: 0;
-    display: none;
-    box-shadow: 4px 4px 8px rgba(255, 255, 255, 0.3);
-}
-
-#sidebar-menu.open {
-    display: block;
-}
-
-/* Menu Button */
-#menu-button {
-    width: 50%;
-    background-color: #696969;
-    color: #00FF00;
-    border: none;
-    box-shadow: 2px 2px 4px white;
-    font-size: 13px;
-}
-
-/* Menu Buttons */
-.menu-item {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    color: #00FF00;
-    text-decoration: none;
-    border: 1px solid #00FF00; /* Creative border design */
-    box-shadow: 2px 2px 4px white;
-}
-
-.menu-item:hover {
-    background-color: #f0f0f0;
-    color: black;
-}
-
-/* Paragraph Box */
-#paragraph-box {
-    width: 1200px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #00FF00;
-    box-shadow: 4px 4px 10px #f0f0f0;
-    padding: 20px;
-    margin: auto;
-    position: relative;
-    top: 700px; /* Moves halfway down */
-    text-align: center;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    #paragraph-box {
-        width: 90%;
-    }
-}
+    top:
