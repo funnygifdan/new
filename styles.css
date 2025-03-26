@@ -70,8 +70,7 @@ a:hover {
     left: 0;
     width: 60%;
     height: 100vh;
-    background: url('IMG_1039.jpeg') no-repeat center center;
-    background-size: cover;
+    background-color: black;
     border: 2px solid gray;
     box-shadow: 2px 2px 5px white;
     flex-direction: column;
@@ -79,46 +78,89 @@ a:hover {
     z-index: 1100;
     text-align: center;
     overflow-y: auto;
+    padding-bottom: 60px;
+    align-items: center;
 }
 
 .side-menu.active {
     display: flex;
 }
 
-.side-menu a {
+/* Menu Image */
+.menu-image {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-bottom: 2px solid gray;
+}
+
+.side-menu a, .dropdown-btn {
     display: block;
     width: 100%;
     padding: 12px;
-    background: rgba(0, 0, 0, 0.8);
+    background: black;
     color: #00FF00;
     font-size: 32px;
-    text-align: left;
+    text-align: center;
     text-decoration: none;
     border: 2px solid gray;
     box-shadow: 0px 2px 5px white;
 }
 
-.side-menu a:hover {
+.side-menu a:hover, .dropdown-btn:hover {
     background: #222;
     color: #f0f0f0;
 }
 
-/* Close Button - Sticky to Bottom */
+/* Close Button - Bottom */
 #close-menu {
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    background: red;
-    color: white;
-    border: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: #00FF00;
+    border: 2px solid gray;
     font-size: 24px;
     padding: 10px 20px;
     cursor: pointer;
     box-shadow: 0px 2px 5px white;
+    width: 100%;
 }
 
 #close-menu:hover {
-    background: darkred;
+    background: #222;
+    color: #f0f0f0;
+}
+
+/* Dropdown Buttons and Containers - Drop Down */
+.dropdown-container {
+    display: none;
+    position: relative;
+    background-color: black;
+    width: 100%;
+    box-shadow: 2px 2px 5px white;
+}
+
+.dropdown-btn {
+    position: relative;
+}
+
+.dropdown-container a {
+    display: block;
+    background-color: black;
+    color: #00FF00;
+    padding: 12px;
+    text-decoration: none;
+    border: 2px solid gray;
+    box-shadow: 0px 2px 5px white;
+    font-size: 28px;
+    width: 100%;
+}
+
+.dropdown-container a:hover {
+    background-color: #222;
+    color: #f0f0f0;
 }
 
 /* Footer - Sticky to Bottom */
@@ -131,71 +173,8 @@ a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: auto;
     width: 100%;
-}
-
-/* Paragraph Box */
-.paragraph-box {
-    position: absolute;
-    top: 800px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #3a3a3a;
-    padding: 20px;
-    border: 2px solid gray;
-    box-shadow: 4px 4px 10px white;
-    width: 300px;
-    height: 300px;
-    text-align: center;
-}
-
-/* Dropdown Buttons */
-.dropdown-btn {
-    background-color: black;
-    color: #00FF00;
-    font-size: 32px;
-    border: 2px solid gray;
-    padding: 12px;
-    text-align: left;
-    width: 100%;
-    cursor: pointer;
-    display: block;
-    box-shadow: 0px 2px 5px white;
-    position: relative;
-}
-
-.dropdown-btn:hover {
-    background-color: #222;
-    color: #f0f0f0;
-}
-
-/* Dropdown Container */
-.dropdown-container {
-    display: none;
-    position: absolute;
-    left: 100%; /* Moves dropdown to the right */
-    top: 0;
-    background-color: black;
-    padding-left: 10px;
-    width: max-content;
-    box-shadow: 2px 2px 5px white;
-}
-
-/* Dropdown Links */
-.dropdown-container a {
-    display: block;
-    background-color: black;
-    color: #00FF00;
-    padding: 12px;
-    text-decoration: none;
-    border: 2px solid gray;
-    box-shadow: 0px 2px 5px white;
-    font-size: 28px;
-    width: 200px;
-}
-
-.dropdown-container a:hover {
-    background-color: #222;
-    color: #f0f0f0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
