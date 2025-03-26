@@ -7,39 +7,38 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Top Navbar -->
+    <div class="top-navbar">
+        <button id="menu-button">☰ Menu</button>
+    </div>
 
-    <!-- Sticky Top Navbar -->
-    <header class="top-navbar">
-        <div class="menu-button" onclick="toggleMenu()">☰</div>
-    </header>
+    <!-- Side Menu -->
+    <div class="side-menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Resources</a>
+        <a href="#">Contact</a>
+    </div>
 
-    <!-- Sidebar Menu -->
-    <nav id="sidebar-menu">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Paragraph Box -->
+    <!-- Main Content -->
     <div class="paragraph-box">
-        <p>Welcome to Funcryptology, your go-to platform for networking security and cybersecurity awareness.</p>
+        <p>Welcome to Funcryptology! Learn about cybersecurity and network security.</p>
     </div>
 
     <!-- Footer -->
-    <footer class="sticky-footer">
-        <p>© 2025 Funcryptology - All rights reserved</p>
-    </footer>
+    <div class="footer">
+        <p>&copy; 2025 Funcryptology. All rights reserved.</p>
+    </div>
 
     <script>
-        function toggleMenu() {
-            let menu = document.getElementById("sidebar-menu");
-            menu.classList.toggle("open");
-        }
-    </script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuButton = document.getElementById("menu-button");
+            const sideMenu = document.querySelector(".side-menu");
 
+            menuButton.addEventListener("click", function() {
+                sideMenu.classList.toggle("active");
+            });
+        });
+    </script>
 </body>
 </html>
