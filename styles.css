@@ -62,13 +62,14 @@ a:hover {
     top: 60px;
     left: 0;
     width: 60%;
-    height: 100vh;
+    height: flex;
     background-color: black;
     border: 2px solid gray;
     box-shadow: 2px 2px 5px white;
     flex-direction: column;
     display: none;
     z-index: 1100;
+    font-family: 'Trebuchet MS', sans-serif;
     text-align: center;
     overflow-y: auto;
     align-items: center;
