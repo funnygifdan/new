@@ -1,9 +1,10 @@
+
 /* General Styles */
 body {
-    background-color: #28343c;
+    background-color: black;
     color: #00FF00;
     font-family: 'Rock Salt', cursive;
-    font-size: 22px;
+    font-size: 32px;
     margin: 0;
     padding: 0;
 }
@@ -23,7 +24,7 @@ a:hover {
 .top-navbar {
     background-color: black;
     box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.3);
-    border-bottom: 2px solid gray;
+    border: 2px solid gray;
     position: fixed;
     width: 100%;
     top: 0;
@@ -47,13 +48,14 @@ a:hover {
     box-shadow: 2px 2px 5px white;
     display: none;
     flex-direction: column;
+    border: 2px solid gray;
 }
 
 .side-menu button {
     width: 100%;
-    background: #696969;
+    background: black;
     color: #00FF00;
-    font-size: 18px;
+    font-size: 32px;
     padding: 10px;
     border: none;
     text-align: left;
@@ -78,6 +80,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     color: #00FF00;
+    border: 2px solid gray;
 }
 
 /* Footer */
@@ -86,22 +89,23 @@ a:hover {
     top: 2000px;
     width: 100%;
     background-color: black;
-    border-top: 2px solid gray;
+    border: 2px solid gray;
     box-shadow: 0px -4px 6px white;
     padding: 20px;
     text-align: center;
-}
+} 
 
 /* Paragraph Box */
 .paragraph-box {
     position: absolute;
-    top: 500px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
+    transform: translate(-50%, -50%);
+    background: #3a3a3a;
     padding: 20px;
     border: 2px solid gray;
-    box-shadow: 2px 2px 5px white;
-    width: 60%;
+    box-shadow: 4px 4px 10px white;
+    width: 300px;
+    height: 300px;
     text-align: center;
 }
