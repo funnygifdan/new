@@ -1,3 +1,11 @@
-html {background-color: black;
-          }
-/*single table */
+body {
+  background-color: #fefbd8;
+}
+
+h1 {
+  background-color: #80ced6;
+}
+
+div {
+  background-color: #d5f4e6;
+}
