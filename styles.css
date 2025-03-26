@@ -131,7 +131,7 @@ a:hover {
 }
 .dropdown-container a {
     display: block;
-    background-color: black;
+    background-color: gray;
     color: #00FF00;
     padding: 12px;
     text-decoration: none;
