@@ -6,6 +6,7 @@ body {
     font-size: 32px;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 a {
@@ -43,6 +44,12 @@ a:hover {
 
 #menu-button {
     width: 50px;
+    height: 100%;  /* Fill the height of the top navbar */
+    background-color: black;
+    color: #00FF00;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
 }
 
 /* Side Menu */
@@ -106,14 +113,17 @@ a:hover {
     background-color: black;
     border: 2px solid gray;
     box-shadow: 0px -4px 6px white;
-    padding: 20px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
 /* Paragraph Box */
 .paragraph-box {
     position: absolute;
-    top: 50%;
+    top: 800px;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #3a3a3a;
