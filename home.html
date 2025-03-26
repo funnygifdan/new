@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -15,7 +15,7 @@
 
   <!-- Sidebar/Menu -->
   <div class="side-menu">
-    <img src="images/IMG_1039.jpeg" alt="Menu Background" class="menu-bg">
+    <button id="close-menu">Close Menu</button>
     <a href="how2.html">Home</a>
     <a href="https://linktr.ee/funnygifdan">My Linktree</a>
     <a href="linknew.html">NewHome</a>
@@ -23,7 +23,7 @@
     <a href="important.html">Important Links</a>
 
     <!-- Dropdown Section SIP -->
-    <button class="dropdown-btn">SIP <i class="fa fa-caret-right"></i></button>
+    <button class="dropdown-btn">SIP <i class="fa fa-caret-down"></i></button>
     <div class="dropdown-container">
       <a href="sip.html">SIP</a>
       <a href="production.html">Production/Design</a>
@@ -31,7 +31,7 @@
     </div>
 
     <!-- Dropdown Section Networking -->
-    <button class="dropdown-btn">Networking <i class="fa fa-caret-right"></i></button>
+    <button class="dropdown-btn">Networking <i class="fa fa-caret-down"></i></button>
     <div class="dropdown-container">
       <a href="porthead.html">Ports/Header Information</a>
       <a href="subnetting.html">Subnetting</a>
@@ -39,13 +39,10 @@
     </div>
 
     <!-- Dropdown Section Linux Commands -->
-    <button class="dropdown-btn">Linux <i class="fa fa-caret-right"></i></button>
+    <button class="dropdown-btn">Linux <i class="fa fa-caret-down"></i></button>
     <div class="dropdown-container">
       <a href="linuxcom.html">Linux Commands</a>
     </div>
-
-    <!-- Close Button -->
-    <button id="close-menu">Close Menu</button>
   </div>
 
   <!-- Main Content -->
@@ -74,7 +71,7 @@
         sideMenu.classList.remove("active");
       });
 
-      // Dropdown functionality - expands to the right
+      // Dropdown functionality - expands when clicked
       dropdownButtons.forEach(button => {
         button.addEventListener("click", function() {
           const dropdownContent = this.nextElementSibling;
@@ -93,3 +90,5 @@
   </script>
 </body>
 </html>
+
+    
