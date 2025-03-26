@@ -1,0 +1,31 @@
+name: Auto Commit and Push
+
+on:
+  workflow_dispatch:  # Allows manual execution from GitHub Actions UI
+
+jobs:
+  push_changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # Prevents permission conflicts
+
+      - name: Configure Git User
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
+
+      - name: Update Files (Example Change)
+        run: |
+          echo "Last updated: $(date)" > last_update.txt  # Example change
+          git add .
+          git commit -m "Automated commit: Updated dropdown styles and layout fixes"
+
+      - name: Push Changes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Uses GitHub-provided token
+        run: |
+          git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
