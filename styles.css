@@ -76,4 +76,18 @@ body {
 #paragraph-box {
     width: 1200px;
     background-color: rgba(0, 0, 0, 0.8);
-    color:
+    color: #00FF00;
+    box-shadow: 4px 4px 10px #f0f0f0;
+    padding: 20px;
+    margin: auto;
+    position: relative;
+    top: 700px; /* Moves halfway down */
+    text-align: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    #paragraph-box {
+        width: 90%;
+    }
+}
