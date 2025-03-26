@@ -1,4 +1,35 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  background-color: black;
+  color: white;
+  height: 100%;
+}
 
+/* Headers */
+h1 {
+  font-size: 10px;
+  text-align: center;
+  color: rgb(20, 255, 12);
+  background-color: black;
+}
+h2 {
+  font-size: 20px;
+  text-align: center;
+  color: #fffafa;
+}
+h3, h4, h5 {
+  text-align: center;
+  color: #f1f1f1;
+}
+h5 {
+  font-size: 50px;
+  text-shadow: 1px 1px 2px rgb(20, 255, 12), 0 0 25px white, 0 0 5px rgb(20, 255, 12);
+}
+
+/* Button Styles */
 #myBtn {
   display: none;
   position: fixed;
@@ -7,142 +38,117 @@
   z-index: 99;
   font-size: 18px;
   border: none;
-  outline: none;
-  background-color:rgb(20, 255, 12);
+  background-color: rgb(20, 255, 12);
   color: black;
   cursor: pointer;
   padding: 15px;
   border-radius: 4px;
 }
-
 #myBtn:hover {
-  background-color:rgb(20, 255, 12); 
+  background-color: rgb(20, 255, 12);
 }
 
-/* Header */
-body, html {
-  height: 100%;
-}
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
-html,body {background-color: black; color: white;}
-/*single table */
-* {
-  box-sizing: border-box;
-}
+/* Layout */
 .row {
-  margin-left:auto;
-  margin-right:auto;
-} 
+  margin-left: auto;
+  margin-right: auto;
+}
 .column {
   float: left;
   width: 50%;
   padding: 5px;
 }
-/* Clearfix (clear floats) */
 .row::after {
   content: "";
   clear: both;
   display: table;
 }
+
+/* Table Styles */
 table {
   border-collapse: collapse;
-  border-spacing: 0;
   width: 100%;
-  border: .1px solid;
-  border-color:rgb(20, 255, 12);
-  margin-left:auto;
-  margin-right:auto;
+  border: 0.1px solid rgb(20, 255, 12);
+  margin: auto;
+  background-color: gray;
+  color: black;
+  max-width: 700px;
 }
-table.center {
-  margin-left: auto;
-  margin-right: auto;
+th, td {
+  text-align: left;
+  padding: 16px;
+  border: 0.5px solid rgb(36, 36, 36);
+  color: white;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
+  border-radius: 5px;
 }
-
 th {
-  text-align: left;
-  padding: 16px;
-  border: .1px solid;
-  background-color: #555;
-  border-color:rgb(20, 255, 12);
+  background-color: black;
 }
-
-td {
-  text-align: left;
-  padding: 16px;
-  background-color: #555;
-  border: 3px solid;
-  border-color:rgb(20, 255, 12);
-}
-
 tr:nth-child(even) {
-  background-color: #000000;
+  background-color: gray;
+  color: rgb(20, 255, 12);
 }
-p, li {
+
+/* Navigation */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  color: white;
+  padding-top: 20px;
+}
+.sidenav a, .dropdown-btn {
+  font-size: 12px;
+  color: white;
+  display: block;
+  height: 45px;
+  background-color: black;
+  width: 100%;
   text-align: left;
-  
+  cursor: pointer;
 }
-/* Border */
-p.thickborder {
-  border-style: solid;
-  border-width: thick;
-  color:rgb(20, 255, 12);
-} 
-h1 {
-  font-size: 10px;
+.sidenav a:hover, .dropdown-btn:hover {
+  color: rgb(20, 255, 12);
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  color: white;
   text-align: center;
-  color:rgb(20, 255, 12);
-  background-color: black; 
 }
-h2 {
-  font-size: 20px;
-  text-align: center;
-  color: #fffafa;
-  margin-left: auto;
-  margin-right: auto;
+
+/* Images */
+img {
+  display: block;
+  margin: auto;
 }
-h3 {
-  font-size: 30px;
-  text-align: center;
-  color: #f1f1f1;
+.parallax {
+  background-image: url('images/disney4.jpg');
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-h4 {
-  font-size: 40px;
-  text-align: center;
-  color: #f1f1f1;
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
 }
-h5 {
-  font-size: 50px;
-  text-align: center;
-  color: #f1f1f1;
-}
-* {
-  box-sizing: border-box;
-}
-.menu {
-  float: left;
-  width: 20%;
-}
-.menuitem {
-  padding: 8px;
-  margin-top: 7px;
-  border-bottom: 1px solid #f1f1f1;
-}
-.main {
-  float: left;
-  width: 60%;
-  padding: 0 20px;
-  overflow: hidden;
-}
-.right {
-  background-color: #000000;
-  float: left;
-  width: 20%;
-  padding: 10px 15px;
-  margin-top: 7px;
-}
-@media only screen and (max-width:800px) {
-  /* For tablets: */
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 800px) {
   .main {
     width: 80%;
     padding: 0;
@@ -151,82 +157,8 @@ h5 {
     width: 100%;
   }
 }
-@media only screen and (max-width:500px) {
-  /* For mobile phones: */
+@media only screen and (max-width: 500px) {
   .menu, .main, .right {
     width: 100%;
   }
-}
-a:hover {
-  background-color: rgb(0, 0, 0);
-}
-
-
-
-.header {
-  background-color: #f1f1f1;
-  padding: 30px;
-  text-align: center;
-}                               
-
-
-/* Footer */
-.footer {
-    padding: 20px;
-    text-align: center;   
-    color: rgb(255, 255, 255);
-    margin-top: 20px;
-}
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-}
-
-.fa:hover {
-    opacity: 0.7;
-}
-
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-
-.fa-linkedin {
-  background: #007bb5;
-  color: white;
-}
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.parallax {
-  /* The image used */
-  background-image: url('images/disney4.jpg');
-
-  /* Full height */
-  height: 100%; 
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
-@media only screen and (max-device-width: 1366px) {
-  .parallax {
-    background-attachment: scroll;
-  }
-}
-
-.responsive {
-  width: 100%;
-  height: auto;
 }
