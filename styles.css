@@ -43,7 +43,7 @@ a:hover {
 }
 
 #menu-button {
-    width: 50px;
+    width: 35px;
     height: 100%;
     background-color: black;
     color: #00FF00;
@@ -55,11 +55,6 @@ a:hover {
     justify-content: center;
     transition: background-color 0.3s ease;
 }
-
-#menu-button:hover {
-    background-color: #222;
-}
-
 /* Side Menu */
 .side-menu {
     position: absolute;
@@ -78,11 +73,9 @@ a:hover {
     padding-bottom: 50px; /* Ensures space for the close button */
     text-align: center;
 }
-
 .side-menu.active {
     display: flex;
 }
-
 .side-menu a {
     display: block;
     width: 100%;
@@ -95,19 +88,13 @@ a:hover {
     border: 2px solid gray;
     box-shadow: 0px 2px 5px white;
 }
-
-.side-menu a:hover {
-    background: #222;
-    color: #f0f0f0;
-}
-
-/* Close Button */
+/* Close Buttonl */
 #close-menu {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: red;
+    background: black;
     color: white;
     border: none;
     font-size: 24px;
@@ -115,11 +102,6 @@ a:hover {
     cursor: pointer;
     box-shadow: 0px 2px 5px white;
 }
-
-#close-menu:hover {
-    background: darkred;
-}
-
 /* Footer */
 .footer {
     position: absolute;
@@ -134,11 +116,10 @@ a:hover {
     justify-content: center;
     text-align: center;
 }
-
 /* Paragraph Box */
 .paragraph-box {
     position: absolute;
-    top: 800px;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #3a3a3a;
