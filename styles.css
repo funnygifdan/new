@@ -119,3 +119,31 @@ a:hover {
 #close-menu:hover {
     background: darkred;
 }
+/* Footer */
+.footer {
+    position: absolute;
+    top: 1500px;
+    width: 100%;
+    background-color: black;
+    border: 2px solid gray;
+    box-shadow: 0px -4px 6px white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Paragraph Box */
+.paragraph-box {
+    top: 800px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #3a3a3a;
+    padding: 20px;
+    border: 2px solid gray;
+    box-shadow: 4px 4px 10px white;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+}
