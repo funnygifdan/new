@@ -43,13 +43,21 @@ a:hover {
 }
 
 #menu-button {
-    width: 24px;
-    height: 100%;  /* Fill the height of the top navbar */
-    background-color: black;
-    color: #00FF00;
+    width: 50px;               /* Increased width for better fit */
+    height: 100%;              /* Fills the height of the top navbar */
+    background-color: black;   /* Matches the top nav background */
+    color: #00FF00;            /* Consistent font color */
     border: none;
     font-size: 35px;
     cursor: pointer;
+    display: flex;             /* Flex layout for centering */
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;  /* Smooth hover transition */
+}
+
+#menu-button:hover {
+    background-color: #222;    /* Slightly lighter black for a hover effect */
 }
 
 /* Side Menu */
@@ -89,7 +97,6 @@ a:hover {
     background: #f0f0f0;
     color: black;
 }
-
 
 /* Footer */
 .footer {
