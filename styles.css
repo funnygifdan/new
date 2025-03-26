@@ -1,12 +1,16 @@
-/* General Styles */
+/* Global Styles */
 body {
-    background-color: #28343c;
-    color: #00FF00;
+    font-size: 22px;
     font-family: 'Rock Salt', cursive;
-    font-size: 18px;
-    min-height: 1400px;
+    color: #00FF00;
+    background-color: #28343c;
     margin: 0;
     padding: 0;
+}
+
+/* Apply font size to all elements */
+* {
+    font-size: 22px;
 }
 
 /* Top Navbar */
@@ -32,50 +36,47 @@ body {
     height: 50px;
 }
 
-/* Sidebar Menu */
+/* Side Menu */
 #sidebar-menu {
     background-color: #000; /* Black */
     border: 2px solid #696969; /* Medium gray border */
     box-shadow: 4px 4px 8px white; /* White shadow effect */
     width: 125px;
+    height: calc(100% + 300px); /* Increased height */
     position: absolute;
     top: 50px; /* Pulls down below the navbar */
     left: 0;
     display: none;
 }
 
-#sidebar-menu.open {
-    display: block;
+/* Side Menu Buttons */
+#sidebar-menu button {
+    width: 100%;
+    background: none;
+    color: #00FF00;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px white; /* White shadow */
+}
+
+#sidebar-menu button:hover {
+    background-color: #f0f0f0;
+    color: black;
 }
 
 /* Menu Button */
 #menu-button {
     width: 50%;
-    background-color: #696969;
+    background: none;
     color: #00FF00;
     border: none;
-    box-shadow: 2px 2px 4px white;
-    font-size: 13px;
-}
-
-/* Menu Buttons */
-.menu-item {
-    display: block;
-    width: 100%;
     padding: 10px;
-    text-align: center;
-    color: #00FF00;
-    text-decoration: none;
-    border: 1px solid #00FF00; /* Creative border design */
-    box-shadow: 2px 2px 4px white;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px white; /* White shadow */
 }
 
-.menu-item:hover {
-    background-color: #f0f0f0;
-    color: black;
-}
-
-/* Paragraph Box - Centered in the Middle */
+/* Paragraph Box */
 #paragraph-box {
     width: 1200px;
     background-color: rgba(0, 0, 0, 0.8);
@@ -84,9 +85,9 @@ body {
     padding: 20px;
     margin: auto;
     position: absolute;
-    top: 50%;
+    top: 500px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     text-align: center;
 }
 
