@@ -119,6 +119,7 @@ a:hover {
 #close-menu:hover {
     background: darkred;
 }
+
 /* Footer */
 .footer {
     position: absolute;
@@ -136,6 +137,7 @@ a:hover {
 
 /* Paragraph Box */
 .paragraph-box {
+    position: absolute;
     top: 800px;
     left: 50%;
     transform: translate(-50%, -50%);
