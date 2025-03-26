@@ -81,6 +81,7 @@ a:hover {
 .menu-image {
     width: 100%;
     max-height: 150px;
+    object-fit: cover;
     border-bottom: 2px solid gray;
 }
 .side-menu a, .dropdown-btn {
@@ -154,7 +155,7 @@ a:hover {
 .paragraph-box {
   position:absolute;
   top:50%;
-  left:50%;
+  left:20%;
   margin-top: 50%; /* this is half the height of your div*/  
   margin-left: 50%; 
   background: #3a3a3a;
