@@ -1,2 +1,0 @@
-- name: Install Dependencies
-  run: npm install lucide-react @shadcn/ui
