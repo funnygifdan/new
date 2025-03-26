@@ -1,73 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcryptology</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funcryptology</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- You may need to include font-awesome for the caret icons if not already included -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMc1L8Z6g6yJ6rBxzCqQ0t4PBBRJ0qDNEB9i+66" crossorigin="anonymous">
 </head>
 <body>
-    <!-- Top Navbar -->
-    <div class="top-navbar">
-        <button id="menu-button">☰</button>
-    </div>
-<!--Sidebar/menu -->
-<div class="sidenav">
-  <img src="images/IMG_1039.jpeg" alt="Disney" width="180" height="100">
-  <div class="w3-padding-12 w3-medium w3-text-grey" style="font-weight:bold">
-    <a href="how2.html" class="w3-bar-item w3-button">Home</a>
-  </div>  
-  <!--Straight Links-->
-  <div class="w3-padding-12 w3-medium w3-text-grey" style="font-weight:bold">
-    <a href="https://linktr.ee/funnygifdan" class="w3-bar-item w3-button">My Linktree</a>
-    <a href="linknew.html" class="w3-bar-item w3-button">NewHomme</a>
-    <a href="cyberaware.html" class="w3-bar-item w3-button">Cyber Awareness</a>
-    <a href="important.html" class="w3-bar-item w3-button">Important Links</a>
+  <!-- Top Navbar -->
+  <div class="top-navbar">
+    <button id="menu-button">☰</button>
   </div>
-  <button class="dropdown-btn">SIP
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="sip.html" class="w3-bar-item w3-button">SIP</a>
-    <a href="production.html" class="w3-bar-item w3-button">Production/Design</a>
-    <a href="systems.html" class="w3-bar-item w3-button">Systems/Processes</a>
-  </div>
-  <button class="dropdown-btn">Networking
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container">
-    <a href="porthead.html" class="w3-bar-item w3-button">Ports/Header Information</a>
-    <a href="subnetting.html" class="w3-bar-item w3-button">Subnetting</a>
-    <a href="systems.html" class="w3-bar-item w3-button">Systems</a>
-  </div>
-  <!--EndOfNetworking-->
-  <!---Linux Commands-->
-  <button class="dropdown-btn">Linux<i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-container"> 
-    <a href="linuxcom.html" class="w3-bar-item w3-button">Linux Commands</a> 
-  </div>
-</div> 
-<!--EndOfNav-->
-    <!-- Main Content -->
-    <div class="paragraph-box">
-        <p>Welcome to Funcryptology! Learn about cybersecurity and network security.</p>
-    </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2025 Funcryptology. All rights reserved.</p>
+  <!-- Sidebar/Menu -->
+  <div class="sidenav">
+    <img src="images/IMG_1039.jpeg" alt="Disney" width="180" height="100">
+    <div class="w3-padding-12 w3-medium w3-text-grey" style="font-weight:bold">
+      <a href="how2.html" class="w3-bar-item w3-button">Home</a>
     </div>
+    <!-- Straight Links -->
+    <div class="w3-padding-12 w3-medium w3-text-grey" style="font-weight:bold">
+      <a href="https://linktr.ee/funnygifdan" class="w3-bar-item w3-button">My Linktree</a>
+      <a href="linknew.html" class="w3-bar-item w3-button">NewHomme</a>
+      <a href="cyberaware.html" class="w3-bar-item w3-button">Cyber Awareness</a>
+      <a href="important.html" class="w3-bar-item w3-button">Important Links</a>
+    </div>
+    <!-- Dropdown Section SIP -->
+    <button class="dropdown-btn">SIP 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+      <a href="sip.html" class="w3-bar-item w3-button">SIP</a>
+      <a href="production.html" class="w3-bar-item w3-button">Production/Design</a>
+      <a href="systems.html" class="w3-bar-item w3-button">Systems/Processes</a>
+    </div>
+    <!-- Dropdown Section Networking -->
+    <button class="dropdown-btn">Networking 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+      <a href="porthead.html" class="w3-bar-item w3-button">Ports/Header Information</a>
+      <a href="subnetting.html" class="w3-bar-item w3-button">Subnetting</a>
+      <a href="systems.html" class="w3-bar-item w3-button">Systems</a>
+    </div>
+    <!-- Dropdown Section Linux Commands -->
+    <button class="dropdown-btn">Linux 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+      <a href="linuxcom.html" class="w3-bar-item w3-button">Linux Commands</a>
+    </div>
+  </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const menuButton = document.getElementById("menu-button");
-            const sideMenu = document.querySelector(".side-menu");
+  <!-- Main Content -->
+  <div class="paragraph-box">
+    <p>Welcome to Funcryptology! Learn about cybersecurity and network security.</p>
+  </div>
 
-            menuButton.addEventListener("click", function() {
-                sideMenu.classList.toggle("active");
-            });
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2025 Funcryptology. All rights reserved.</p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Toggle the main sidebar navigation
+      const menuButton = document.getElementById("menu-button");
+      const sideNav = document.querySelector(".sidenav");
+
+      menuButton.addEventListener("click", function() {
+        sideNav.classList.toggle("active");
+      });
+
+      // Dropdown functionality for the sidenav dropdown buttons
+      const dropdownButtons = document.getElementsByClassName("dropdown-btn");
+      for (let i = 0; i < dropdownButtons.length; i++) {
+        dropdownButtons[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          const dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
         });
-    </script>
+      }
+    });
+  </script>
 </body>
 </html>
