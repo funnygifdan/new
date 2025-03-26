@@ -152,6 +152,7 @@ a:hover {
 }
 /* Paragraph Box */
 .paragraph-box {
+    position: absoutle;
     top: 1000px;
     left: 50%;
     transform: translate(-50%, -50%);
