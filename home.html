@@ -63,7 +63,7 @@
     <!-- Top Navigation Menu -->
     <div class="topnav">
       <a href="#" onclick="toggleDropdown('menu')"><i class="fa fa-bars"></i> Menu</a>
-       <div id="navbar"></div>
+       <div id="navbar">
          <a href="https://linktr.ee/funnygifdan">Linktree</a>
          <a href="cyberaware.html">Cyber Awareness</a>
          <a href="important.html">Important Links</a>
@@ -82,26 +82,37 @@
         <a href="#" onclick="toggleDropdown('linux')">Linux <i class="fa fa-caret-down"></i></a>
           <div id="linux" class="dropdown-container">
            <a href="linuxcom.html">Linux Commands</a>
-        </div>
+          </div>
         </div>
     </div>
+</div>
 
     <!-- Main Content -->
-    <div class="w3-main">
-        <h2>Welcome Minions</h2>
-        <h3>This site is dedicated to my daughters Alycia, Aubree, and Hadley...</h3>
-    </div>
+    
+<script type="text/babel">
+  function Navbar() {
+    const [isOpen, setIsOpen] = React.useState(false);
+    
+    return (
+      <nav style={{ background: "#333", color: "#fff", padding: "10px" }}>
+        <h1>Funcryptology</h1>
+        <button onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? "Close" : "Menu"}
+        </button>
+        {isOpen && (
+          <div>
+            <a href="https://linktr.ee/funnygifdan">Linktree</a>
+            <a href="cyberaware.html">Cyber Awareness</a>
+            <a href="important.html">Important Links</a>
+          </div>
+        )}
+      </nav>
+    );
+  }
 
-    <script>
-        function toggleDropdown(id) {
-            var dropdown = document.getElementById(id);
-            if (dropdown.style.display === "block") {
-                dropdown.style.display = "none";
-            } else {
-                dropdown.style.display = "block";
-            }
-        }
-    </script>
+  ReactDOM.render(<Navbar />, document.getElementById("navbar"));
+</script>
+
 </body>
 </html>
 
