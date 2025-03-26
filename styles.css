@@ -11,22 +11,18 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-
 a {
     text-decoration: none;
     border-bottom: 1px solid #00FF00;
     box-shadow: 0 2px 5px #00FF00;
     color: #00FF00;
 }
-
 a:visited {
     color: blue;
 }
-
 a:hover {
     color: #f0f0f0;
 }
-
 /* Top Navbar */
 .top-navbar {
     background-color: black;
@@ -44,7 +40,6 @@ a:hover {
     z-index: 1000;
     color: #00FF00;
 }
-
 #menu-button {
     width: 50px;
     height: 100%;
@@ -58,11 +53,9 @@ a:hover {
     justify-content: center;
     transition: background-color 0.3s ease;
 }
-
 #menu-button:hover {
     background-color: #222;
 }
-
 /* Side Menu */
 .side-menu {
     position: absolute;
@@ -81,11 +74,9 @@ a:hover {
     padding-bottom: 60px;
     align-items: center;
 }
-
 .side-menu.active {
     display: flex;
 }
-
 /* Menu Image */
 .menu-image {
     width: 100%;
@@ -93,7 +84,6 @@ a:hover {
     object-fit: cover;
     border-bottom: 2px solid gray;
 }
-
 .side-menu a, .dropdown-btn {
     display: block;
     width: 100%;
@@ -106,12 +96,10 @@ a:hover {
     border: 2px solid gray;
     box-shadow: 0px 2px 5px white;
 }
-
 .side-menu a:hover, .dropdown-btn:hover {
     background: #222;
     color: #f0f0f0;
 }
-
 /* Close Button - Bottom */
 #close-menu {
     position: absolute;
@@ -127,12 +115,10 @@ a:hover {
     box-shadow: 0px 2px 5px white;
     width: 100%;
 }
-
 #close-menu:hover {
     background: #222;
     color: #f0f0f0;
 }
-
 /* Dropdown Buttons and Containers - Drop Down */
 .dropdown-container {
     display: none;
@@ -141,11 +127,9 @@ a:hover {
     width: 100%;
     box-shadow: 2px 2px 5px white;
 }
-
 .dropdown-btn {
     position: relative;
 }
-
 .dropdown-container a {
     display: block;
     background-color: black;
@@ -157,13 +141,10 @@ a:hover {
     font-size: 28px;
     width: 100%;
 }
-
 .dropdown-container a:hover {
     background-color: #222;
     color: #f0f0f0;
 }
-
-
 /* Footer */
 .footer {
     position: absolute;
@@ -178,10 +159,9 @@ a:hover {
     justify-content: center;
     text-align: center;
 }
-
 /* Paragraph Box */
 .paragraph-box {
-    top: 800px;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #3a3a3a;
