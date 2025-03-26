@@ -43,7 +43,7 @@ a:hover {
 }
 
 #menu-button {
-    width: 50px;
+    width: 24px;
     height: 100%;  /* Fill the height of the top navbar */
     background-color: black;
     color: #00FF00;
