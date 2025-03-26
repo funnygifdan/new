@@ -116,7 +116,7 @@ a:hover {
 /* Paragraph Box */
 .paragraph-box {
     top: 1100px;
-    left: 50%;
+    left: 150%;
     transform: translate(-50%, -50%);
     background: #3a3a3a;
     padding: 20px;
