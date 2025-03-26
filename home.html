@@ -1,144 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page</title>
-    
-    <!-- Google Font - Rock Salt -->
-    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+/* Sidebar Menu Styling */
+.sidenav {
+    width: 100%;
+    height: auto; /* Adjusts height dynamically */
+    background-color: #000; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Aligns left and right */
+    align-items: center;
+    padding: 10px 20px;
+    transition: all 0.3s ease; /* Smooth transition when opening */
+}
 
-    <style>
-        /* Global Styling */
-        body {
-            font-size: 16px;
-            color: #00FF00;
-            background-color: #28343c;
-            font-family: 'Rock Salt', cursive;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
+.sidenav a {
+    color: #00FF00;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 13px; /* Menu font size */
+    border: 1px solid #00FF00;
+    box-shadow: 2px 2px 5px #00FF00;
+    margin: 5px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
 
-        /* Sidebar Menu Styling */
-        .sidenav {
-            width: 100%;
-            height: 50vh; /* Half the screen height */
-            background-color: #000; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding-top: 10px;
-        }
+.sidenav a:hover {
+    background-color: #333;
+    color: #f0f0f0;
+    box-shadow: 4px 4px 10px #00FF00;
+}
 
-        .sidenav a {
-            color: #00FF00;
-            text-decoration: none;
-            padding: 10px 20px;
-            display: block;
-            font-size: 13px;
-            text-align: center;
-            border: 1px solid #00FF00; /* Thin Border */
-            box-shadow: 2px 2px 5px #00FF00; /* Green Shadow */
-            margin: 5px;
-            transition: all 0.3s ease;
-        }
+/* Responsive Layout for Mobile */
+@media (max-width: 768px) {
+    .sidenav {
+        flex-direction: column;
+        align-items: center;
 
-        .sidenav a:hover {
-            background-color: #333;
-            color: #f0f0f0;
-            box-shadow: 4px 4px 10px #00FF00; /* More intense shadow on hover */
-        }
-
-        /* Mobile Menu Button */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #00FF00;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .sidenav {
-                display: none;
-                position: absolute;
-                width: 100%;
-                top: 0;
-                left: 0;
-                height: 50vh;
-                background-color: #000;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .menu-toggle {
-                display: block;
-                margin: 10px;
-                font-weight: bold;
-            }
-        }
-
-        /* Responsive Paragraph Box */
-        .content-box {
-            max-width: 1200px;
-            width: 90%;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #00FF00;
-            padding: 20px;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 5px 5px 15px #f0f0f0; /* Soft white shadow */
-            text-align: center;
-        }
-
-        @media (max-width: 1200px) {
-            .content-box {
-                width: 95%;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<!-- Menu Toggle Button -->
-<button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
-
-<!-- Sidebar Menu -->
-<nav class="sidenav" id="menu">
-    <a href="https://linktr.ee/funnygifdan">Linktree</a>
-    <a href="cyberaware.html">Cyber Awareness</a>
-    <a href="important.html">Important Links</a>
-    <a href="sip.html">SIP</a>
-    <a href="production.html">Production/Design</a>
-    <a href="systems.html">Systems/Processes</a>
-    <a href="porthead.html">Ports/Header Information</a>
-    <a href="subnetting.html">Subnetting</a>
-    <a href="linuxcom.html">Linux Commands</a>
-</nav>
-
-<!-- Paragraph Box -->
-<div class="content-box">
-    <h2>Welcome Minions</h2>
-    <h3>This site is dedicated to my daughters Alycia, Aubree, and Hadley.  
-    I love you so much and hope you know that no matter what, I am your father.</h3>
-</div>
-
-<!-- JavaScript for Menu Toggle -->
-<script>
-    function toggleMenu() {
-        var menu = document.getElementById("menu");
-        if (menu.style.display === "flex") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "flex";
-        }
-    }
-</script>
-
-</body>
-</html>
