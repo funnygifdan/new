@@ -17,31 +17,26 @@
             padding: 0;
         }
 
-        /* Sidebar Styles */
-        #mySidebar {
-            display: none;
-            width: 250px;
-            background-color: #000;
+        /* Top Navigation Bar */
+        .topnav {
+            background-color: gray;
             position: fixed;
-            height: 100%;
-            overflow: auto;
-            padding-top: 20px;
-        }
-
-        .sidenav a, .dropdown-btn {
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 18px;
-            color: white;
-            display: block;
-            background: none;
-            border: none;
-            text-align: left;
-            cursor: pointer;
+            top: 0;
             width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 1000;
         }
 
-        .sidenav a:hover, .dropdown-btn:hover {
+        .topnav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        .topnav a:hover {
             background-color: #575757;
         }
 
@@ -51,59 +46,42 @@
         }
 
         .fa-caret-down {
-            float: right;
-            padding-right: 8px;
+            padding-left: 8px;
         }
 
         /* Main Content */
         .w3-main {
-            margin-left: 260px;
+            margin-top: 60px;
             padding: 20px;
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .w3-main {
-                margin-left: 0;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar Menu -->
-    <nav id="mySidebar" class="w3-sidebar">
-        <div class="sidenav">
-            <img src="images/disney4.jpg" alt="Disney" width="180" height="100">
-            <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-display-topright">×</a>
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+        <a href="#" onclick="toggleDropdown('menu')"><i class="fa fa-bars"></i> Menu</a>
+        <div id="menu" class="dropdown-container">
             <a href="https://linktr.ee/funnygifdan">Linktree</a>
             <a href="cyberaware.html">Cyber Awareness</a>
             <a href="important.html">Important Links</a>
-
-            <button class="dropdown-btn">SIP <i class="fa fa-caret-down"></i></button>
-            <div class="dropdown-container">
+            <a href="#" onclick="toggleDropdown('sip')">SIP <i class="fa fa-caret-down"></i></a>
+            <div id="sip" class="dropdown-container">
                 <a href="sip.html">SIP</a>
                 <a href="production.html">Production/Design</a>
                 <a href="systems.html">Systems/Processes</a>
             </div>
-
-            <button class="dropdown-btn">Networking <i class="fa fa-caret-down"></i></button>
-            <div class="dropdown-container">
+            <a href="#" onclick="toggleDropdown('networking')">Networking <i class="fa fa-caret-down"></i></a>
+            <div id="networking" class="dropdown-container">
                 <a href="porthead.html">Ports/Header Information</a>
                 <a href="subnetting.html">Subnetting</a>
                 <a href="systems.html">Systems</a>
             </div>
-
-            <button class="dropdown-btn">Linux <i class="fa fa-caret-down"></i></button>
-            <div class="dropdown-container">
+            <a href="#" onclick="toggleDropdown('linux')">Linux <i class="fa fa-caret-down"></i></a>
+            <div id="linux" class="dropdown-container">
                 <a href="linuxcom.html">Linux Commands</a>
             </div>
         </div>
-    </nav>
-
-    <!-- Open Sidebar Button -->
-    <a href="javascript:void(0)" class="w3-button w3-right" onclick="w3_open()">
-        <i class="fa fa-bars"></i>
-    </a>
+    </div>
 
     <!-- Main Content -->
     <div class="w3-main">
@@ -112,23 +90,15 @@
     </div>
 
     <script>
-        // Toggle Sidebar
-        function w3_open() {
-            document.getElementById("mySidebar").style.display = "block";
-        }
-        function w3_close() {
-            document.getElementById("mySidebar").style.display = "none";
-        }
-
-        // Toggle Dropdowns
-        var dropdown = document.getElementsByClassName("dropdown-btn");
-        for (var i = 0; i < dropdown.length; i++) {
-            dropdown[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var dropdownContent = this.nextElementSibling;
-                dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
-            });
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id);
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
         }
     </script>
 </body>
 </html>
+
