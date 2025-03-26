@@ -90,25 +90,11 @@ a:hover {
     color: black;
 }
 
-/* Bottom Navbar */
-.bottom-navbar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: black;
-    box-shadow: 0px -4px 6px rgba(255, 255, 255, 0.3);
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #00FF00;
-    border: 2px solid gray;
-}
 
 /* Footer */
 .footer {
     position: absolute;
-    top: 2000px;
+    top: 1500px;
     width: 100%;
     background-color: black;
     border: 2px solid gray;
