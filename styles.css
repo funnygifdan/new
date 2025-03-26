@@ -154,10 +154,8 @@ a:hover {
 /* Paragraph Box */
 .paragraph-box {
   position:absolute;
-  top:50%;
-  left:20%;
   margin-top: 50%; /* this is half the height of your div*/  
-  margin-left: 50%; 
+  margin-left: 20%; 
   background: #3a3a3a;
   padding: 20px;
   border: 2px solid gray;
