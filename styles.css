@@ -63,9 +63,9 @@ a:hover {
 /* Side Menu */
 .side-menu {
     position: absolute;
-    top: 60px;
+    top: 0;
     left: 0;
-    width: 150px;
+    width: 100%;
     height: auto;
     min-height: 250px;
     background-color: black;
