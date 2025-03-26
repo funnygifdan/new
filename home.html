@@ -12,41 +12,42 @@
   <div class="top-navbar">
     <button id="menu-button">☰</button>
   </div>
+
   <!-- Sidebar/Menu -->
   <div class="side-menu">
+    <img src="images/IMG_1039.jpeg" alt="Menu Background" class="menu-bg">
     <a href="how2.html">Home</a>
     <a href="https://linktr.ee/funnygifdan">My Linktree</a>
     <a href="linknew.html">NewHome</a>
     <a href="cyberaware.html">Cyber Awareness</a>
     <a href="important.html">Important Links</a>
+
     <!-- Dropdown Section SIP -->
-    <button class="dropdown-btn">SIP 
-      <i class="fa fa-caret-down"></i>
+    <button class="dropdown-btn">SIP <i class="fa fa-caret-right"></i></button>
     <div class="dropdown-container">
       <a href="sip.html">SIP</a>
       <a href="production.html">Production/Design</a>
       <a href="systems.html">Systems/Processes</a>
     </div>
-    </button>
+
     <!-- Dropdown Section Networking -->
-    <button class="dropdown-btn">Networking 
-      <i class="fa fa-caret-down"></i>
-    </button>
+    <button class="dropdown-btn">Networking <i class="fa fa-caret-right"></i></button>
     <div class="dropdown-container">
       <a href="porthead.html">Ports/Header Information</a>
       <a href="subnetting.html">Subnetting</a>
       <a href="systems.html">Systems</a>
     </div>
+
     <!-- Dropdown Section Linux Commands -->
-    <button class="dropdown-btn">Linux 
-      <i class="fa fa-caret-down"></i>
-    </button>
+    <button class="dropdown-btn">Linux <i class="fa fa-caret-right"></i></button>
     <div class="dropdown-container">
       <a href="linuxcom.html">Linux Commands</a>
     </div>
+
     <!-- Close Button -->
     <button id="close-menu">Close Menu</button>
   </div>
+
   <!-- Main Content -->
   <div class="paragraph-box">
     <p>Welcome to Funcryptology! Learn about cybersecurity and network security.</p>
@@ -63,6 +64,7 @@
       const menuButton = document.getElementById("menu-button");
       const closeButton = document.getElementById("close-menu");
       const sideMenu = document.querySelector(".side-menu");
+      const dropdownButtons = document.querySelectorAll(".dropdown-btn");
 
       menuButton.addEventListener("click", function() {
         sideMenu.classList.toggle("active");
@@ -72,16 +74,22 @@
         sideMenu.classList.remove("active");
       });
 
-      // Dropdown functionality
-      const dropdownButtons = document.getElementsByClassName("dropdown-btn");
-      for (let i = 0; i < dropdownButtons.length; i++) {
-        dropdownButtons[i].addEventListener("click", function() {
-          this.classList.toggle("active");
+      // Dropdown functionality - expands to the right
+      dropdownButtons.forEach(button => {
+        button.addEventListener("click", function() {
           const dropdownContent = this.nextElementSibling;
-          dropdownContent.style.display = (dropdownContent.style.display === "block") ? "none" : "block";
+          const isActive = dropdownContent.style.display === "block";
+
+          // Close all dropdowns before opening the clicked one
+          document.querySelectorAll(".dropdown-container").forEach(container => {
+            container.style.display = "none";
+          });
+          
+          // Toggle the clicked dropdown
+          dropdownContent.style.display = isActive ? "none" : "block";
         });
-      }
-    }); 
+      });
+    });
   </script>
 </body>
 </html>
