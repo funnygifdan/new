@@ -1,118 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Page</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
     <style>
-        /* General Styles */
-        body, html {
-            height: 100%;
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        /* Styling for menu adjustments */
+        nav {
+            background-color: #000;
+            color: #00FF00;
+            padding: 10px;
         }
-
-        /* Top Navigation Bar */
-        .topnav {
-            background-color: gray;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            z-index: 1000;
-        }
-
-        .topnav a {
-            color: white;
+        nav a {
+            color: #00FF00;
             text-decoration: none;
-            padding: 10px 15px;
+            padding: 10px;
+            display: inline-block;
         }
-
-        .topnav a:hover {
-            background-color: #575757;
+        nav a:hover {
+            background-color: #f0f0f0;
+            color: #000;
+            border-radius: 5px;
         }
-
-        .dropdown-container {
+        .menu-button {
+            background: none;
+            border: none;
+            color: #00FF00;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .mobile-menu {
             display: none;
-            padding-left: 20px;
+            flex-direction: column;
+            background: #000;
+            padding: 10px;
         }
-
-        .fa-caret-down {
-            padding-left: 8px;
+        .mobile-menu a {
+            padding: 10px;
         }
-
-        /* Main Content */
-        .w3-main {
-            margin-top: 60px;
-            padding: 20px;
+        @media (max-width: 768px) {
+            .menu-items {
+                display: none;
+            }
+            .mobile-menu {
+                display: flex;
+            }
         }
     </style>
 </head>
-<!-- Top Navigation Menu -->
-    
- <div class="topnav">
-     <div id="navbar">
-      <a href="#" onclick="toggleDropdown('menu')"><i class="fa fa-bars"></i> Menu</a>
-         <a href="https://linktr.ee/funnygifdan">Linktree</a>
-         <a href="cyberaware.html">Cyber Awareness</a>
-         <a href="important.html">Important Links</a>
-         <a href="#" onclick="toggleDropdown('sip')">SIP <i class="fa fa-caret-down"></i></a>
-       <div id="sip" class="dropdown-container">
-         <a href="sip.html">SIP</a>
-         <a href="production.html">Production/Design</a>
-         <a href="systems.html">Systems/Processes</a>
-       </div>
-         <a href="#" onclick="toggleDropdown('networking')">Networking <i class="fa fa-caret-down"></i></a>
-           <div id="networking" class="dropdown-container">
-            <a href="porthead.html">Ports/Header Information</a>
-            <a href="subnetting.html">Subnetting</a>
-            <a href="systems.html">Systems</a>
-           </div>
-        <a href="#" onclick="toggleDropdown('linux')">Linux <i class="fa fa-caret-down"></i></a>
-          <div id="linux" class="dropdown-container">
-           <a href="linuxcom.html">Linux Commands</a>
-          </div>
+<body>
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="menu-container">
+            <button class="menu-button" onclick="toggleMenu()">☰</button>
+            <div class="menu-items">
+                <a href="https://linktr.ee/funnygifdan">Linktree</a>
+                <a href="cyberaware.html">Cyber Awareness</a>
+                <a href="important.html">Important Links</a>
+            </div>
         </div>
-    </div>
-</div>
-
-    <!-- Main Content -->
-    
-<script type="text/babel">
-  function Navbar() {
-    const [isOpen, setIsOpen] = React.useState(false);
-    
-    return (
-      <nav style={{ background: "#333", color: "#fff", padding: "10px" }}>
-        <h1>Funcryptology</h1>
-        <button onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? "Close" : "Menu"}
-        </button>
-        {isOpen && (
-          <div>
+        <div class="mobile-menu" id="mobileMenu">
             <a href="https://linktr.ee/funnygifdan">Linktree</a>
             <a href="cyberaware.html">Cyber Awareness</a>
             <a href="important.html">Important Links</a>
-          </div>
-        )}
-      </nav>
-    );
-  }
+        </div>
+    </nav>
+    
+    <h2>Welcome Minions</h2>
+    <h3>
+        This site is dedicated to my daughters Alycia, Aubree, and Hadley. 
+        I love you so much and hope you know that no matter what, I am your father.
+    </h3>
 
-  ReactDOM.render(<Navbar />, document.getElementById("navbar"));
-</script>
-
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("mobileMenu");
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        }
+    </script>
 </body>
 </html>
-
