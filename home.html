@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Page</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* General Styles */
         body, html {
@@ -59,27 +62,27 @@
 <body>
     <!-- Top Navigation Menu -->
     <div class="topnav">
-        <a href="#" onclick="toggleDropdown('menu')"><i class="fa fa-bars"></i> Menu</a>
-        <div id="menu" class="dropdown-container">
-            <a href="https://linktr.ee/funnygifdan">Linktree</a>
-            <a href="cyberaware.html">Cyber Awareness</a>
-            <a href="important.html">Important Links</a>
-            <a href="#" onclick="toggleDropdown('sip')">SIP <i class="fa fa-caret-down"></i></a>
-            <div id="sip" class="dropdown-container">
-                <a href="sip.html">SIP</a>
-                <a href="production.html">Production/Design</a>
-                <a href="systems.html">Systems/Processes</a>
-            </div>
-            <a href="#" onclick="toggleDropdown('networking')">Networking <i class="fa fa-caret-down"></i></a>
-            <div id="networking" class="dropdown-container">
-                <a href="porthead.html">Ports/Header Information</a>
-                <a href="subnetting.html">Subnetting</a>
-                <a href="systems.html">Systems</a>
-            </div>
-            <a href="#" onclick="toggleDropdown('linux')">Linux <i class="fa fa-caret-down"></i></a>
-            <div id="linux" class="dropdown-container">
-                <a href="linuxcom.html">Linux Commands</a>
-            </div>
+      <a href="#" onclick="toggleDropdown('menu')"><i class="fa fa-bars"></i> Menu</a>
+       <div id="navbar"></div>
+         <a href="https://linktr.ee/funnygifdan">Linktree</a>
+         <a href="cyberaware.html">Cyber Awareness</a>
+         <a href="important.html">Important Links</a>
+         <a href="#" onclick="toggleDropdown('sip')">SIP <i class="fa fa-caret-down"></i></a>
+       <div id="sip" class="dropdown-container">
+         <a href="sip.html">SIP</a>
+         <a href="production.html">Production/Design</a>
+         <a href="systems.html">Systems/Processes</a>
+       </div>
+         <a href="#" onclick="toggleDropdown('networking')">Networking <i class="fa fa-caret-down"></i></a>
+           <div id="networking" class="dropdown-container">
+            <a href="porthead.html">Ports/Header Information</a>
+            <a href="subnetting.html">Subnetting</a>
+            <a href="systems.html">Systems</a>
+           </div>
+        <a href="#" onclick="toggleDropdown('linux')">Linux <i class="fa fa-caret-down"></i></a>
+          <div id="linux" class="dropdown-container">
+           <a href="linuxcom.html">Linux Commands</a>
+        </div>
         </div>
     </div>
 
