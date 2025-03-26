@@ -123,8 +123,16 @@
     I love you so much and hope you know that no matter what, I am your father.</h3>
 </div>
 
-<!-- JavaScript for Menu Toggle -->
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var menu = document.getElementById("menu");
+        var contentBox = document.querySelector(".content-box");
+
+        // Ensure the menu is hidden on page load
+        menu.style.display = "none";
+        contentBox.classList.remove("menu-open");
+    });
+
     function toggleMenu() {
         var menu = document.getElementById("menu");
         var contentBox = document.querySelector(".content-box");
@@ -138,6 +146,7 @@
         }
     }
 </script>
+
 
 </body>
 </html>
