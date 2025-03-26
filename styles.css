@@ -71,7 +71,6 @@ a:hover {
     z-index: 1100;
     text-align: center;
     overflow-y: auto;
-    padding-bottom: 60px;
     align-items: center;
 }
 .side-menu.active {
