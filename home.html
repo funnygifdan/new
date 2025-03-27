@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Funcryptology</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -16,30 +17,106 @@
 
   <!-- Sidebar/Menu -->
   <div class="side-menu">
+    <img src="IMG_1039.jpeg" alt="Menu Image" class="menu-image">
     <a href="https://linktr.ee/funnygifdan">My Linktree</a>
     <a href="linknew.html">NewHome</a>
     <a href="cyberaware.html">Cyber Awareness</a>
     <a href="important.html">Important Links</a>
-  </div>
 
-  <!-- Main Content -->
-  <div class="paragraph-box">
-    <p>Welcome to Funcryptology! Explore cybersecurity and enjoy our photo carousel.</p>
+    <!-- Dropdown: SIP -->
+    <button class="dropdown-btn">SIP <i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+      <a href="sip.html">SIP</a>
+      <a href="production.html">Production/Design</a>
+      <a href="systems.html">Systems/Processes</a>
+    </div>
 
-    <!-- 3D Carousel -->
-    <div class="carousel-container">
-      <div class="carousel-3d" id="carousel-3d">
-        <!-- Images will be dynamically loaded here -->
-      </div>
+    <!-- Dropdown: Networking -->
+    <button class="dropdown-btn">Networking <i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+      <a href="porthead.html">Ports/Header Information</a>
+      <a href="subnetting.html">Subnetting</a>
+      <a href="systems.html">Systems</a>
+    </div>
+
+    <!-- Dropdown: Linux Commands -->
+    <button class="dropdown-btn">Linux <i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+      <a href="linuxcom.html">Linux Commands</a>
     </div>
   </div>
-
-  <!-- Footer -->
-  <div class="footer">
-    <marquee behavior="scroll" direction="left">&copy; 2025 Funcryptology. All rights reserved.</marquee>
+<div class="paragraph-box">
+  <h3>Welcome to Funcryptology! Learn about cybersecurity and network security.</h3>
+<!-- Main Content -->
+<div class="paragraph-box">
+<!-- Carousel Container -->
+  <div class="carousel-container">
+   <div id="carousel-3d" class="carousel-3d">
+   </div>
   </div>
+<!-- Footer -->
+<div class="footer">
+<marquee>&copy; 2025 Funcryptology. All rights reserved.</marquee>
+ </div>
 
-  <script src="App.js"></script>
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Sidebar Toggle
+      const menuButton = document.getElementById("menu-button");
+      const sideMenu = document.querySelector(".side-menu");
+      const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+
+      menuButton.addEventListener("click", () => {
+        sideMenu.classList.toggle("active");
+      });
+
+      dropdownButtons.forEach(button => {
+        button.addEventListener("click", function () {
+          const dropdownContent = this.nextElementSibling;
+          const isActive = dropdownContent.style.display === "block";
+          document.querySelectorAll(".dropdown-container").forEach(container => container.style.display = "none");
+          dropdownContent.style.display = isActive ? "none" : "block";
+        });
+      });
+
+      // Carousel Functionality
+      let slideIndex = 0;
+      const slides = document.querySelectorAll(".carousel-item");
+
+      function showSlides(index) {
+        slides.forEach(slide => (slide.style.display = "none"));
+        slides[index].style.display = "block";
+      }
+
+      window.nextSlide = function () {
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlides(slideIndex);
+      };
+
+      window.prevSlide = function () {
+        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+        showSlides(slideIndex);
+      };
+
+      showSlides(slideIndex);
+
+      // Touch Swipe Support
+      const carousel = document.getElementById("carousel");
+      let touchStartX = 0;
+
+      carousel.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+      });
+
+      carousel.addEventListener("touchend", (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        if (touchEndX < touchStartX) nextSlide();
+        else if (touchEndX > touchStartX) prevSlide();
+      });
+    });
+  </script>
 
 </body>
 
