@@ -1,182 +1,106 @@
-/* General Styles */
+/* Global Styles */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  background-color: black;
-  color: #30FF00;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: black;
+    color: #30FF00; /* Hacker green */
+    font-size: 34px; /* Updated font size */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Ensure all buttons inherit Comic Sans */
-button, a, p, h1, h2, h3, h4, h5, h6, div {
-    font-family: inherit;
+/* Button Styles */
+button, .dropdown-btn, .close-button {
+    background-color: black;
+    color: #30FF00;
+    font-size: 34px; /* Ensure all buttons share this size */
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
 
-/* Navbar */
+/* Top Navbar */
 .top-navbar {
-  background-color: black;
-  padding: 10px;
+    padding: 10px;
 }
 
-#menu-button {
-  background: black;
-  color: #30FF00;
-  font-size: 22px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Side Menu Styling */
+/* Side Menu */
 .side-menu {
     position: fixed;
     left: 0;
     top: 0;
-    width: 250px;
+    width: 300px;
     height: 100%;
     background: black;
-    color: #30FF00;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    overflow-y: auto; /* Enable scrolling if needed */
-    z-index: 1000;
+    overflow-y: auto;
 }
 
-/* Show menu when active */
 .side-menu.active {
     transform: translateX(0);
 }
 
-/* Dropdown container visibility */
+.side-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #30FF00;
+}
+
 .dropdown-container {
     display: none;
+    background: darkgray;
 }
 
-/* Dropdown container open */
-.dropdown-container.open {
-    display: block;
+.menu-image {
+    width: 50%;
 }
 
-/* Close Button Styling */
+/* Close Button */
 .close-button {
     position: sticky;
     bottom: 0;
-    left: 0;
-    background: #000;
-    color: #30FF00;
-    border: none;
-    padding: 10px 20px;
-    font-size: 22px;
-    cursor: pointer;
-    width: 100%;
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
 }
 
-/* Ensure close button moves with dropdown */
-.side-menu .close-button {
-    margin-top: 10px;
-}
-
-/* Responsive close button adjustment */
-@media (max-width: 600px) {
-    .close-button {
-        font-size: 18px;
-    }
-}
-
-/* Paragraph Box - Centered */
+/* Paragraph Box */
 .paragraph-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-left: 260px;
-  padding: 20px;
-  min-height: 80vh; /* Keeps it centered relative to viewport */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
 }
 
-/* Image Carousel - 2x Larger */
+/* Carousel */
 .carousel {
-  position: relative;
-  overflow: hidden;
-  max-width: 100%;
+    width: 80%;
+    max-width: 900px;
+    perspective: 1000px;
 }
 
 .carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+    display: flex;
+    overflow: hidden;
 }
 
 .carousel-item {
-  min-width: 150%; /* Twice as large as before */
+    min-width: 100%;
+    transition: transform 0.5s ease;
 }
 
-.carousel-item img {
-  width: 150%; /* Twice as large as before */
+.carousel img {
+    width: 150%;
 }
 
-/* Carousel Controls */
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 32px;
-  color: #30FF00;
-  cursor: pointer;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-/* Footer with Responsive Marquee */
+/* Footer */
 .footer {
-  position: sticky;
-  bottom: 0;
-  background: black;
-  color: #30FF00;
-  text-align: center;
-  padding: 10px;
-  width: 100%;
-  overflow: hidden;
-}
-
-/* Marquee Styling */
-.responsive-marquee {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee 10s linear infinite;
-  font-size: 1.5vw; /* Responsive font size */
-}
-
-/* Marquee Animation */
-@keyframes marquee {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-/* Adjust marquee speed and size on smaller screens */
-@media (max-width: 768px) {
-  .responsive-marquee {
-    animation: marquee 15s linear infinite; /* Slower for small screens */
-    font-size: 3vw; /* Larger text for smaller screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .responsive-marquee {
-    animation: marquee 20s linear infinite; /* Even slower for very small screens */
-    font-size: 4vw; /* Larger font for extra small screens */
-  }
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    background: black;
+    color: #30FF00;
+    text-align: center;
 }
