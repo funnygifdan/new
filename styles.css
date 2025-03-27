@@ -1,173 +1,126 @@
-/* Global Styles */
+/* General Page Styles */
 body {
-  margin: 20px; /* Space for border */
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  background-color: black; /* Page background */
-  color: white; /* Default text color */
-  border: 10px solid #333; /* Dark gray border */
-  overflow-x: hidden; /* Avoid horizontal scroll */
+    background-color: black;
+    color: #00FF00;
+    font-family: 'Rock Salt', cursive;
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    border: 2px solid darkgray;
 }
 
-/* Top Navbar */
+/* Navbar */
 .top-navbar {
-  display: flex;
-  justify-content: flex-start;
-  padding: 10px;
-  background-color: #111;
-}
-
-#menu-button {
-  font-size: 24px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  color: white;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.3);
+    border: 2px solid gray;
+    z-index: 1000;
 }
 
 /* Sidebar Menu */
 .side-menu {
-  position: fixed;
-  top: 0;
-  left: -300px; /* Hide by default */
-  width: 250px;
-  height: 100%;
-  background-color: black;
-  overflow-y: auto;
-  transition: left 0.3s ease;
-  padding-top: 60px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 60%;
+    background: black;
+    border: 2px solid gray;
+    display: none;
+    z-index: 1100;
 }
 
 .side-menu.active {
-  left: 0; /* Slide in */
-}
-
-.side-menu a,
-.dropdown-btn {
-  display: block;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: white; /* Match page text color */
-  text-align: left; /* Align text to the left */
-}
-
-.side-menu a:hover,
-.dropdown-btn:hover {
-  background-color: #444; /* Hover effect */
+    display: flex;
+    flex-direction: column;
 }
 
 .menu-image {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
 }
 
-/* Dropdown Containers */
-.dropdown-container {
-  display: none;
-  background-color: #000; /* Black background for dropdown */
-}
-
-.dropdown-btn {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: none;
-  width: 100%;
-  text-align: left;
-}
-
-/* Paragraph Box (Responsive and Centered) */
+/* Paragraph Box */
 .paragraph-box {
-  max-width: 800px;
-  margin: 50px auto; /* Center on small screens */
-  padding: 20px;
-  text-align: center;
-}
-
-/* Move Paragraph Lower on Large Screens */
-@media (min-width: 1500px) {
-  .paragraph-box {
-    margin-top: 50vh; /* Halfway down the viewport */
-  }
+    position: relative;
+    top: 50vh;
+    transform: translateY(-50%);
+    background: black;
+    padding: 20px;
+    border: 2px solid gray;
+    box-shadow: 4px 4px 10px white;
+    text-align: center;
+    margin: 0 auto;
 }
 
 /* Carousel */
 .carousel {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 20px auto; /* Center the carousel */
-  overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+    display: flex;
 }
 
 .carousel-item {
-  min-width: 100%;
-  display: none; /* Hide all by default */
+    display: none;
+    text-align: center;
 }
 
-.carousel-item.active {
-  display: block; /* Show active slide */
+.carousel-item img {
+    width: 100%;
+    height: auto;
 }
 
-.carousel img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Carousel Navigation Arrows */
+/* Carousel Navigation */
 .carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 30px;
-  color: white;
-  cursor: pointer;
-  z-index: 10;
-  user-select: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00FF00;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 .carousel-control.prev {
-  left: 10px;
+    left: 10px;
 }
 
 .carousel-control.next {
-  right: 10px;
+    right: 10px;
 }
 
-/* Footer with Scrolling Text */
+/* Footer */
 .footer {
-  position: relative;
-  margin-top: 40px;
-  color: white;
-  text-align: center;
+    background: black;
+    border: 2px solid gray;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-marquee {
-  font-size: 14px;
-}
-
-/* Responsive Design Adjustments */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .paragraph-box {
-    padding: 10px;
-  }
+    .side-menu {
+        width: 100%;
+    }
 
-  .carousel {
-    max-width: 100%;
-  }
-
-  #menu-button {
-    font-size: 20px;
-  }
-
-  .side-menu {
-    width: 200px;
-  }
+    .paragraph-box {
+        width: 90%;
+    }
 }
