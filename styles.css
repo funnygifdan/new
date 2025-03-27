@@ -1,4 +1,4 @@
-/* General Page Styles */
+/* General Styles */
 body {
     background-color: black;
     color: #00FF00;
@@ -10,12 +10,28 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    border: 2px solid darkgray;
+    border: 2px solid darkgray; /* Dark gray border around the whole page */
 }
 
-/* Navbar */
+/* Links */
+a {
+    text-decoration: none;
+    border-bottom: 1px solid #00FF00;
+    box-shadow: 0 2px 5px #00FF00;
+    color: #00FF00;
+}
+a:visited {
+    color: blue;
+}
+a:hover {
+    color: #f0f0f0;
+}
+
+/* Top Navbar */
 .top-navbar {
     background-color: black;
+    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.3);
+    border: 2px solid gray;
     position: fixed;
     width: 100%;
     top: 0;
@@ -24,103 +40,178 @@ body {
     display: flex;
     align-items: center;
     padding: 0 20px;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.3);
-    border: 2px solid gray;
     z-index: 1000;
+    color: #00FF00;
+}
+#menu-button {
+    width: 50px;
+    height: 100%;
+    background-color: black;
+    color: #00FF00;
+    border: none;
+    font-size: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+#menu-button:hover {
+    background-color: #222;
 }
 
-/* Sidebar Menu */
+/* Side Menu */
 .side-menu {
     position: absolute;
     top: 60px;
     left: 0;
     width: 60%;
-    background: black;
+    background-color: black;
     border: 2px solid gray;
+    box-shadow: 2px 2px 5px white;
+    flex-direction: column;
     display: none;
     z-index: 1100;
+    font-family: 'Trebuchet MS', sans-serif;
+    text-align: left; /* Align text to the left */
+    overflow-y: auto;
+    align-items: stretch;
 }
-
 .side-menu.active {
     display: flex;
-    flex-direction: column;
 }
 
+/* Menu Image */
 .menu-image {
     width: 100%;
     max-height: 150px;
     object-fit: cover;
+    border-bottom: 2px solid gray;
 }
 
-/* Paragraph Box */
-.paragraph-box {
-    position: relative;
-    top: 50vh;
-    transform: translateY(-50%);
+/* Menu Links and Dropdown Buttons */
+.side-menu a,
+.dropdown-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
     background: black;
-    padding: 20px;
+    color: #00FF00;
+    font-size: 24px;
+    text-align: left;
     border: 2px solid gray;
-    box-shadow: 4px 4px 10px white;
-    text-align: center;
-    margin: 0 auto;
+    box-shadow: 0px 2px 5px white;
+}
+.side-menu a:hover,
+.dropdown-btn:hover {
+    background-color: #222;
+    color: #00FF00;
 }
 
-/* Carousel */
+/* Dropdown Container */
+.dropdown-container {
+    display: none;
+    background-color: black;
+    color: #00FF00;
+    width: 100%;
+    box-shadow: 2px 2px 5px white;
+}
+.dropdown-container a {
+    display: block;
+    padding: 12px 20px;
+    background-color: black;
+    color: #00FF00;
+    text-decoration: none;
+    border: 2px solid gray;
+    box-shadow: 0px 2px 5px white;
+    font-size: 24px;
+    text-align: left;
+}
+.dropdown-container a:hover {
+    background-color: #222;
+    color: #00FF00;
+}
+
+/* Paragraph Box (Centered and Halfway Down the Page) */
+.paragraph-box {
+  position: relative;
+  top: 50vh;
+  transform: translateY(-50%);
+  background: #3a3a3a;
+  padding: 20px;
+  border: 2px solid gray;
+  box-shadow: 4px 4px 10px white;
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Carousel Styles */
 .carousel {
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
+  position: relative;
+  max-width: 100%;
+  margin: 20px auto;
+  overflow: hidden;
 }
 
 .carousel-inner {
-    display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 
 .carousel-item {
-    display: none;
-    text-align: center;
+  display: none;
+  text-align: center;
 }
 
 .carousel-item img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
-/* Carousel Navigation */
 .carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #00FF00;
-    font-size: 30px;
-    cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #00FF00;
+  font-size: 30px;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
 }
 
 .carousel-control.prev {
-    left: 10px;
+  left: 10px;
 }
 
 .carousel-control.next {
-    right: 10px;
+  right: 10px;
 }
 
 /* Footer */
 .footer {
-    background: black;
+    width: 100%;
+    background-color: black;
     border: 2px solid gray;
+    box-shadow: 0px -4px 6px white;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    margin-top: auto;
 }
 
-/* Responsive Adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
     .side-menu {
-        width: 100%;
+         width: 100%;
     }
-
     .paragraph-box {
-        width: 90%;
+         width: 80%;
+         padding: 15px;
     }
 }
