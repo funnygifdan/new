@@ -1,27 +1,31 @@
-
-/* Global Styling */
+/* Global Styles */
 body {
     font-family: "Comic Sans MS", sans-serif;
-    font-size: 34px;
+    font-size: 22px;
     color: #30FF00;
     margin: 0;
     padding: 0;
     background: black;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
-/* Navbar */
+/* Top Navbar (Sticky) */
 .top-navbar {
+    position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     padding: 10px;
     background: black;
+    z-index: 1000;
 }
 
+/* Menu Button */
 #menu-button {
     background: black;
     color: #30FF00;
-    font-size: 34px;
+    font-size: 22px;
     border: none;
     cursor: pointer;
 }
@@ -35,8 +39,8 @@ body {
     height: 100%;
     background: black;
     transition: left 0.3s;
-    overflow-y: auto;
     padding-top: 60px;
+    overflow-y: auto;
 }
 
 .side-menu.active {
@@ -49,7 +53,7 @@ body {
     color: #30FF00;
     text-decoration: none;
     padding: 15px;
-    font-size: 34px;
+    font-size: 22px;
     border: none;
     text-align: left;
     cursor: pointer;
@@ -62,47 +66,58 @@ body {
     display: block;
 }
 
-/* Carousel */
-.carousel {
-    position: relative;
-    width: 75%;
-    margin: 50px auto;
-    overflow: hidden;
+/* Responsive Main Content */
+.main-content {
+    margin-left: 320px;
+    padding: 20px;
 }
 
-.carousel-inner {
+/* Paragraph Box */
+.paragraph-box {
     display: flex;
-    transition: transform 0.5s ease;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    text-align: center;
+}
+
+/* 3D Carousel */
+.carousel-3d {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    margin: 50px auto;
+    transform-style: preserve-3d;
+    animation: rotateCarousel 20s infinite linear;
 }
 
 .carousel-item {
-    min-width: 100%;
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
 }
 
 .carousel-item img {
     width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Carousel Navigation */
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #30FF00;
-    font-size: 40px;
-    cursor: pointer;
-    z-index: 10;
+/* Rotate Animation */
+@keyframes rotateCarousel {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
 }
 
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-/* Footer */
+/* Footer (Sticky) */
 .footer {
     position: sticky;
     bottom: 0;
@@ -110,4 +125,36 @@ body {
     text-align: center;
     padding: 10px 0;
     width: 100%;
+    z-index: 1000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .side-menu {
+        width: 250px;
+    }
+
+    .main-content {
+        margin-left: 270px;
+    }
+
+    .carousel-3d {
+        width: 300px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    #menu-button {
+        font-size: 18px;
+    }
+
+    .side-menu a, .dropdown-btn, #close-menu {
+        font-size: 18px;
+    }
+
+    .carousel-3d {
+        width: 250px;
+        height: 200px;
+    }
 }
