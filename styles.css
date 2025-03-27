@@ -29,49 +29,61 @@ button, a, p, h1, h2, h3, h4, h5, h6, div {
   cursor: pointer;
 }
 
-/* Sidebar/Menu */
+/* Side Menu Styling */
 .side-menu {
-  background-color: black;
-  width: 250px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  padding-top: 60px;
-  display: none;
-  z-index: 10;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: black;
+    color: #30FF00;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto; /* Enable scrolling if needed */
+    z-index: 1000;
 }
 
+/* Show menu when active */
 .side-menu.active {
-  display: block;
+    transform: translateX(0);
 }
 
-.menu-image {
-  width: 50%;
-}
-
-/* Dropdown Styles */
-.dropdown-btn {
-  background: black;
-  color: #30FF00;
-  font-size: 22px;
-  width: 100%;
-  text-align: left;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-}
-
+/* Dropdown container visibility */
 .dropdown-container {
-  display: none;
-  padding-left: 20px;
+    display: none;
 }
 
-.side-menu a {
-  display: block;
-  padding: 10px;
-  color: #30FF00;
-  text-decoration: none;
+/* Dropdown container open */
+.dropdown-container.open {
+    display: block;
+}
+
+/* Close Button Styling */
+.close-button {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    color: #30FF00;
+    border: none;
+    padding: 10px 20px;
+    font-size: 22px;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+/* Ensure close button moves with dropdown */
+.side-menu .close-button {
+    margin-top: 10px;
+}
+
+/* Responsive close button adjustment */
+@media (max-width: 600px) {
+    .close-button {
+        font-size: 18px;
+    }
 }
 
 /* Paragraph Box - Centered */
