@@ -14,8 +14,8 @@
   </div>
   <!-- Sidebar/Menu -->
   <div class="side-menu">
-    <img src="IMG_1039.jpeg" alt="Menu Image" class="menu-image"></img>
-  <!----- <a href="how2.html">Home</> ---->
+    <img src="IMG_1039.jpeg" alt="Menu Image" class="menu-image">
+    <!-- <a href="how2.html">Home</a> -->
     <a href="https://linktr.ee/funnygifdan">My Linktree</a>
     <a href="linknew.html">NewHome</a>
     <a href="cyberaware.html">Cyber Awareness</a>
@@ -27,7 +27,6 @@
       <a href="production.html">Production/Design</a>
       <a href="systems.html">Systems/Processes</a>
     </div>
-
     <!-- Dropdown Section Networking -->
     <button class="dropdown-btn">Networking <i class="fa fa-caret-down"></i></button>
     <div class="dropdown-container">
@@ -35,7 +34,6 @@
       <a href="subnetting.html">Subnetting</a>
       <a href="systems.html">Systems</a>
     </div>
-
     <!-- Dropdown Section Linux Commands -->
     <button class="dropdown-btn">Linux <i class="fa fa-caret-down"></i></button>
     <div class="dropdown-container">
@@ -46,26 +44,18 @@
   <div class="paragraph-box">
     <p>Welcome to Funcryptology! Learn about cybersecurity and network security.</p>
   </div>
-
   <!-- Footer with Scrolling Text -->
   <div class="footer">
     <marquee behavior="scroll" direction="left">&copy; 2025 Funcryptology. All rights reserved.</marquee>
   </div>
-
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // Toggle the sidebar menu
       const menuButton = document.getElementById("menu-button");
-      const closeButton = document.getElementById("close-menu");
       const sideMenu = document.querySelector(".side-menu");
       const dropdownButtons = document.querySelectorAll(".dropdown-btn");
 
       menuButton.addEventListener("click", function() {
         sideMenu.classList.toggle("active");
-      });
-
-      closeButton.addEventListener("click", function() {
-        sideMenu.classList.remove("active");
       });
 
       // Dropdown functionality - expands when clicked

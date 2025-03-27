@@ -1,3 +1,4 @@
+
 /* General Styles */
 body {
     background-color: black;
@@ -9,8 +10,10 @@ body {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    min-height: 100px;
+    min-height: 100vh;
 }
+
+/* Links */
 a {
     text-decoration: none;
     border-bottom: 1px solid #00FF00;
@@ -23,6 +26,7 @@ a:visited {
 a:hover {
     color: #f0f0f0;
 }
+
 /* Top Navbar */
 .top-navbar {
     background-color: black;
@@ -34,8 +38,7 @@ a:hover {
     left: 0;
     height: 60px;
     display: flex;
-    align-items: left;
-    justify-content: space-between;
+    align-items: center;
     padding: 0 20px;
     z-index: 1000;
     color: #00FF00;
@@ -56,13 +59,13 @@ a:hover {
 #menu-button:hover {
     background-color: #222;
 }
+
 /* Side Menu */
 .side-menu {
     position: absolute;
     top: 60px;
     left: 0;
     width: 60%;
-    height: flex;
     background-color: black;
     border: 2px solid gray;
     box-shadow: 2px 2px 5px white;
@@ -77,6 +80,7 @@ a:hover {
 .side-menu.active {
     display: flex;
 }
+
 /* Menu Image */
 .menu-image {
     width: 100%;
@@ -84,6 +88,8 @@ a:hover {
     object-fit: cover;
     border-bottom: 2px solid gray;
 }
+
+/* Menu Links and Dropdown Buttons */
 .side-menu a, .dropdown-btn {
     display: block;
     width: 100%;
@@ -92,36 +98,21 @@ a:hover {
     color: #00FF00;
     font-size: 24px;
     text-align: center;
-    text-decoration: none;
     border: 2px solid gray;
     box-shadow: 0px 2px 5px white;
 }
 .side-menu a:hover, .dropdown-btn:hover {
-    background: white;
+    background-color: #222;
     color: #00FF00;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: black;
-    border: 2px solid gray;
-    font-size: 24px;
-    padding: 10px 20px;
-    cursor: pointer;
-    box-shadow: 0px 2px 5px white;
-    width: 100%;
 }
-/* Dropdown Buttons and Containers - Drop Down */
+
+/* Dropdown Container */
 .dropdown-container {
     display: none;
-    position: relative;
     background-color: black;
     color: #00FF00;
     width: 100%;
     box-shadow: 2px 2px 5px white;
-}
-.dropdown-btn {
-    position: relative;
 }
 .dropdown-container a {
     display: block;
@@ -135,12 +126,11 @@ a:hover {
 }
 .dropdown-container a:hover {
     background-color: #222;
-    color: #f0f0f0;
+    color: #00FF00;
 }
+
 /* Footer */
 .footer {
-    position: absolute;
-    top: 1500px;
     width: 100%;
     background-color: black;
     border: 2px solid gray;
@@ -150,11 +140,12 @@ a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-top: auto;
 }
+
 /* Paragraph Box */
 .paragraph-box {
-  position:absolute;
-  margin-top: 50%; /* this is half the height of your div*/  
+  margin: 100px auto;
   background: #3a3a3a;
   padding: 20px;
   border: 2px solid gray;
@@ -162,4 +153,19 @@ a:hover {
   width: 300px;
   height: 300px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .side-menu {
+         width: 100%;
+    }
+    .paragraph-box {
+         width: 80%;
+         height: auto;
+         margin: 100px auto;
+    }
 }
