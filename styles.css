@@ -1,107 +1,126 @@
-/* Global Styling - Comic Sans and Font Size 26px */
-* {
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-    font-size: 26px;
-    box-sizing: border-box; /* Consistent box model */
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: black;
+  color: #30FF00;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Button Styling */
-button {
-    background: black;
-    color: #30FF00; /* Hacker Green */
-    font-size: inherit;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
+/* Navbar */
+.top-navbar {
+  background-color: black;
+  padding: 10px;
 }
 
-/* Dropdown Button (inherits from regular buttons) */
-.dropdown-btn {
-    display: block;
-    width: 100%;
-    text-align: left;
-    font-size: inherit;
+#menu-button {
+  background: black;
+  color: #30FF00;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
 }
 
-/* Dropdown Container */
-.dropdown-container {
-    display: none;
-    background: #333; /* Dark Gray */
-    padding-left: 20px;
-}
-
-/* Active dropdown */
-.dropdown-container.open {
-    display: block;
-}
-
-/* Sidebar Menu */
+/* Sidebar/Menu */
 .side-menu {
-    background: black; /* Ensure black background */
-    padding: 20px;
-    width: 300px;
-    position: fixed;
-    top: 0;
-    left: -320px;
-    height: 100%;
-    overflow-y: auto;
-    transition: left 0.3s ease;
+  background-color: black;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding-top: 60px;
+  display: none;
+  z-index: 10;
 }
 
-/* Active Menu */
 .side-menu.active {
-    left: 0;
+  display: block;
 }
 
-/* Sticky Close Button */
-.close-button {
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    font-size: inherit;
+.menu-image {
+  width: 50%;
 }
 
-/* Carousel */
+/* Dropdown Styles */
+.dropdown-btn {
+  background: black;
+  color: #30FF00;
+  font-size: 22px;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-container {
+  display: none;
+  padding-left: 20px;
+}
+
+.side-menu a {
+  display: block;
+  padding: 10px;
+  color: #30FF00;
+  text-decoration: none;
+}
+
+/* Paragraph Box */
+.paragraph-box {
+  margin-left: 260px;
+  padding: 20px;
+  flex: 1;
+}
+
+/* Image Carousel */
 .carousel {
-    position: relative;
-    max-width: 80%;
-    margin: auto;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 75%;
 }
 
 .carousel-item img {
-    width: 75%; /* 3/4 Size */
-    height: auto;
+  width: 75%;
 }
 
 /* Carousel Controls */
 .carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #30FF00;
-    font-size: 40px;
-    cursor: pointer;
-    user-select: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  color: #30FF00;
+  cursor: pointer;
 }
 
-.prev { left: 0; }
-.next { right: 0; }
+.prev {
+  left: 10px;
+}
 
-/* Footer - Responsive Sticky */
+.next {
+  right: 10px;
+}
+
+/* Footer */
 .footer {
-    position: sticky;
-    bottom: 0;
-    background: black;
-    color: #30FF00;
-    padding: 10px 0;
-    text-align: center;
-}
-
-/* Responsive Paragraph Box */
-.paragraph-box {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
+  position: sticky;
+  bottom: 0;
+  background: black;
+  color: #30FF00;
+  text-align: center;
+  padding: 10px;
 }
