@@ -1,80 +1,83 @@
+
+  // Sidebar Toggle and Carousel Functionality
 document.addEventListener("DOMContentLoaded", function () {
   // Sidebar Toggle
   const menuButton = document.getElementById("menu-button");
   const sideMenu = document.querySelector(".side-menu");
-  const carouselContainer = document.querySelector(".carousel-container");
+  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  const paragraphBox = document.querySelector(".paragraph-box");
 
+  // Toggle Sidebar Menu
   menuButton.addEventListener("click", () => {
     sideMenu.classList.toggle("active");
-
-    // Adjust carousel position when the menu is open
-    if (sideMenu.classList.contains("active")) {
-      carouselContainer.style.marginTop = "150px"; // Push carousel down
-    } else {
-      carouselContainer.style.marginTop = "50px"; // Reset position
-    }
+    updateParagraphPosition();
   });
 
-  // 3D Carousel Image Loader
-  const carousel = document.getElementById("carousel-3d");
-  const imageCount = 6; // Number of images
-  const imageBasePath = "/foodPics/IMG_0";
-  const imageStart = 490;
+  // Handle Dropdowns
+  dropdownButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const dropdownContent = this.nextElementSibling;
+      const isActive = dropdownContent.style.display === "block";
+      closeAllDropdowns();
+      dropdownContent.style.display = isActive ? "none" : "block";
+      updateParagraphPosition();
+    });
+  });
 
-  for (let i = 0; i < imageCount; i++) {
-    const imgIndex = imageStart + i;
-    const carouselItem = document.createElement("div");
-    carouselItem.className = "carousel-item";
-    carouselItem.innerHTML = `<img src="${imageBasePath}${imgIndex}.jpeg" alt="Image ${imgIndex}">`;
-    carousel.appendChild(carouselItem);
+  // Close all dropdowns
+  function closeAllDropdowns() {
+    document.querySelectorAll(".dropdown-container").forEach(container => {
+      container.style.display = "none";
+    });
   }
 
-  // Manual Rotation for Carousel
-  let rotationAngle = 0;
-
-  function rotateCarousel(angle) {
-    rotationAngle += angle;
-    carousel.style.transform = `rotateY(${rotationAngle}deg)`;
+  // Update Paragraph Position
+  function updateParagraphPosition() {
+    let menuHeight = sideMenu.classList.contains("active") ? sideMenu.offsetHeight : 100;
+    paragraphBox.style.marginTop = `${menuHeight}px`;
   }
 
-  // Swipe Support (Touch Devices)
+  // Carousel Functionality
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".carousel-item");
+
+  function showSlides(index) {
+    slides.forEach(slide => (slide.style.display = "none"));
+    slides[index].style.display = "block";
+  }
+
+  window.nextSlide = function () {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlides(slideIndex);
+  };
+
+  window.prevSlide = function () {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlides(slideIndex);
+  };
+
+  showSlides(slideIndex);
+
+  // Touch Swipe Support for Carousel
+  const carousel = document.getElementById("carousel");
   let touchStartX = 0;
+
   carousel.addEventListener("touchstart", (e) => {
     touchStartX = e.touches[0].clientX;
   });
 
   carousel.addEventListener("touchend", (e) => {
     const touchEndX = e.changedTouches[0].clientX;
-    if (touchEndX < touchStartX) {
-      rotateCarousel(60); // Swipe left
-    } else if (touchEndX > touchStartX) {
-      rotateCarousel(-60); // Swipe right
-    }
+    if (touchEndX < touchStartX) nextSlide();
+    else if (touchEndX > touchStartX) prevSlide();
   });
 
-  // Click and Drag Support (Mouse Devices)
-  let isDragging = false;
-  let startX = 0;
-
-  carousel.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    startX = e.clientX;
-  });
-
-  document.addEventListener("mouseup", () => {
-    isDragging = false;
-  });
-
-  document.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-    const deltaX = e.clientX - startX;
-
-    if (deltaX > 50) {
-      rotateCarousel(-60); // Drag right
-      isDragging = false;
-    } else if (deltaX < -50) {
-      rotateCarousel(60); // Drag left
-      isDragging = false;
-    }
-  });
+  // Dynamically Load Images for Carousel
+  const carouselInner = document.querySelector(".carousel-inner");
+  for (let i = 490; i <= 514; i++) {
+    const div = document.createElement("div");
+    div.className = `carousel-item ${i === 490 ? 'active' : ''}`;
+    div.innerHTML = `<img src="/foodPics/IMG_0${i}.jpeg" alt="Food Image ${i}">`;
+    carouselInner.appendChild(div);
+  }
 });

@@ -1,133 +1,165 @@
-/* Global Styles */
+/* General Page Styling */
 body {
-  margin: 20px;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   background-color: black;
-  color: white;
-  border: 10px solid #333;
+  color: #30FF00; /* Neon Green Font */
   overflow-x: hidden;
 }
 
-/* Navbar */
+/* Top Navbar */
 .top-navbar {
   display: flex;
   justify-content: flex-start;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: #111;
 }
 
 #menu-button {
   font-size: 24px;
-  cursor: pointer;
+  color: #30FF00;
   background: none;
   border: none;
-  color: white;
+  cursor: pointer;
 }
 
 /* Sidebar Menu */
 .side-menu {
   position: fixed;
   top: 0;
-  left: -300px; /* Hidden initially */
-  width: 250px;
+  left: -300px;
+  width: 300px;
   height: 100%;
-  background-color: black;
-  padding-top: 60px;
-  transition: left 0.3s ease;
+  background-color: #333;
+  overflow-y: auto;
+  transition: left 0.5s;
+  z-index: 10;
 }
 
 .side-menu.active {
   left: 0;
 }
 
-.side-menu a {
+.side-menu img.menu-image {
+  width: 100%;
+  height: auto;
+}
+
+.side-menu a,
+.dropdown-btn {
   display: block;
-  padding: 10px 20px;
+  padding: 15px 20px;
   text-decoration: none;
-  color: white;
+  color: #30FF00;
+  transition: background 0.3s;
+}
+
+.dropdown-btn {
+  background-color: black;
+  border: none;
   text-align: left;
+  width: 100%;
+  cursor: pointer;
 }
 
-.side-menu a:hover {
-  background-color: #444;
+/* Dropdown Content */
+.dropdown-container {
+  display: none;
+  padding-left: 20px;
 }
 
-/* Paragraph Box */
+.side-menu a:hover,
+.dropdown-btn:hover {
+  background-color: #555;
+}
+
+/* Main Content */
 .paragraph-box {
-  max-width: 800px;
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 20px;
   text-align: center;
+  max-width: 80%;
+  transition: margin-top 0.5s;
 }
 
-/* Responsive Paragraph for Large Screens */
-@media (min-width: 1500px) {
-  .paragraph-box {
-    margin-top: 50vh; /* Halfway down */
-  }
-}
-
-/* 3D Carousel Container */
-.carousel-container {
-  perspective: 1500px;
-  margin-top: 50px; /* Default position */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: margin-top 0.3s ease; /* Smooth transition when moving */
-}
-
-/* Responsive 3D Carousel */
-.carousel-3d {
+/* 3D Image Carousel */
+.carousel {
   position: relative;
-  width: 80vw;
-  max-width: 400px;
-  height: 80vw;
-  max-height: 400px;
-  transform-style: preserve-3d;
-  margin: auto;
+  width: 100%;
+  max-width: 600px;
+  margin: 50px auto;
+  perspective: 1000px;
 }
 
-/* 3D Carousel Items */
-.carousel-item {
-  position: absolute;
+.carousel-inner {
+  position: relative;
   width: 100%;
-  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.carousel-item {
+  display: none;
+  width: 100%;
   backface-visibility: hidden;
 }
 
 .carousel-item img {
   width: 100%;
-  height: auto;
   border-radius: 10px;
 }
 
-/* Dynamic Positions for Images (6 items = 360°) */
-.carousel-item:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
-.carousel-item:nth-child(2) { transform: rotateY(60deg) translateZ(300px); }
-.carousel-item:nth-child(3) { transform: rotateY(120deg) translateZ(300px); }
-.carousel-item:nth-child(4) { transform: rotateY(180deg) translateZ(300px); }
-.carousel-item:nth-child(5) { transform: rotateY(240deg) translateZ(300px); }
-.carousel-item:nth-child(6) { transform: rotateY(300deg) translateZ(300px); }
-
-/* Adjust Image Depth for Small Screens */
-@media (max-width: 600px) {
-  .carousel-item:nth-child(1) { transform: rotateY(0deg) translateZ(200px); }
-  .carousel-item:nth-child(2) { transform: rotateY(60deg) translateZ(200px); }
-  .carousel-item:nth-child(3) { transform: rotateY(120deg) translateZ(200px); }
-  .carousel-item:nth-child(4) { transform: rotateY(180deg) translateZ(200px); }
-  .carousel-item:nth-child(5) { transform: rotateY(240deg) translateZ(200px); }
-  .carousel-item:nth-child(6) { transform: rotateY(300deg) translateZ(200px); }
+/* Show the active item */
+.carousel-item.active {
+  display: block;
 }
 
-/* Footer */
+/* Carousel Navigation Arrows */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  color: #30FF00;
+  cursor: pointer;
+  user-select: none;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+/* Footer with Scrolling Text */
 .footer {
-  margin-top: 40px;
+  margin-top: 50px;
   text-align: center;
 }
 
 marquee {
-  font-size: 14px;
+  color: #30FF00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .paragraph-box {
+    margin-top: 150px;
+  }
+
+  .carousel {
+    max-width: 90%;
+  }
+
+  .side-menu {
+    width: 100%;
+    left: -100%;
+  }
+
+  .side-menu.active {
+    left: 0;
+  }
 }
