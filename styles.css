@@ -10,6 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    border: 2px solid darkgray; /* Dark gray border around the whole page */
 }
 
 /* Links */
