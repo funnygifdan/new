@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Funcryptology</title>
+  <title>Funcryptology - 3D Carousel</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+
   <!-- Top Navbar -->
   <div class="top-navbar">
     <button id="menu-button">☰</button>
@@ -45,23 +46,40 @@
       <a href="linuxcom.html">Linux Commands</a>
     </div>
   </div>
-<div class="paragraph-box">
-  <h3>Welcome to Funcryptology! Learn about cybersecurity and network security.</h3>
-<!-- Main Content -->
-<div class="paragraph-box">
-<!-- Carousel Container -->
-  <div class="carousel-container">
-   <div id="carousel-3d" class="carousel-3d">
-   </div>
+
+  <!-- Main Content -->
+  <div class="paragraph-box">
+    <h1>Welcome to Funcryptology!</h1>
+    <p>Learn about cybersecurity, network security, and enjoy exploring our 3D image carousel below.</p>
+
+    <!-- 3D Image Carousel -->
+    <div class="carousel" id="carousel">
+      <div class="carousel-inner">
+        <!-- Dynamically Load 25 Images -->
+        <script>
+          for (let i = 490; i <= 514; i++) {
+            document.write(`
+              <div class="carousel-item ${i === 490 ? 'active' : ''}">
+                <img src="/foodPics/IMG_0${i}.jpeg" alt="Food Image ${i}">
+              </div>
+            `);
+          }
+        </script>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
+      <a class="carousel-control next" onclick="nextSlide()">&#10095;</a>
+    </div>
   </div>
-<!-- Footer -->
-<div class="footer">
-<marquee>&copy; 2025 Funcryptology. All rights reserved.</marquee>
- </div>
 
+  <!-- Footer with Scrolling Text -->
+  <div class="footer">
+    <marquee behavior="scroll" direction="left">&copy; 2025 Funcryptology. All rights reserved.</marquee>
+  </div>
 
-<!-- JavaScript -->
-<script>
+  <!-- JavaScript -->
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Sidebar Toggle
       const menuButton = document.getElementById("menu-button");
@@ -70,8 +88,11 @@
 
       menuButton.addEventListener("click", () => {
         sideMenu.classList.toggle("active");
+        const paragraphBox = document.querySelector(".paragraph-box");
+        paragraphBox.style.marginTop = sideMenu.classList.contains("active") ? "300px" : "0";
       });
 
+      // Dropdown Functionality
       dropdownButtons.forEach(button => {
         button.addEventListener("click", function () {
           const dropdownContent = this.nextElementSibling;
