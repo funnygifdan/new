@@ -1,62 +1,59 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Sidebar Toggle
-    const menuButton = document.getElementById("menu-button");
-    const sideMenu = document.querySelector(".side-menu");
-    const closeMenuButton = document.getElementById("close-menu");
-    const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  // Sidebar Toggle
+  const menuButton = document.getElementById("menu-button");
+  const sideMenu = document.getElementById("side-menu");
+  const closeButton = document.getElementById("close-menu");
+  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
 
-    // Open Menu
-    menuButton.addEventListener("click", () => {
-        sideMenu.classList.toggle("active");
+  menuButton.addEventListener("click", () => {
+    sideMenu.classList.toggle("active");
+  });
+
+  closeButton.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+  });
+
+  dropdownButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      const dropdownContent = this.nextElementSibling;
+      const isActive = dropdownContent.style.display === "block";
+      document.querySelectorAll(".dropdown-container").forEach(container => container.style.display = "none");
+      dropdownContent.style.display = isActive ? "none" : "block";
     });
+  });
 
-    // Close Menu
-    closeMenuButton.addEventListener("click", () => {
-        sideMenu.classList.remove("active");
-    });
+  // Carousel Functionality
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".carousel-item");
 
-    // Dropdown Menus
-    dropdownButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            const dropdownContent = this.nextElementSibling;
-            const isActive = dropdownContent.style.display === "block";
-            document.querySelectorAll(".dropdown-container").forEach(container => container.style.display = "none");
-            dropdownContent.style.display = isActive ? "none" : "block";
-        });
-    });
+  function showSlides(index) {
+    slides.forEach(slide => (slide.style.display = "none"));
+    slides[index].style.display = "block";
+  }
 
-    // Carousel
-    let slideIndex = 0;
-    const slides = document.querySelectorAll(".carousel-item");
-
-    function showSlides(index) {
-        slides.forEach(slide => (slide.style.display = "none"));
-        slides[index].style.display = "block";
-    }
-
-    window.nextSlide = function () {
-        slideIndex = (slideIndex + 1) % slides.length;
-        showSlides(slideIndex);
-    };
-
-    window.prevSlide = function () {
-        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-        showSlides(slideIndex);
-    };
-
+  window.nextSlide = function () {
+    slideIndex = (slideIndex + 1) % slides.length;
     showSlides(slideIndex);
+  };
 
-    // Touch Swipe Support
-    const carousel = document.getElementById("carousel");
-    let touchStartX = 0;
+  window.prevSlide = function () {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlides(slideIndex);
+  };
 
-    carousel.addEventListener("touchstart", (e) => {
-        touchStartX = e.touches[0].clientX;
-    });
+  showSlides(slideIndex);
 
-    carousel.addEventListener("touchend", (e) => {
-        const touchEndX = e.changedTouches[0].clientX;
-        if (touchEndX < touchStartX) nextSlide();
-        else if (touchEndX > touchStartX) prevSlide();
-    });
+  // Touch Swipe Support
+  const carousel = document.getElementById("carousel");
+  let touchStartX = 0;
+
+  carousel.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener("touchend", (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    if (touchEndX < touchStartX) nextSlide();
+    else if (touchEndX > touchStartX) prevSlide();
+  });
 });

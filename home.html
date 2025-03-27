@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Funcryptology</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles_updated.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -16,8 +16,8 @@
   </div>
 
   <!-- Sidebar/Menu -->
-  <div class="side-menu">
-    <img src="/foodPics/IMG_1039.jpeg" alt="Menu Image" class="menu-image">
+  <div class="side-menu" id="side-menu">
+    <img src="/new/foodPics/IMG_1039.jpeg" alt="Menu Image" class="menu-image">
     <a href="https://linktr.ee/funnygifdan">My Linktree</a>
     <a href="linknew.html">NewHome</a>
     <a href="cyberaware.html">Cyber Awareness</a>
@@ -44,6 +44,9 @@
     <div class="dropdown-container">
       <a href="linuxcom.html">Linux Commands</a>
     </div>
+
+    <!-- Close Button -->
+    <button id="close-menu" class="close-btn">Close Menu</button>
   </div>
 
   <!-- Main Content: Paragraph Box with Carousel -->
@@ -58,7 +61,7 @@
           for (let i = 490; i <= 514; i++) {
             document.write(`
               <div class="carousel-item ${i === 490 ? 'active' : ''}">
-                <img src="/foodPics/IMG_0${i}.jpeg" alt="Food Image ${i}">
+                <img src="/new/foodPics/IMG_0${i}.jpeg" alt="Food Image ${i}">
               </div>
             `);
           }
@@ -71,14 +74,12 @@
     </div>
   </div>
 
-<!-- Footer with Responsive Marquee -->
-<div class="footer">
-  <div class="responsive-marquee">
-    &copy; 2025 Funcryptology. All rights reserved.
+  <!-- Footer with Scrolling Text -->
+  <div class="footer">
+    <marquee behavior="scroll" direction="left">&copy; 2025 Funcryptology. All rights reserved.</marquee>
   </div>
-</div>
-  <!-- JavaScript -->
-  <script src="App.js"></script>
+
+  <script src="App_updated.js"></script>
 
 </body>
 

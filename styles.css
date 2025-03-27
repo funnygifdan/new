@@ -1,106 +1,72 @@
-/* Global Styles */
+/* General styling */
 body {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    background-color: black;
-    color: #30FF00; /* Hacker green */
-    font-size: 34px; /* Updated font size */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: "Comic Sans MS", sans-serif;
+  font-size: 34px;
+  color: #30FF00;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Button Styles */
-button, .dropdown-btn, .close-button {
-    background-color: black;
-    color: #30FF00;
-    font-size: 34px; /* Ensure all buttons share this size */
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-/* Top Navbar */
-.top-navbar {
-    padding: 10px;
-}
-
-/* Side Menu */
+/* Menu styling */
 .side-menu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 300px;
-    height: 100%;
-    background: black;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    overflow-y: auto;
+  background: black;
+  width: 300px;
+  position: fixed;
+  height: 100%;
+  left: -300px;
+  overflow-y: auto;
+  transition: left 0.3s;
 }
 
 .side-menu.active {
-    transform: translateX(0);
-}
-
-.side-menu a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #30FF00;
-}
-
-.dropdown-container {
-    display: none;
-    background: darkgray;
+  left: 0;
 }
 
 .menu-image {
-    width: 50%;
+  width: 50%;
 }
 
-/* Close Button */
-.close-button {
-    position: sticky;
-    bottom: 0;
+button, .dropdown-btn {
+  background: black;
+  color: #30FF00;
+  font-size: 34px;
+  font-family: "Comic Sans MS", sans-serif;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
 }
 
-/* Paragraph Box */
-.paragraph-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 60vh;
+.dropdown-container {
+  display: none;
+  background-color: #333;
+}
+
+.close-btn {
+  position: sticky;
+  bottom: 0;
 }
 
 /* Carousel */
 .carousel {
-    width: 80%;
-    max-width: 900px;
-    perspective: 1000px;
+  width: 75%;
+  margin: 0 auto;
 }
 
-.carousel-inner {
-    display: flex;
-    overflow: hidden;
-}
-
-.carousel-item {
-    min-width: 100%;
-    transition: transform 0.5s ease;
-}
-
-.carousel img {
-    width: 150%;
+.carousel-item img {
+  width: 150%;
 }
 
 /* Footer */
 .footer {
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    background: black;
-    color: #30FF00;
-    text-align: center;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  background: black;
+  color: #30FF00;
+  text-align: center;
 }
