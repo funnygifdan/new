@@ -1,146 +1,107 @@
-/* General Styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  background-color: black;
-  color: #30FF00;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* Global Styling - Comic Sans and Font Size 26px */
+* {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-size: 26px;
+    box-sizing: border-box; /* Consistent box model */
 }
 
-/* Navbar */
-.top-navbar {
-  background-color: black;
-  padding: 10px;
+/* Button Styling */
+button {
+    background: black;
+    color: #30FF00; /* Hacker Green */
+    font-size: inherit;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
 }
 
-#menu-button {
-  background: black;
-  color: #30FF00;
-  font-size: 22px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Sidebar/Menu */
-.side-menu {
-  background-color: black;
-  width: 250px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  padding-top: 60px;
-  display: none;
-  z-index: 10;
-}
-
-.side-menu.active {
-  display: block;
-}
-
-.menu-image {
-  width: 50%;
-}
-
-/* Dropdown Styles */
+/* Dropdown Button (inherits from regular buttons) */
 .dropdown-btn {
-  background: black;
-  color: #30FF00;
-  font-size: 22px;
-  width: 100%;
-  text-align: left;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-size: inherit;
 }
 
+/* Dropdown Container */
 .dropdown-container {
-  display: none;
-  padding-left: 20px;
+    display: none;
+    background: #333; /* Dark Gray */
+    padding-left: 20px;
 }
 
-.side-menu a {
-  display: block;
-  padding: 10px;
-  color: #30FF00;
-  text-decoration: none;
+/* Active dropdown */
+.dropdown-container.open {
+    display: block;
 }
 
-/* Paragraph Box - Centered */
-.paragraph-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-left: 260px;
-  padding: 20px;
-  min-height: 80vh; /* Keeps it centered relative to viewport */
+/* Sidebar Menu */
+.side-menu {
+    background: black; /* Ensure black background */
+    padding: 20px;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: -320px;
+    height: 100%;
+    overflow-y: auto;
+    transition: left 0.3s ease;
 }
 
-/* Image Carousel - 2x Larger */
+/* Active Menu */
+.side-menu.active {
+    left: 0;
+}
+
+/* Sticky Close Button */
+.close-button {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: inherit;
+}
+
+/* Carousel */
 .carousel {
-  position: relative;
-  overflow: hidden;
-  max-width: 100%;
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-  min-width: 150%; /* Twice as large as before */
+    position: relative;
+    max-width: 80%;
+    margin: auto;
 }
 
 .carousel-item img {
-  width: 150%; /* Twice as large as before */
+    width: 75%; /* 3/4 Size */
+    height: auto;
 }
 
 /* Carousel Controls */
 .carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 32px;
-  color: #30FF00;
-  cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #30FF00;
+    font-size: 40px;
+    cursor: pointer;
+    user-select: none;
 }
 
-.prev {
-  left: 10px;
-}
+.prev { left: 0; }
+.next { right: 0; }
 
-.next {
-  right: 10px;
-}
-
-/* Footer */
+/* Footer - Responsive Sticky */
 .footer {
-  position: sticky;
-  bottom: 0;
-  background: black;
-  color: #30FF00;
-  text-align: center;
-  padding: 10px;
+    position: sticky;
+    bottom: 0;
+    background: black;
+    color: #30FF00;
+    padding: 10px 0;
+    text-align: center;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .paragraph-box {
-    margin-left: 0; /* Remove margin on smaller screens */
-  }
-
-  .carousel-item {
-    min-width: 100%; /* Adjust carousel for smaller screens */
-  }
-
-  .carousel-item img {
-    width: 100%;
-  }
+/* Responsive Paragraph Box */
+.paragraph-box {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
 }
