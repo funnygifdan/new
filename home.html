@@ -40,15 +40,36 @@
       <a href="linuxcom.html">Linux Commands</a>
     </div>
   </div>
-  <!-- Main Content -->
+  
+  <!-- Main Content: Paragraph Box -->
   <div class="paragraph-box">
     <p>Welcome to Funcryptology! Learn about cybersecurity and network security.</p>
   </div>
+  
+  <!-- Carousel for Photos -->
+  <div class="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="photo1.jpg" alt="Photo 1">
+      </div>
+      <div class="carousel-item">
+        <img src="photo2.jpg" alt="Photo 2">
+      </div>
+      <div class="carousel-item">
+        <img src="photo3.jpg" alt="Photo 3">
+      </div>
+    </div>
+    <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
+    <a class="carousel-control next" onclick="nextSlide()">&#10095;</a>
+  </div>
+  
   <!-- Footer with Scrolling Text -->
   <div class="footer">
     <marquee behavior="scroll" direction="left">&copy; 2025 Funcryptology. All rights reserved.</marquee>
   </div>
+  
   <script>
+    // Toggle the sidebar menu
     document.addEventListener("DOMContentLoaded", function() {
       const menuButton = document.getElementById("menu-button");
       const sideMenu = document.querySelector(".side-menu");
@@ -74,6 +95,37 @@
         });
       });
     });
+
+    // Simple Carousel Functionality
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      const slides = document.getElementsByClassName("carousel-item");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+    }
+
+    function nextSlide() {
+      const slides = document.getElementsByClassName("carousel-item");
+      slides[slideIndex - 1].style.display = "none";
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+    }
+
+    function prevSlide() {
+      const slides = document.getElementsByClassName("carousel-item");
+      slides[slideIndex - 1].style.display = "none";
+      slideIndex--;
+      if (slideIndex < 1) { slideIndex = slides.length; }
+      slides[slideIndex - 1].style.display = "block";
+    }
   </script>
 </body>
 </html>
