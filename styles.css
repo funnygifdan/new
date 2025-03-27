@@ -1,12 +1,15 @@
-/* Global Styles */
+/* Global Styling - Comic Sans with font-size 18px */
+* {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: "Comic Sans MS", sans-serif;
-    font-size: 22px;
     color: #30FF00;
+    background: black;
     margin: 0;
     padding: 0;
-    background: black;
-    box-sizing: border-box;
     overflow-x: hidden;
 }
 
@@ -14,18 +17,17 @@ body {
 .top-navbar {
     position: sticky;
     top: 0;
+    z-index: 1000;
     display: flex;
     align-items: center;
     padding: 10px;
     background: black;
-    z-index: 1000;
 }
 
 /* Menu Button */
 #menu-button {
     background: black;
     color: #30FF00;
-    font-size: 22px;
     border: none;
     cursor: pointer;
 }
@@ -53,7 +55,6 @@ body {
     color: #30FF00;
     text-decoration: none;
     padding: 15px;
-    font-size: 22px;
     border: none;
     text-align: left;
     cursor: pointer;
@@ -66,7 +67,7 @@ body {
     display: block;
 }
 
-/* Responsive Main Content */
+/* Main Content */
 .main-content {
     margin-left: 320px;
     padding: 20px;
@@ -88,7 +89,7 @@ body {
     height: 300px;
     margin: 50px auto;
     transform-style: preserve-3d;
-    animation: rotateCarousel 20s infinite linear;
+    animation: rotateCarousel 20s linear infinite;
 }
 
 .carousel-item {
@@ -107,14 +108,10 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Rotate Animation */
+/* 3D Rotation Animation */
 @keyframes rotateCarousel {
-    from {
-        transform: rotateY(0deg);
-    }
-    to {
-        transform: rotateY(360deg);
-    }
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
 }
 
 /* Footer (Sticky) */
@@ -133,11 +130,9 @@ body {
     .side-menu {
         width: 250px;
     }
-
     .main-content {
         margin-left: 270px;
     }
-
     .carousel-3d {
         width: 300px;
         height: 250px;
@@ -146,13 +141,11 @@ body {
 
 @media (max-width: 480px) {
     #menu-button {
-        font-size: 18px;
+        font-size: 16px;
     }
-
     .side-menu a, .dropdown-btn, #close-menu {
-        font-size: 18px;
+        font-size: 16px;
     }
-
     .carousel-3d {
         width: 250px;
         height: 200px;
