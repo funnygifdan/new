@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
   <!-- Top Navbar -->
   <div class="top-navbar">
     <button id="menu-button">☰</button>
@@ -18,7 +17,7 @@
 
   <!-- Sidebar/Menu -->
   <div class="side-menu">
-    <img src="IMG_1039.jpeg" alt="Menu Image" class="menu-image">
+    <img src="/foodPics/IMG_1039.jpeg" alt="Menu Image" class="menu-image">
     <a href="https://linktr.ee/funnygifdan">My Linktree</a>
     <a href="linknew.html">NewHome</a>
     <a href="cyberaware.html">Cyber Awareness</a>
@@ -54,7 +53,16 @@
     <!-- Image Carousel -->
     <div class="carousel" id="carousel">
       <div class="carousel-inner">
-        <!-- Carousel items will be added dynamically by JavaScript -->
+        <!-- Dynamically Load 25 Images -->
+        <script>
+          for (let i = 490; i <= 514; i++) {
+            document.write(`
+              <div class="carousel-item ${i === 490 ? 'active' : ''}">
+                <img src="/foodPics/IMG_0${i}.jpeg" alt="Food Image ${i}">
+              </div>
+            `);
+          }
+        </script>
       </div>
 
       <!-- Navigation Arrows -->
@@ -63,7 +71,7 @@
     </div>
   </div>
 
-  <!-- Footer with Scrolling Text -->
+  <!-- Footer -->
   <div class="footer">
     <marquee behavior="scroll" direction="left">&copy; 2025 Funcryptology. All rights reserved.</marquee>
   </div>

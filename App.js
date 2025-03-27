@@ -1,40 +1,28 @@
-
-  // Sidebar Toggle and Carousel Functionality
 document.addEventListener("DOMContentLoaded", function () {
-  // Sidebar Toggle
+  // Menu Toggle
   const menuButton = document.getElementById("menu-button");
   const sideMenu = document.querySelector(".side-menu");
   const dropdownButtons = document.querySelectorAll(".dropdown-btn");
-  const paragraphBox = document.querySelector(".paragraph-box");
 
-  // Toggle Sidebar Menu
   menuButton.addEventListener("click", () => {
     sideMenu.classList.toggle("active");
     updateParagraphPosition();
   });
 
-  // Handle Dropdowns
   dropdownButtons.forEach(button => {
     button.addEventListener("click", function () {
       const dropdownContent = this.nextElementSibling;
       const isActive = dropdownContent.style.display === "block";
-      closeAllDropdowns();
+      document.querySelectorAll(".dropdown-container").forEach(container => container.style.display = "none");
       dropdownContent.style.display = isActive ? "none" : "block";
       updateParagraphPosition();
     });
   });
 
-  // Close all dropdowns
-  function closeAllDropdowns() {
-    document.querySelectorAll(".dropdown-container").forEach(container => {
-      container.style.display = "none";
-    });
-  }
-
-  // Update Paragraph Position
+  // Adjust Paragraph Box Position
   function updateParagraphPosition() {
-    let menuHeight = sideMenu.classList.contains("active") ? sideMenu.offsetHeight : 100;
-    paragraphBox.style.marginTop = `${menuHeight}px`;
+    const menuHeight = sideMenu.classList.contains("active") ? sideMenu.offsetHeight : 0;
+    document.querySelector(".paragraph-box").style.marginTop = `${menuHeight}px`;
   }
 
   // Carousel Functionality
@@ -58,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   showSlides(slideIndex);
 
-  // Touch Swipe Support for Carousel
+  // Touch Swipe Support
   const carousel = document.getElementById("carousel");
   let touchStartX = 0;
 
@@ -71,13 +59,4 @@ document.addEventListener("DOMContentLoaded", function () {
     if (touchEndX < touchStartX) nextSlide();
     else if (touchEndX > touchStartX) prevSlide();
   });
-
-  // Dynamically Load Images for Carousel
-  const carouselInner = document.querySelector(".carousel-inner");
-  for (let i = 490; i <= 514; i++) {
-    const div = document.createElement("div");
-    div.className = `carousel-item ${i === 490 ? 'active' : ''}`;
-    div.innerHTML = `<img src="/foodPics/IMG_0${i}.jpeg" alt="Food Image ${i}">`;
-    carouselInner.appendChild(div);
-  }
 });
