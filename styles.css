@@ -70,14 +70,19 @@ body {
   text-decoration: none;
 }
 
-/* Paragraph Box */
+/* Paragraph Box - Centered */
 .paragraph-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   margin-left: 260px;
   padding: 20px;
-  flex: 1;
+  min-height: 80vh; /* Keeps it centered relative to viewport */
 }
 
-/* Image Carousel */
+/* Image Carousel - 2x Larger */
 .carousel {
   position: relative;
   overflow: hidden;
@@ -90,11 +95,11 @@ body {
 }
 
 .carousel-item {
-  min-width: 75%;
+  min-width: 150%; /* Twice as large as before */
 }
 
 .carousel-item img {
-  width: 75%;
+  width: 150%; /* Twice as large as before */
 }
 
 /* Carousel Controls */
@@ -114,7 +119,8 @@ body {
 .next {
   right: 10px;
 }
-/* Footer with Responsive Marquee */
+
+/* Footer */
 .footer {
   position: sticky;
   bottom: 0;
@@ -122,39 +128,19 @@ body {
   color: #30FF00;
   text-align: center;
   padding: 10px;
-  width: 100%;
-  overflow: hidden;
 }
 
-/* Marquee Styling */
-.responsive-marquee {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee 10s linear infinite;
-  font-size: 1.5vw; /* Responsive font size */
-}
-
-/* Marquee Animation */
-@keyframes marquee {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-/* Adjust marquee speed and size on smaller screens */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .responsive-marquee {
-    animation: marquee 15s linear infinite; /* Slower for small screens */
-    font-size: 3vw; /* Larger text for smaller screens */
+  .paragraph-box {
+    margin-left: 0; /* Remove margin on smaller screens */
   }
-}
 
-@media (max-width: 480px) {
-  .responsive-marquee {
-    animation: marquee 20s linear infinite; /* Even slower for very small screens */
-    font-size: 4vw; /* Larger font for extra small screens */
+  .carousel-item {
+    min-width: 100%; /* Adjust carousel for smaller screens */
+  }
+
+  .carousel-item img {
+    width: 100%;
   }
 }
