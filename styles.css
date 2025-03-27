@@ -120,7 +120,7 @@ body {
   right: 10px;
 }
 
-/* Footer */
+/* Footer with Responsive Marquee */
 .footer {
   position: sticky;
   bottom: 0;
@@ -128,19 +128,39 @@ body {
   color: #30FF00;
   text-align: center;
   padding: 10px;
+  width: 100%;
+  overflow: hidden;
 }
 
-/* Responsive Adjustments */
+/* Marquee Styling */
+.responsive-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+  font-size: 1.5vw; /* Responsive font size */
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Adjust marquee speed and size on smaller screens */
 @media (max-width: 768px) {
-  .paragraph-box {
-    margin-left: 0; /* Remove margin on smaller screens */
+  .responsive-marquee {
+    animation: marquee 15s linear infinite; /* Slower for small screens */
+    font-size: 3vw; /* Larger text for smaller screens */
   }
+}
 
-  .carousel-item {
-    min-width: 100%; /* Adjust carousel for smaller screens */
-  }
-
-  .carousel-item img {
-    width: 100%;
+@media (max-width: 480px) {
+  .responsive-marquee {
+    animation: marquee 20s linear infinite; /* Even slower for very small screens */
+    font-size: 4vw; /* Larger font for extra small screens */
   }
 }
