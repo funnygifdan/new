@@ -1,72 +1,113 @@
-/* General styling */
+
+/* Global Styling */
 body {
-  font-family: "Comic Sans MS", sans-serif;
-  font-size: 34px;
-  color: #30FF00;
-  background-color: black;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 34px;
+    color: #30FF00;
+    margin: 0;
+    padding: 0;
+    background: black;
+    box-sizing: border-box;
 }
 
-/* Menu styling */
+/* Navbar */
+.top-navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: black;
+}
+
+#menu-button {
+    background: black;
+    color: #30FF00;
+    font-size: 34px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Sidebar Menu */
 .side-menu {
-  background: black;
-  width: 300px;
-  position: fixed;
-  height: 100%;
-  left: -300px;
-  overflow-y: auto;
-  transition: left 0.3s;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    height: 100%;
+    background: black;
+    transition: left 0.3s;
+    overflow-y: auto;
+    padding-top: 60px;
 }
 
 .side-menu.active {
-  left: 0;
+    left: 0;
 }
 
+.side-menu a, .dropdown-btn, #close-menu {
+    display: block;
+    background: black;
+    color: #30FF00;
+    text-decoration: none;
+    padding: 15px;
+    font-size: 34px;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Image in Menu */
 .menu-image {
-  width: 50%;
-}
-
-button, .dropdown-btn {
-  background: black;
-  color: #30FF00;
-  font-size: 34px;
-  font-family: "Comic Sans MS", sans-serif;
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropdown-container {
-  display: none;
-  background-color: #333;
-}
-
-.close-btn {
-  position: sticky;
-  bottom: 0;
+    width: 50%;
+    margin: 10px auto;
+    display: block;
 }
 
 /* Carousel */
 .carousel {
-  width: 75%;
-  margin: 0 auto;
+    position: relative;
+    width: 75%;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
 }
 
 .carousel-item img {
-  width: 150%;
+    width: 100%;
+}
+
+/* Carousel Navigation */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #30FF00;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
 }
 
 /* Footer */
 .footer {
-  position: sticky;
-  bottom: 0;
-  width: 100%;
-  background: black;
-  color: #30FF00;
-  text-align: center;
+    position: sticky;
+    bottom: 0;
+    background: black;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
 }

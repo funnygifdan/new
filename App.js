@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Sidebar Toggle
   const menuButton = document.getElementById("menu-button");
-  const sideMenu = document.getElementById("side-menu");
   const closeButton = document.getElementById("close-menu");
+  const sideMenu = document.querySelector(".side-menu");
   const dropdownButtons = document.querySelectorAll(".dropdown-btn");
 
+  // Toggle Sidebar
   menuButton.addEventListener("click", () => {
     sideMenu.classList.toggle("active");
   });
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sideMenu.classList.remove("active");
   });
 
+  // Dropdown Functionality
   dropdownButtons.forEach(button => {
     button.addEventListener("click", function () {
       const dropdownContent = this.nextElementSibling;

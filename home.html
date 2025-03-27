@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Funcryptology</title>
-  <link rel="stylesheet" href="styles_updated.css">
+  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -16,8 +16,8 @@
   </div>
 
   <!-- Sidebar/Menu -->
-  <div class="side-menu" id="side-menu">
-    <img src="/new/foodPics/IMG_1039.jpeg" alt="Menu Image" class="menu-image">
+  <div class="side-menu">
+    <img src="foodPhotos/IMG_1039.jpeg" alt="Menu Image" class="menu-image">
     <a href="https://linktr.ee/funnygifdan">My Linktree</a>
     <a href="linknew.html">NewHome</a>
     <a href="cyberaware.html">Cyber Awareness</a>
@@ -45,8 +45,7 @@
       <a href="linuxcom.html">Linux Commands</a>
     </div>
 
-    <!-- Close Button -->
-    <button id="close-menu" class="close-btn">Close Menu</button>
+    <button id="close-menu">Close</button>
   </div>
 
   <!-- Main Content: Paragraph Box with Carousel -->
@@ -56,12 +55,11 @@
     <!-- Image Carousel -->
     <div class="carousel" id="carousel">
       <div class="carousel-inner">
-        <!-- Dynamically Load 25 Images -->
         <script>
           for (let i = 490; i <= 514; i++) {
             document.write(`
               <div class="carousel-item ${i === 490 ? 'active' : ''}">
-                <img src="/new/foodPics/IMG_0${i}.jpeg" alt="Food Image ${i}">
+                <img src="foodPhotos/IMG_0${i}.jpeg" alt="Food Image ${i}">
               </div>
             `);
           }
@@ -79,7 +77,7 @@
     <marquee behavior="scroll" direction="left">&copy; 2025 Funcryptology. All rights reserved.</marquee>
   </div>
 
-  <script src="App_updated.js"></script>
+  <script src="App.js"></script>
 
 </body>
 
