@@ -2,55 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Responsive Hacker Theme with 3D Cube</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Hacker Theme with 3D Cube & AI Alien</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Matrix Background Canvas -->
+  <!-- Matrix Background Canvas (Optional, remove if not needed) -->
   <canvas id="matrixCanvas"></canvas>
 
   <!-- Sticky Top Navigation -->
-  <div class="top-nav">
+  <nav class="top-nav">
     <button id="menu-btn" class="menu-button">Menu</button>
-  </div>
+  </nav>
 
-  <!-- Side Menu (Hidden by default) -->
+  <!-- Side Menu -->
   <div id="menu" class="menu">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    
     <div class="dropdown">
       <button class="dropdown-btn">Services</button>
       <div class="dropdown-content">
-        <a href="#">Web Development</a>
-        <a href="#">Cybersecurity</a>
-        <a href="#">Consulting</a>
+        <a href="web.html">Web Design</a>
+        <a href="cyber.html">Cybersecurity</a>
+        <a href="consult.html">Consulting</a>
       </div>
     </div>
 
     <div class="dropdown">
       <button class="dropdown-btn">Portfolio</button>
       <div class="dropdown-content">
-        <a href="#">Projects</a>
-        <a href="#">Case Studies</a>
+        <a href="proj.html">Projects</a>
+        <a href="cases.html">Case Studies</a>
       </div>
     </div>
 
     <div class="dropdown">
       <button class="dropdown-btn">Resources</button>
       <div class="dropdown-content">
-        <a href="#">Blog</a>
-        <a href="#">White Papers</a>
+        <a href="blog.html">Blog</a>
+        <a href="docs.html">Docs</a>
       </div>
     </div>
 
-    <img src="foodPics/food1.jpeg" alt="Food Image" class="menu-image">
+    <img src="foodPics/food1.jpeg" alt="Menu Image" class="menu-image">
   </div>
 
   <!-- Main Content -->
   <div id="content">
-    <!-- 3D Cube Carousel (Shifted Up 200px) -->
+    <!-- 3D Cube Carousel -->
     <div class="carousel-container">
       <div class="cube" id="cube">
         <div class="cube-face cube-front">
@@ -73,14 +74,18 @@
         </div>
       </div>
     </div>
+
     <!-- Centered Paragraph -->
     <p class="content-text">Welcome to our hacker-themed site with a 3D cube carousel!</p>
   </div>
 
+  <!-- AI Alien -->
+  <img id="alien" src="alien.png" alt="Alien" />
+
   <!-- Sticky Footer -->
-  <div class="footer">
+  <footer class="footer">
     © 2025 Hacker Theme | All Rights Reserved
-  </div>
+  </footer>
 
   <script src="App.js"></script>
 </body>
