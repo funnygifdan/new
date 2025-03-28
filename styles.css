@@ -15,7 +15,7 @@ body {
     color: #39ff14;
     position: sticky;
     top: 0;
-    height: 15px;
+    height: 25px;
     display: flex;
     align-items: center;
     padding: 5px;
@@ -28,7 +28,7 @@ body {
     color: #39ff14;
     position: sticky;
     bottom: 0;
-    height: 15px;
+    height: 25px;
     display: flex;
     align-items: center;
     padding: 5px;
