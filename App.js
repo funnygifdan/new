@@ -91,5 +91,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       function w3_close() {
         document.getElementById("my
+        
+        
+       // Script for Sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+      }
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+      }
+
   
   
