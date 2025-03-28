@@ -5,8 +5,9 @@ body {
     box-sizing: border-box;
     font-family: "Comic Sans MS", sans-serif;
     color: #00FF00;
-    overflow: hidden;
-    font-size: 24px; /* Body text size */
+    background: black;
+    font-size: 24px;
+    overflow-x: hidden;
 }
 
 /* Hacker Matrix Background */
@@ -16,33 +17,31 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1; /* Behind all content */
-    background: black;
+    z-index: -1;
 }
 
 /* Sticky Top Navigation */
 .top-nav {
     position: sticky;
     top: 0;
-    height: 30px; /* Updated from 40px to 30px */
+    height: 30px;
     background-color: #212624;
     display: flex;
     align-items: center;
     padding: 0 20px;
     z-index: 1000;
-    font-size: 20px; /* Font size updated */
+    font-size: 20px;
 }
 
 /* Sticky Footer */
 .footer {
     position: sticky;
     bottom: 0;
-    height: 30px; /* Updated from 40px to 30px */
+    height: 30px;
     background-color: #212624;
     text-align: center;
-    padding: 5px 0;
     width: 100%;
-    font-size: 20px; /* Font size updated */
+    font-size: 20px;
 }
 
 /* Menu Button */
@@ -57,10 +56,10 @@ body {
 /* Side Menu */
 .menu {
     position: fixed;
-    top: 30px; /* Align with updated top nav height */
-    left: -20%;
+    top: 30px;
+    left: -22%;
     width: 20%;
-    height: calc(100% - 60px); /* Adjusted to account for updated nav/footer */
+    height: calc(100% - 60px);
     background-color: #212624;
     overflow-y: auto;
     transition: left 0.3s ease;
@@ -94,7 +93,6 @@ body {
 
 .dropdown-content {
     display: none;
-    flex-direction: column;
 }
 
 .dropdown.open .dropdown-content {

@@ -33,17 +33,10 @@ function drawMatrix() {
 
     ctx.fillStyle = '#00FF00';
     ctx.font = '20px Comic Sans MS';
-
-    for (let i = 0; i < drops.length; i++) {
-        const text = String.fromCharCode(33 + Math.random() * 94);
-        ctx.fillText(text, i * 20, drops[i] * 20);
-
-        if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
-            drops[i] = 0;
-        }
-        drops[i]++;
-    }
+    drops.forEach((y, x) => {
+        ctx.fillText(String.fromCharCode(33 + Math.random() * 94), x * 20, y * 20);
+        drops[x] = y > canvas.height && Math.random() > 0.975 ? 0 : y + 1;
+    });
 }
 
 setInterval(drawMatrix, 50);
-    
