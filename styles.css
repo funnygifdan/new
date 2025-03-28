@@ -154,7 +154,10 @@ html, body {
   text-align: center;
   padding: 10px;
   z-index: 100;
-}.w3-main.glitch-out {
+}
+
+/* Glitch animation for dynamic content */
+.w3-main.glitch-out {
   animation: glitchOut 0.3s linear;
 }
 .w3-main.glitch-in {
@@ -169,8 +172,7 @@ html, body {
   100% { opacity: 1; transform: scale(1); }
 }
 
-
-/* Animations */
+/* Global Animations */
 @keyframes neonPulse {
   0% { box-shadow: 0 0 5px #00FF00; }
   100% { box-shadow: 0 0 15px #00FF00; }
