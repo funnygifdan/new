@@ -3,23 +3,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("menu");
   const canvas = document.getElementById("matrixCanvas");
   const hacker1 = document.getElementById("hacker1");
+  const ctx = canvas.getContext("2d");
+
   const glitchText = document.getElementById("glitchText");
   const glitchSound = document.getElementById("glitchSound");
-  const terminalLog = document.getElementById("terminalLog");
-  const ctx = canvas.getContext("2d");
+  const typeBeep = document.getElementById("typeBeep");
+  const clickSound = document.getElementById("clickSound");
+  const startupSound = document.getElementById("startupSound");
+  const ambientLoop = document.getElementById("ambientLoop");
+
+  // Start ambient FX
+  if (startupSound) startupSound.play();
+  if (ambientLoop) {
+    ambientLoop.volume = 0.2;
+    ambientLoop.play();
+  }
 
   // Menu toggle
   menuButton.addEventListener("click", (e) => {
     e.stopPropagation();
     menu.classList.toggle("open");
   });
+
   document.addEventListener("click", (e) => {
     if (!menu.contains(e.target) && !menuButton.contains(e.target)) {
       menu.classList.remove("open");
     }
   });
 
-  // Dropdown toggle
+  // Dropdown
   const dropdownButtons = document.querySelectorAll(".dropdown-btn");
   dropdownButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -28,7 +40,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Matrix background
+  const dropdownLinks = document.querySelectorAll(".dropdown-content a");
+  dropdownLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const parentDropdown = link.closest(".dropdown");
+      if (clickSound) {
+        clickSound.currentTime = 0;
+        clickSound.play();
+      }
+      if (parentDropdown && parentDropdown.classList.contains("open")) {
+        parentDropdown.classList.remove("open");
+      }
+    });
+  });
+
+  // Matrix
   let fontSize = 24;
   let columns;
   let drops;
@@ -55,14 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const x = i * fontSize;
       const y = drops[i] * fontSize;
       const opacity = 1 - y / canvas.height;
-
       ctx.fillStyle = `rgba(144, 255, 144, ${opacity})`;
       const char = charArray[Math.floor(Math.random() * charArray.length)];
       ctx.fillText(char, x, y);
-
-      if (y > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
+      if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
       drops[i]++;
     }
 
@@ -70,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   requestAnimationFrame(drawMatrix);
 
-  // Floating hacker image
+  // Floating hacker1
   const moveHacker1 = () => {
     const maxX = window.innerWidth - 120;
     const maxY = window.innerHeight - 120;
@@ -86,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   moveHacker1();
 
-  // Glitch text cycling with typing + sound + terminal log
+  // Glitch messages
   const messages = [
     "ACCESS GRANTED",
     "TRACE ROUTE ACTIVE",
@@ -96,41 +118,79 @@ document.addEventListener("DOMContentLoaded", () => {
     "CONNECTING TO NODE...",
     "TRANSMISSION INJECTED"
   ];
-
   let currentIndex = 0;
 
-  const typeMessage = (text, callback) => {
-    glitchText.setAttribute("data-text", "");
-    glitchText.textContent = "";
-    let i = 0;
-
-    const type = () => {
-      if (i < text.length) {
-        glitchText.textContent += text[i];
-        glitchText.setAttribute("data-text", glitchText.textContent);
-        i++;
-        setTimeout(type, 50);
-      } else {
-        callback();
-      }
-    };
-    type();
-  };
-
   const cycleGlitchMessage = () => {
-    const msg = messages[currentIndex];
-
     glitchSound.currentTime = 0;
     glitchSound.play();
+    glitchText.setAttribute("data-text", messages[currentIndex]);
+    glitchText.textContent = messages[currentIndex];
+    currentIndex = (currentIndex + 1) % messages.length;
+    setTimeout(cycleGlitchMessage, 3500);
+  };
+  cycleGlitchMessage();
 
-    typeMessage(msg, () => {
-      const logEntry = document.createElement("div");
-      logEntry.textContent = `> ${msg}`;
-      terminalLog.prepend(logEntry);
-      currentIndex = (currentIndex + 1) % messages.length;
-      setTimeout(cycleGlitchMessage, 3500);
-    });
+  // Terminal Boot Sequence
+  const terminalOutput = document.getElementById("terminalOutput");
+  const terminalPrompt = document.getElementById("terminalPrompt");
+  const terminalCursor = document.getElementById("terminalCursor");
+
+  const bootSequence = [
+    "Initializing Funcryptology shell...",
+    "Loading modules: matrixCore.js, neonNet, glitchFX...",
+    "Establishing secure node connection...",
+    "Access Level: GUEST",
+    "Loading PORTS & HEADERS..."
+  ];
+
+  let lineIndex = 0;
+
+  const typeLine = (line, i = 0) => {
+    if (i < line.length) {
+      terminalOutput.textContent += line[i];
+      if (typeBeep) {
+        typeBeep.currentTime = 0;
+        typeBeep.play();
+      }
+      setTimeout(() => typeLine(line, i + 1), 30);
+    } else {
+      terminalOutput.textContent += "\n";
+      setTimeout(typeNextLine, 300);
+    }
   };
 
-  cycleGlitchMessage();
+  const typeNextLine = () => {
+    if (lineIndex < bootSequence.length) {
+      typeLine(bootSequence[lineIndex]);
+      lineIndex++;
+    } else {
+      terminalPrompt.style.display = "inline";
+      terminalCursor.style.display = "inline-block";
+    }
+  };
+
+  setTimeout(typeNextLine, 1000);
+
+  // Dynamic page load for "Ports & Headers"
+  const dynamicContentArea = document.getElementById("dynamic-content");
+  const portsLink = document.querySelector('a[href="ports-headers.html"]');
+
+  if (portsLink && dynamicContentArea) {
+    portsLink.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      fetch("ports-headers.html")
+        .then((res) => res.text())
+        .then((html) => {
+          const tempDiv = document.createElement("div");
+          tempDiv.innerHTML = html;
+          const newContent = tempDiv.querySelector(".terminal-content");
+          if (newContent) {
+            dynamicContentArea.innerHTML = newContent.innerHTML;
+            dynamicContentArea.style.display = "block";
+            window.scrollTo({ top: dynamicContentArea.offsetTop, behavior: "smooth" });
+          }
+        });
+    });
+  }
 });

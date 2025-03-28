@@ -1,57 +1,65 @@
-/* Matrix Background */
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  background: black;
+  color: #00FF00;
+  font-family: 'Courier New', monospace;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Matrix canvas */
 #matrixCanvas {
-  background-color: black;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  background: black;
   z-index: -10;
   pointer-events: none;
-  opacity: 1;
 }
 
-/* Hacker Image */
+/* Floating hacker image */
 #hacker1 {
   position: absolute;
   width: 100px;
-  height: auto;
-  opacity: 0.8;
   z-index: 999;
-  transition: transform 3s ease-in-out, opacity 2s ease-in-out;
+  opacity: 0.8;
+  transition: transform 3s ease, opacity 2s ease;
 }
 
-/* Top Navigation */
+/* Menu */
 .top-nav {
   position: sticky;
   top: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   padding: 10px;
-  text-align: left;
   z-index: 1000;
 }
-
 .menu-button {
-  background: black;
   color: #00FF00;
   border: 1px solid #00FF00;
+  background: black;
   padding: 10px 20px;
-  font-size: 18px;
   cursor: pointer;
   animation: neonPulse 2s infinite alternate;
 }
 
-/* Side Menu */
+/* Side menu */
 .menu {
   position: fixed;
   top: 60px;
   left: -220px;
   width: 200px;
   background: black;
-  padding: 10px 0;
   border-right: 2px solid #00FF00;
-  transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease;
   z-index: 100;
 }
 .menu.open {
@@ -59,79 +67,81 @@
 }
 .menu a, .dropdown-btn {
   display: block;
-  background: none;
-  border: none;
   color: #00FF00;
-  text-align: left;
   padding: 10px 20px;
-  font-family: monospace;
-  font-size: 16px;
   text-decoration: none;
-  cursor: pointer;
-  animation: neonPulse 2s infinite alternate, glitchFlicker 1.5s infinite steps(3, end);
+  font-size: 16px;
+  animation: glitchFlicker 1.5s infinite steps(3, end);
 }
-.menu a:hover, .dropdown-btn:hover {
-  background-color: #001100;
-}
-
-/* Dropdown */
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
-  display: flex;
   flex-direction: column;
-  padding: 0;
-  background-color: black;
+  background: black;
   border-top: 1px solid #00FF00;
-  transition: max-height 0.3s ease, padding 0.2s ease;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
 }
 .dropdown.open .dropdown-content {
   max-height: 200px;
-  padding: 5px 0;
+  opacity: 1;
 }
 
-/* Glitch Terminal */
-.terminal-glitch {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: auto;
-  margin: 80px 0;
-  color: #00FF00;
-  font-family: monospace;
-}
+/* Glitch Text */
 .glitch-text {
   font-size: 2rem;
   color: #00FF00;
-  position: relative;
   text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
   animation: glitch-flicker 2s infinite;
 }
-.glitch-text::before,
-.glitch-text::after {
-  content: attr(data-text);
+
+/* Terminal Area */
+.terminal-content {
+  position: relative;
+  padding: 40px;
+  background: black;
+  border: 1px solid #00FF00;
+  margin: 40px auto;
+  box-shadow: 0 0 20px #00FF00;
+  z-index: 10;
+  max-width: 960px;
+}
+.terminal-content::before {
+  content: "";
   position: absolute;
-  left: 0;
-  width: 100%;
-  color: #00FF00;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 0, 0.05),
+    rgba(0, 255, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  animation: scanlines 1s linear infinite;
+  z-index: 1;
 }
-.glitch-text::before {
-  animation: glitchTop 1.5s infinite linear alternate-reverse;
-  text-shadow: 1px 0 red;
+
+/* Terminal Typing */
+.terminal-area {
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 960px;
+  background: black;
+  border: 1px solid #00FF00;
+  box-shadow: 0 0 10px #00FF00;
 }
-.glitch-text::after {
-  animation: glitchBottom 1.5s infinite linear alternate-reverse;
-  text-shadow: -1px 0 blue;
-}
-.terminal-log {
-  margin-top: 20px;
+.terminal-output {
+  white-space: pre-wrap;
   font-size: 1rem;
-  max-width: 90%;
-  text-align: left;
-  color: #00FF00;
-  line-height: 1.4;
+}
+.terminal-prompt {
+  font-weight: bold;
+}
+.cursor {
+  display: inline-block;
+  animation: blink 1s infinite steps(1);
 }
 
 /* Footer */
@@ -139,40 +149,28 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  text-align: center;
   background: black;
   color: #00FF00;
+  text-align: center;
   padding: 10px;
+  z-index: 100;
 }
 
 /* Animations */
 @keyframes neonPulse {
-  0% { box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00; }
-  50% { box-shadow: 0 0 15px #00FF00, 0 0 25px #00FF00; }
-  100% { box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00; }
+  0% { box-shadow: 0 0 5px #00FF00; }
+  100% { box-shadow: 0 0 15px #00FF00; }
 }
 @keyframes glitchFlicker {
   0% { opacity: 1; transform: translate(0, 0); }
-  10% { opacity: 0.8; transform: translate(-1px, 1px); }
-  20% { opacity: 0.9; transform: translate(1px, -1px); }
-  30% { transform: translate(0, 0); }
-  40% { opacity: 0.7; transform: translate(-1px, 2px); }
-  50% { opacity: 1; transform: translate(1px, -2px); }
+  50% { opacity: 0.8; transform: translate(1px, -1px); }
   100% { transform: translate(0, 0); }
 }
-@keyframes glitch-flicker {
-  0%, 100% { opacity: 1; }
-  49% { opacity: 0.8; }
-  50% { opacity: 0.2; }
-  51% { opacity: 0.8; }
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
 }
-@keyframes glitchTop {
-  0% { clip: rect(0, 9999px, 0, 0); }
-  10% { clip: rect(0, 9999px, 20px, 0); transform: translate(-1px, -1px); }
-  20% { clip: rect(0, 9999px, 0, 0); transform: none; }
-}
-@keyframes glitchBottom {
-  0% { clip: rect(0, 9999px, 0, 0); }
-  10% { clip: rect(10px, 9999px, 30px, 0); transform: translate(1px, 1px); }
-  20% { clip: rect(0, 9999px, 0, 0); transform: none; }
+@keyframes scanlines {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 2px; }
 }
