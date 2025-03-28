@@ -158,7 +158,7 @@ button {
 .cube-bottom { background-image: url('hacker6.jpg'); transform: rotateX(-90deg) translateZ(150px); }
 
 /* Satellite (Floating Element) */
-#hacker1.PNG{
+#hacker1.PNG {
   position: fixed;
   bottom: 50px;
   right: 50px;
