@@ -7,8 +7,12 @@ html, body {
   background-color: black;
   color: #00FF00;
   font-size: 24px;  /* Body text size */
-  overflow-x
-  
+  overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Matrix Background */
 #matrixCanvas {
   position: fixed;
