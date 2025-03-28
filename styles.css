@@ -1,102 +1,105 @@
-/* Set global styles */
+/* General Styles */
 body {
-    font-family: "Comic Sans MS" /* Comic Sans for all text */
-    font-size: 22px; /* Default font size */
-    background-color: black; /* Page background black */
-    color: #39ff14; /* Hacker green */
+    font-family: "Comic Sans MS", sans-serif;
+    background: black;
+    color: #00FF00;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 22px;
+}
 
 /* Top Navigation */
 .top-nav {
     position: sticky;
     top: 0;
-    background-color: #333; /* Dark Gray */
+    background: #333;
     padding: 15px;
     z-index: 1000;
 }
 
-/* Menu Styling */
-.menu-btn {
-    font-size: 18px; /* Smaller font for menu */  display: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: #333; /* Dark Gray */
-    color: #00FF00; /* Hacker Green */
+/* Menu Button */
+.menu-button {
+    background: #333;
+    color: #00FF00;
     border: none;
-    padding: 10px 20px;
+    font-size: 22px;
     cursor: pointer;
-    font-family: "Comic Sans MS";
 }
-    
-  /* Dropdown Menu */
-.dropdown-menu {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    background-color: darkgray; /* Dark gray menu background */
+
+/* Menu */
+.menu {
+    position: fixed;
+    left: -300px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: #333;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.menu.open {
+    left: 0;
+}
+
+.menu-close {
+    position: sticky;
+    bottom: 0;
+    background: #333;
+    color: #00FF00;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Dropdown */
+.dropdown {
     padding: 10px;
 }
-/* Menu Links */
-.dropdown-menu a {
-    font-size: 18px; /* Font size for menu links */
-    color: #39ff14;
-    text-decoration: none;
-    padding: 8px 0;
-}
- 
-/* Close Button */
-.close-btn {
-    background-color: #333; /* Dark Gray */
-    color: #00FF00; /* Hacker Green */
+
+.dropdown-btn {
+    background: #333;
+    color: #00FF00;
     border: none;
+    font-size: 18px;
     cursor: pointer;
-    font-family: "Comic Sans MS"
+    width: 100%;
+    text-align: left;
 }
 
-/* Centered Paragraph */
-.centered-content {
+.dropdown-content {
+    display: none;
+    padding-left: 10px;
+}
+
+.dropdown.open .dropdown-content {
+    display: block;
+}
+
+/* Content Section */
+.content {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh; /* Center vertically */
-    text-align: center;
-}
-
-/* Image Carousel */
-.carousel {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    max-width: 100%;
+    min-height: calc(100vh - 100px);
+    padding: 20px;
 }
 
+/* Carousel */
 .carousel img {
-    max-width: 75%;
+    max-width: 100%;
     height: auto;
+    margin: 10px 0;
 }
 
 /* Sticky Footer */
 .footer {
     position: sticky;
     bottom: 0;
-    background-color: #333; /* Dark Gray */
-    color: #00FF00; /* Hacker Green */
+    background: #333;
+    color: #00FF00;
+    text-align: center;
     padding: 15px;
-    
 }
-
-/* Button Consistency */
-button {
-    background-color: black;
-    color: #00FF00; /* Hacker Green */
-    border: none;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-}
-
-
-
-

@@ -3,86 +3,53 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Responsive Menu & Carousel</title>
+    <title>My Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
-    <!-- Top Navigation (Sticky and Dark Gray) -->
+    <!-- Top Navigation -->
     <nav class="top-nav">
-        <button id="menuButton" class="menu-btn">Menu</button>
+        <button id="menuButton" class="menu-button">Menu</button>
     </nav>
 
-    <!-- Menu (Dark Gray Background) -->
+    <!-- Side Menu -->
     <div id="menu" class="menu">
-    
-        <img src="foodPics/stars1.jpg" alt="Menu Image" class="menu-image">
-    <a href="https://linktr.ee/funnygifdan">My Linktree</a>
-    <a href="linknew.html">NewHome</a>
-    <a href="cyberaware.html">Cyber Awareness</a>
-    <a href="important.html">Important Links</a>
-
-    <!-- Dropdown: SIP -->
-    <button class="dropdown-btn">SIP</button>
-    <div class="dropdown-container">
-      <a href="sip.html">SIP</a>
-      <a href="production.html">Production/Design</a>
-      <a href="systems.html">Systems/Processes</a>
+        <button class="menu-close" id="closeMenu">Close</button>
+        <div class="dropdown">
+            <button class="dropdown-btn">Item 1</button>
+            <div class="dropdown-content">
+                <a href="#">Sub Item 1</a>
+                <a href="#">Sub Item 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-btn">Item 2</button>
+            <div class="dropdown-content">
+                <a href="#">Sub Item A</a>
+                <a href="#">Sub Item B</a>
+            </div>
+        </div>
     </div>
 
-    <!-- Dropdown: Networking -->
-    <button class="dropdown-btn">Networking</button>
-    <div class="dropdown-container">
-      <a href="porthead.html">Ports/Header Information</a>
-      <a href="subnetting.html">Subnetting</a>
-      <a href="systems.html">Systems</a>
+    <!-- Content Section -->
+    <div class="content">
+        <p>This is the centered paragraph. It is responsive to the screen size.</p>
+
+        <!-- Responsive Image Carousel -->
+        <div class="carousel" id="carousel">
+            <img src="foodPics/food1.jpg" alt="Food 1">
+            <img src="foodPics/food2.jpg" alt="Food 2">
+            <img src="foodPics/food3.jpg" alt="Food 3">
+        </div>
     </div>
 
-    <!-- Dropdown: Linux -->
-    <button class="dropdown-btn">Linux</button>
-    <div class="dropdown-container">
-      <a href="linuxcom.html">Linux Commands</a>
-    </div>
-<!--
-      <button class="close-btn" id="closeMenu">Close Menu</button><--->
-
-    </div>
-
-    <!-- Centered Responsive Paragraph -->
-    <div class="centered-content">
-        <p>Welcome to our website! Explore our content below.</p>
-    </div>
-
-       <!-- Image Carousel -->
-    <div class="carousel" id="carousel">
-      <div class="carousel-inner">
-        <script>
-          for (let i = 1; i <= 10; i++) {
-            document.write(`
-              <div class="carousel-item ${i === 1 ? 'active' : ''}">
-                <img src="/foodPics/food${i}.jpeg" alt="Food Image ${i}">
-              </div>
-            `);
-          }
-        </script>
-
-      <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
-      <a class="carousel-control next" onclick="nextSlide()">&#10095;</a>
-    </div>
-  </div>
-
-    <!-- Sticky Footer (Dark Gray Background) -->
+    <!-- Sticky Footer -->
     <footer class="footer">
-        <p>&copy; 2025 Our Website. All rights reserved.</p>
+        <p>&copy; 2025 My Website</p>
     </footer>
 
     <script src="App.js"></script>
-    
-    
-
 </body>
 
 </html>
-
-

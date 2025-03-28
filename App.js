@@ -1,77 +1,42 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const menuButton = document.getElementById("menu-button");
-  const sideMenu = document.getElementById("side-menu");
-  const closeMenuButton = document.getElementById("close-menu");
-  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
-
-  // Menu Toggle Functionality
+// Menu Toggle
 document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menuToggle");
+    const menuButton = document.getElementById("menuButton");
     const menu = document.getElementById("menu");
+    const closeMenuButton = document.getElementById("closeMenu");
+    const dropdownButtons = document.querySelectorAll(".dropdown-btn");
 
-    // Toggle the menu visibility on button click
-    menuToggle.addEventListener("click", () => {
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
-        }
+    // Open menu
+    menuButton.addEventListener("click", () => {
+        menu.classList.add("open");
+    });
+
+    // Close menu
+    closeMenuButton.addEventListener("click", () => {
+        menu.classList.remove("open");
     });
 
     // Close menu when clicking outside
     document.addEventListener("click", (event) => {
-        if (!menu.contains(event.target) && event.target !== menuToggle) {
-            menu.style.display = "none";
+        if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
+            menu.classList.remove("open");
         }
     });
-});
 
-  // Dropdown Toggle (Only one open at a time)
-  dropdownButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const dropdownContent = this.nextElementSibling;
-      const isActive = dropdownContent.style.display === "block";
+    // Dropdown logic - allow one open at a time
+    dropdownButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const parent = button.parentElement;
+            const isOpen = parent.classList.contains("open");
 
-      document.querySelectorAll(".dropdown-container").forEach((container) => {
-        container.style.display = "none";
-      });
+            // Close all dropdowns
+            dropdownButtons.forEach((btn) => {
+                btn.parentElement.classList.remove("open");
+            });
 
-      dropdownContent.style.display = isActive ? "none" : "block";
+            // Toggle current dropdown
+            if (!isOpen) {
+                parent.classList.add("open");
+            }
+        });
     });
-  });
-
-  // Carousel Logic
-  let slideIndex = 0;
-  const slides = document.querySelectorAll(".carousel-item");
-
-  function showSlides(index) {
-    slides.forEach((slide) => (slide.style.display = "none"));
-    slides[index].style.display = "block";
-  }
-
-  window.nextSlide = function () {
-    slideIndex = (slideIndex + 1) % slides.length;
-    showSlides(slideIndex);
-  };
-
-  window.prevSlide = function () {
-    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-    showSlides(slideIndex);
-  };
-
-  showSlides(slideIndex);
-
-  // Touch Swipe Support
-  const carousel = document.getElementById("carousel");
-  let touchStartX = 0;
-
-  carousel.addEventListener("touchstart", (e) => {
-    touchStartX = e.touches[0].clientX;
-  });
-
-  carousel.addEventListener("touchend", (e) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    if (touchEndX < touchStartX) nextSlide();
-    else if (touchEndX > touchStartX) prevSlide();
-  });
 });
