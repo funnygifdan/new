@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* -------------------------
-     Matrix Code Background (Slowed Down)
+     Matrix Code Background (Fully Black)
   -------------------------- */
   let fontSize = 18;
   let columns = Math.floor(window.innerWidth / fontSize);
@@ -28,23 +28,24 @@ document.addEventListener("DOMContentLoaded", () => {
   ctx.font = `${fontSize}px monospace`;
 
   const drawMatrix = () => {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.15)"; // Darker fade effect
+    // Fill with solid black
+    ctx.fillStyle = "rgba(0, 0, 0, 1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#00FF00";
     const charArray = "01 10 11 00 101 010 011 110 100 111 001".split(" ");
-    
+
     for (let i = 0; i < drops.length; i++) {
       const text = charArray[Math.floor(Math.random() * charArray.length)];
       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-      
+
       // Slower falling effect
       if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
         drops[i] = 0;
       }
-      drops[i] += 0.5; // Slower movement
+      drops[i] += 0.5;
     }
 
-    setTimeout(() => requestAnimationFrame(drawMatrix), 50); // Adjusted speed
+    setTimeout(() => requestAnimationFrame(drawMatrix), 50);
   };
 
   const setCanvasSize = () => {
@@ -59,20 +60,20 @@ document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(drawMatrix);
 
   /* -------------------------
-     Moving Hacker1 Randomly
+     Moving Hacker1 Randomly with Depth Effect
   -------------------------- */
   const moveHacker1 = () => {
     const maxX = window.innerWidth - 120;
     const maxY = window.innerHeight - 120;
     const newX = Math.random() * maxX;
     const newY = Math.random() * maxY;
-    const scale = Math.random() * 1.5 + 0.5; // Simulate depth effect
-    const opacity = Math.random() * 0.6 + 0.4; // Vary opacity
+    const scale = Math.random() * 1.5 + 0.5;
+    const opacity = Math.random() * 0.6 + 0.4;
 
     hacker1.style.transform = `translate(${newX}px, ${newY}px) scale(${scale})`;
     hacker1.style.opacity = opacity;
 
-    setTimeout(moveHacker1, 2000); // Change position every 2 seconds
+    setTimeout(moveHacker1, 2000);
   };
 
   moveHacker1();
