@@ -1,4 +1,13 @@
-toggleMenu);
+document.addEventListener("DOMContentLoaded", function () {
+    // Sidebar Toggle
+    const menuButton = document.getElementById("menu-button");
+    const sideMenu = document.querySelector(".side-menu");
+    const closeButton = document.getElementById("close-menu");
+    const mainContent = document.getElementById("main-content");
+    const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+
+    // Open Menu
+    menuButton.addEventListener("click", toggleMenu);
         sideMenu.classList.toggle("active");
         mainContent.classList.toggle("menu-open");
     });
