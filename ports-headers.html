@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ports & IP Headers | Funcryptology</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Optional Matrix Background -->
+  <canvas id="matrixCanvas"></canvas>
+
+  <!-- Floating Hacker Image -->
+  <img id="hacker1" src="hacker1.PNG" alt="Hacker1" />
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <a href="home.html" class="menu-button">☰ Back to Home</a>
+  </nav>
+
+  <!-- Terminal-Styled Content -->
+  <div class="terminal-content">
+    <h1 class="glitch-text" data-text="PORTS & HEADERS">PORTS & HEADERS</h1>
+
+    <div class="terminal-table">
+      <h2>Common Ports</h2>
+      <table>
+        <tr><th>Port</th><th>Keyword</th><th>Description</th></tr>
+        <tr><td>20</td><td>FTP-DATA</td><td>File Transfer Protocol (data)</td></tr>
+        <tr><td>21</td><td>FTP</td><td>File Transfer Protocol</td></tr>
+        <tr><td>22</td><td>SSH</td><td>Secure Shell</td></tr>
+        <tr><td>23</td><td>TELNET</td><td>Remote Terminal Connection</td></tr>
+        <tr><td>25</td><td>SMTP</td><td>Mail Transport</td></tr>
+        <tr><td>53</td><td>DNS</td><td>Domain Name Server</td></tr>
+        <tr><td>80</td><td>HTTP</td><td>Web Traffic</td></tr>
+        <tr><td>443</td><td>HTTPS</td><td>Secure Web Traffic</td></tr>
+      </table>
+
+      <h2>IP Header Fields</h2>
+      <img src="images/Ip_header.jpg" alt="IP Header Diagram" />
+
+      <ul>
+        <li><strong>Version:</strong> IPv4 or IPv6</li>
+        <li><strong>IHL:</strong> Header Length</li>
+        <li><strong>DSCP/ECN:</strong> Traffic Class</li>
+        <li><strong>Total Length:</strong> IP Packet Size</li>
+        <li><strong>Identification & Fragment Offset:</strong> Used for packet fragmentation</li>
+        <li><strong>TTL:</strong> Time to Live (prevents infinite loops)</li>
+        <li><strong>Protocol:</strong> Layer 4 protocol (e.g. TCP, UDP)</li>
+        <li><strong>Header Checksum:</strong> Error detection</li>
+        <li><strong>Source & Destination:</strong> IP addresses</li>
+        <li><strong>Options:</strong> Optional routing info</li>
+      </ul>
+
+      <p class="terminal-note">Reference:
+        <a href="https://networklessons.com/cisco/ccna-routing-switching-icnd1-100-105/ipv4-packet-header" target="_blank">Cisco IP Header Breakdown</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">© 2025 Funcryptology</footer>
+
+  <!-- Glitch JS Logic -->
+  <script src="App.js" defer></script>
+
+  <!-- Sound FX -->
+  <audio id="typeBeep" src="sounds/type-beep.wav" preload="auto"></audio>
+  <audio id="startupSound" src="sounds/startup.mp3" preload="auto"></audio>
+  <audio id="ambientLoop" src="sounds/ambient-hum.mp3" preload="auto" loop></audio>
+
+</body>
+</html>
