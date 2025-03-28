@@ -4,14 +4,27 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeMenuButton = document.getElementById("close-menu");
   const dropdownButtons = document.querySelectorAll(".dropdown-btn");
 
-  // Menu Toggle
-  menuButton.addEventListener("click", () => {
-    sideMenu.classList.toggle("active");
-  });
+  // Menu Toggle Functionality
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("menu");
 
-  closeMenuButton.addEventListener("click", () => {
-    sideMenu.classList.remove("active");
-  });
+    // Toggle the menu visibility on button click
+    menuToggle.addEventListener("click", () => {
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (event) => {
+        if (!menu.contains(event.target) && event.target !== menuToggle) {
+            menu.style.display = "none";
+        }
+    });
+});
 
   // Dropdown Toggle (Only one open at a time)
   dropdownButtons.forEach((button) => {

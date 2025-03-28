@@ -1,99 +1,99 @@
-/* General Styles */
+
+/* Global Styles */
 body {
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  font-size: 18px;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
+    font-family: "Comic Sans MS", "Comic Sans", cursive; /* Comic Sans for all text */
+    font-size: 22px; /* Default font size */
+    background-color: black; /* Page background black */
+    color: #39ff14; /* Hacker green */
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Navbar */
-.top-navbar {
-  position: sticky;
-  top: 0;
-  background-color: #333;
-  padding: 10px;
-  z-index: 1000;
+/* Sticky Top Navigation */
+nav {
+    position: sticky;
+    top: 0;
+    background-color: darkgray; /* Dark gray background */
+    z-index: 1000;
+    padding: 15px; /* Padding for nav */
 }
 
 /* Menu Button */
-#menu-button {
-  font-size: 18px;
-  color: #00ff00;
-  background: black;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+.menu-button {
+    font-size: 18px; /* Smaller font for menu */
+    background-color: darkgray; /* Dark gray background */
+    color: #39ff14; /* Hacker green */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
-/* Sidebar */
-.side-menu {
-  position: fixed;
-  left: -300px;
-  top: 0;
-  width: 300px;
-  height: 100%;
-  background-color: black;
-  overflow-y: auto;
-  transition: left 0.3s ease;
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    background-color: darkgray; /* Dark gray menu background */
+    padding: 10px;
 }
 
-.side-menu.active {
-  left: 0;
+/* Menu Links */
+.dropdown-menu a {
+    font-size: 18px; /* Font size for menu links */
+    color: #39ff14;
+    text-decoration: none;
+    padding: 8px 0;
 }
 
-.side-menu img.menu-image {
-  width: 50%;
+/* Center the content box */
+.center-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1; /* Ensures it takes remaining space */
 }
 
-.side-menu a,
-.dropdown-btn {
-  display: block;
-  color: #00ff00;
-  font-size: 18px;
-  padding: 10px 20px;
-  text-decoration: none;
+/* Sticky Footer */
+footer {
+    position: sticky;
+    bottom: 0;
+    background-color: darkgray; /* Dark gray footer */
+    padding: 15px;
+    text-align: center;
 }
 
-.dropdown-container {
-  display: none;
+/* Button Styling */
+button {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 22px; /* Button font size */
+    background-color: black; /* Button background */
+    color: #39ff14; /* Hacker green */
+    border: none; /* No border for all buttons */
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
-#close-menu {
-  position: sticky;
-  bottom: 0;
-  font-size: 18px;
-  background: black;
-  color: #00ff00;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-}
-
-/* Carousel */
+/* Responsive Image Carousel */
 .carousel {
-  width: 80%;
-  margin: auto;
-  overflow: hidden;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Center carousel images */
+    flex-wrap: wrap; /* Ensure responsiveness */
 }
 
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+.carousel img {
+    max-width: 45%; /* Ensure images do not overflow */
+    height: auto; /* Keep images proportional */
 }
 
-.carousel-item img {
-  width: 100%;
-}
-
-/* Footer - Sticky to Bottom */
-.footer {
-  position: sticky;
-  bottom: 0;
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
-  width: 100%;
+/* Ensure responsiveness of paragraph in the middle */
+.center-box p {
+    max-width: 80%;
+    text-align: center;
 }
