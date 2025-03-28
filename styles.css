@@ -1,6 +1,6 @@
 /* Set global styles */
 body {
-    font-family: "Comic Sans MS", "Comic Sans" /* Comic Sans for all text */
+    font-family: "Comic Sans MS" /* Comic Sans for all text */
     font-size: 22px; /* Default font size */
     background-color: black; /* Page background black */
     color: #39ff14; /* Hacker green */
@@ -17,25 +17,20 @@ body {
     z-index: 1000;
 }
 
-/* Menu Button */
-.menu-btn {
-    background-color: #333; /* Dark Gray */
-    color: #00FF00; /* Hacker Green */
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-family: "Comic Sans MS"
-}
-
 /* Menu Styling */
-.menu-button {
+.menu-btn {
     font-size: 18px; /* Smaller font for menu */  display: none;
     position: absolute;
     top: 60px;
     left: 0;
     width: 100%;
     background-color: #333; /* Dark Gray */
-    padding: 20px;
+    color: #00FF00; /* Hacker Green */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: "Comic Sans MS";
+}
     
   /* Dropdown Menu */
 .dropdown-menu {
@@ -43,13 +38,14 @@ body {
     flex-direction: column;
     background-color: darkgray; /* Dark gray menu background */
     padding: 10px;
-
+}
 /* Menu Links */
 .dropdown-menu a {
     font-size: 18px; /* Font size for menu links */
     color: #39ff14;
     text-decoration: none;
     padding: 8px 0;
+}
  
 /* Close Button */
 .close-btn {
