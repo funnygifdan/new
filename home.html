@@ -11,13 +11,78 @@
 <body>
   <!-- Matrix Background Canvas (Optional, remove if not needed) -->
   <canvas id="matrixCanvas"></canvas>
+  
+    <!-- Top navigation bar -->
+    <div class="w3-top">
+      <div class="w3-bar w3-card" style="background-color:#333;">
+        <a
+          class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right"
+          href="javascript:void(0)"
+          onclick="w3_open()"
+          ><i class="fa fa-bars"></i
+        ></a>
+        <a href="#" class="w3-bar-item w3-button">HOME</a>
+        <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small">PORTFOLIO</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-hide-small">CONTACT</a>
+      </div>
+    </div>
 
-  <!-- Sticky Top Navigation -->
+    <!-- Sidebar for small screens -->
+    <nav class="w3-sidebar w3-bar-block w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+      <button onclick="w3_close()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+      <a href="#" class="w3-bar-item w3-button">HOME</a>
+      <a href="#portfolio" class="w3-bar-item w3-button">PORTFOLIO</a>
+      <a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+    </nav>
+
+    <!-- Header Image -->
+    <header class="bgimg-1 w3-display-container w3-grayscale-min">
+      <div class="w3-display-middle" style="white-space:nowrap;">
+        <span class="w3-xxlarge w3-text-white w3-wide">DARK PORTFOLIO</span>
+      </div>
+      <div class="w3-display-bottomleft w3-text-white w3-large" style="padding:24px 48px">
+        <i class="fa fa-map-marker" style="width:30px"></i> Somewhere, World
+      </div>
+    </header>
+<!-- Centered Paragraph -->
+    <p class="content-text">Welcome to our hacker-themed site with a 3D cube carousel!</p>
+  </div>
+
+  <!-- AI Alien -->
+  <img id="alien" src="alien.png" alt="Alien" />
+
+
+
+     <!-- Centered Paragraph -->
+    <p class="content-text">Welcome to our hacker-themed site with a 3D cube carousel!</p>
+  </div>
+
+  <!-- AI Alien -->
+  <img id="alien" src="alien.png" alt="Alien" />
+
+  <!-- Sticky Footer -->
+  <footer class="footer">
+    © 2025 Hacker Theme | All Rights Reserved
+  </footer>
+
+  
+  
+  
+    <script src="App.js"></script>
+</body>
+</html>
+  
+  
+  
+  
+  
+  
+  <!-- Sticky Top Navigation 
   <nav class="top-nav">
     <button id="menu-btn" class="menu-button">Menu</button>
   </nav>
 
-  <!-- Side Menu -->
+  <!-- Side Menu
   <div id="menu" class="menu">
     <a href="home.html">Home</a>
     <a href="about.html">About</a>
@@ -51,9 +116,9 @@
     <img src="foodPics/food1.jpeg" alt="Menu Image" class="menu-image">
   </div>
 
-  <!-- Main Content -->
+Main Content 
   <div id="content">
-    <!-- 3D Cube Carousel -->
+     3D Cube Carousel
     <div class="carousel-container">
       <div class="cube" id="cube">
         <div class="cube-face cube-front">
@@ -77,18 +142,16 @@
       </div>
     </div>
 
-    <!-- Centered Paragraph -->
+  
+  
+    Centered Paragraph
     <p class="content-text">Welcome to our hacker-themed site with a 3D cube carousel!</p>
   </div>
 
-  <!-- AI Alien -->
+  AI Alien 
   <img id="alien" src="alien.png" alt="Alien" />
 
-  <!-- Sticky Footer -->
-  <footer class="footer">
-    © 2025 Hacker Theme | All Rights Reserved
-  </footer>
+  
 
-  <script src="App.js"></script>
-</body>
-</html>
+  
+    

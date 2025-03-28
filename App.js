@@ -84,3 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     setInterval(drawMatrix, 50);
 });
+
+ // Script for Sidebar
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+      }
+      function w3_close() {
+        document.getElementById("my
+  
+  
