@@ -1,12 +1,22 @@
-/* Global Styles */
+/* Global Settings */
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Comic Sans MS", sans-serif;
-    background-color: black;
     color: #00FF00;
-    overflow-x: hidden;
+    overflow: hidden;
+}
+
+/* Hacker Matrix Background */
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Behind all content */
+    background: black;
 }
 
 /* Sticky Top Navigation */
@@ -88,11 +98,6 @@ body {
     display: block;
 }
 
-.menu-image {
-    width: 100%;
-    margin-top: 20px;
-}
-
 /* Cube Carousel */
 .carousel-container {
     display: flex;
@@ -133,15 +138,4 @@ body {
 @keyframes rotateCube {
     from { transform: rotateX(0) rotateY(0); }
     to { transform: rotateX(360deg) rotateY(360deg); }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .menu {
-        width: 50%;
-    }
-    .cube {
-        width: 200px;
-        height: 200px;
-    }
 }
