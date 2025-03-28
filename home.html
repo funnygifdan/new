@@ -2,85 +2,61 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Funcryptology</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Menu and Carousel</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <!-- Top Navbar -->
-  <div class="top-navbar">
-    <button id="menu-button">☰</button>
-  </div>
+    <!-- Top Navigation (Sticky and Dark Gray) -->
+    <nav class="top-navbar">
+        <button id="menu-button">☰ Open Menu</button>
+        <h1>My Website</h1>
+    </nav>
 
-  <!-- Sidebar/Menu -->
-  <div class="side-menu" id="side-menu">
-    <img src="foodPics/menuImage.jpeg" alt="Menu Image" class="menu-image">
-    <a href="https://linktr.ee/funnygifdan">My Linktree</a>
-    <a href="linknew.html">NewHome</a>
-    <a href="cyberaware.html">Cyber Awareness</a>
-    <a href="important.html">Important Links</a>
+    <!-- Side Menu (Black Background) -->
+    <div id="side-menu" class="side-menu">
+        <button id="close-menu-button">✖ Close Menu</button>
+        <a href="#">Home</a>
+        <a href="#">About</a>
 
-    <!-- Dropdown: SIP -->
-    <button class="dropdown-btn">SIP <i class="fa fa-caret-down"></i></button>
-    <div class="dropdown-container">
-      <a href="sip.html">SIP</a>
-      <a href="production.html">Production/Design</a>
-      <a href="systems.html">Systems/Processes</a>
+        <button class="dropdown-btn">Services</button>
+        <div class="dropdown-container">
+            <a href="#">Web Design</a>
+            <a href="#">Development</a>
+        </div>
+
+        <button class="dropdown-btn">Products</button>
+        <div class="dropdown-container">
+            <a href="#">Product 1</a>
+            <a href="#">Product 2</a>
+        </div>
+
+        <a href="#">Contact</a>
     </div>
 
-    <!-- Dropdown: Networking -->
-    <button class="dropdown-btn">Networking <i class="fa fa-caret-down"></i></button>
-    <div class="dropdown-container">
-      <a href="porthead.html">Ports/Header Information</a>
-      <a href="subnetting.html">Subnetting</a>
-      <a href="systems.html">Systems</a>
-    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <img src="foodPics/food1.jpg" alt="Image 1" class="carousel-item">
+                <img src="foodPics/food2.jpg" alt="Image 2" class="carousel-item">
+                <img src="foodPics/food3.jpg" alt="Image 3" class="carousel-item">
+                <img src="foodPics/food4.jpg" alt="Image 4" class="carousel-item">
+                <img src="foodPics/food5.jpg" alt="Image 5" class="carousel-item">
+            </div>
+        </div>
 
-    <!-- Dropdown: Linux Commands -->
-    <button class="dropdown-btn">Linux <i class="fa fa-caret-down"></i></button>
-    <div class="dropdown-container">
-      <a href="linuxcom.html">Linux Commands</a>
-    </div>
+        <p>Welcome to our website! Explore the menu and enjoy the carousel images.</p>
+    </main>
 
-    <!-- Close Menu Button -->
-    <button id="close-menu-button">Close</button>
-  </div>
+    <!-- Footer (Sticky and Dark Gray) -->
+    <footer class="footer">
+        <p>&copy; 2025 My Website. All rights reserved.</p>
+    </footer>
 
-  <!-- Main Content: Paragraph Box with Carousel -->
-  <div class="paragraph-box" id="content">
-    <p>Welcome to Funcryptology! Learn about cybersecurity and network security.</p>
-
-    <!-- Image Carousel -->
-    <div class="carousel" id="carousel">
-      <div class="carousel-inner">
-        <!-- Dynamically Load Images -->
-        <script>
-          for (let i = 1; i <= 10; i++) {
-            document.write(`
-              <div class="carousel-item ${i === 1 ? 'active' : ''}">
-                <img src="foodPics/food${i}.jpeg" alt="Food Image ${i}">
-              </div>
-            `);
-          }
-        </script>
-      </div>
-
-      <!-- Navigation Arrows -->
-      <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
-      <a class="carousel-control next" onclick="nextSlide()">&#10095;</a>
-    </div>
-  </div>
-
-  <!-- Footer with Scrolling Text -->
-  <div class="footer">
-    <marquee behavior="scroll" direction="left">&copy; 2025 Funcryptology. All rights reserved.</marquee>
-  </div>
-
-  <script src="App.js"></script>
-
+    <script src="App.js"></script>
 </body>
 
 </html>

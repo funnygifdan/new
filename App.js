@@ -1,64 +1,102 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const menuButton = document.getElementById("menu-button");
-  const sideMenu = document.getElementById("side-menu");
-  const closeMenuButton = document.getElementById("close-menu-button");
-  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
-  const content = document.getElementById("content");
+/* General Page Styling */
+body {
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #30FF00;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-  // Toggle Sidebar
-  menuButton.addEventListener("click", () => {
-    sideMenu.classList.toggle("active");
-    adjustContent();
-  });
+/* Top Navbar - Sticky and Dark Gray */
+.top-navbar {
+    position: sticky;
+    top: 0;
+    background-color: #444;
+    padding: 10px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #30FF00;
+}
 
-  closeMenuButton.addEventListener("click", () => {
-    sideMenu.classList.remove("active");
-    adjustContent();
-  });
+/* Side Menu */
+.side-menu {
+    background-color: #000;
+    color: #30FF00;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    height: 100%;
+    overflow-y: auto;
+    transition: left 0.3s;
+}
 
-  // Manage Dropdown Menus
-  dropdownButtons.forEach(button => {
-    button.addEventListener("click", function () {
-      const dropdownContent = this.nextElementSibling;
+.side-menu.active {
+    left: 0;
+}
 
-      document.querySelectorAll(".dropdown-container").forEach(container => {
-        if (container !== dropdownContent) {
-          container.style.display = "none";
-        }
-      });
+/* Menu Buttons and Dropdown */
+.side-menu a,
+.dropdown-btn,
+#close-menu-button {
+    display: block;
+    background: #000;
+    color: #30FF00;
+    text-decoration: none;
+    padding: 15px;
+    border: none;
+    text-align: left;
+    width: 100%;
+    font-size: 18px;
+}
 
-      dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
-      adjustContent();
-    });
-  });
+.dropdown-container {
+    display: none;
+    background: #444;
+}
 
-  // Adjust content position
-  function adjustContent() {
-    if (sideMenu.classList.contains("active")) {
-      content.style.marginLeft = "300px";
-    } else {
-      content.style.marginLeft = "0";
+/* Main Content */
+.main-content {
+    flex: 1;
+}
+
+/* Carousel (Responsive) */
+.carousel {
+    max-width: 90%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+}
+
+/* Footer - Sticky and Dark Gray */
+.footer {
+    position: sticky;
+    bottom: 0;
+    background-color: #444;
+    padding: 10px;
+    text-align: center;
+    color: #30FF00;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        font-size: 18px;
     }
-  }
-
-  // Carousel Functionality
-  let slideIndex = 0;
-  const slides = document.querySelectorAll(".carousel-item");
-
-  function showSlides(index) {
-    slides.forEach(slide => (slide.style.display = "none"));
-    slides[index].style.display = "block";
-  }
-
-  window.nextSlide = function () {
-    slideIndex = (slideIndex + 1) % slides.length;
-    showSlides(slideIndex);
-  };
-
-  window.prevSlide = function () {
-    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-    showSlides(slideIndex);
-  };
-
-  showSlides(slideIndex);
-});
+}
