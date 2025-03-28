@@ -87,7 +87,7 @@ body {
   width: 100%;
 }
 
-/* Footer */
+/* Footer - Sticky to Bottom */
 .footer {
   position: sticky;
   bottom: 0;
@@ -95,4 +95,5 @@ body {
   color: #fff;
   padding: 10px;
   text-align: center;
+  width: 100%;
 }
