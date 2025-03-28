@@ -6,6 +6,7 @@ body {
     font-family: "Comic Sans MS", sans-serif;
     color: #00FF00;
     overflow: hidden;
+    font-size: 24px; /* Body text size */
 }
 
 /* Hacker Matrix Background */
@@ -23,23 +24,25 @@ body {
 .top-nav {
     position: sticky;
     top: 0;
-    height: 40px;
+    height: 30px; /* Updated from 40px to 30px */
     background-color: #212624;
     display: flex;
     align-items: center;
     padding: 0 20px;
     z-index: 1000;
+    font-size: 20px; /* Font size updated */
 }
 
 /* Sticky Footer */
 .footer {
     position: sticky;
     bottom: 0;
-    height: 40px;
+    height: 30px; /* Updated from 40px to 30px */
     background-color: #212624;
     text-align: center;
-    padding: 10px;
+    padding: 5px 0;
     width: 100%;
+    font-size: 20px; /* Font size updated */
 }
 
 /* Menu Button */
@@ -54,10 +57,10 @@ body {
 /* Side Menu */
 .menu {
     position: fixed;
-    top: 40px;
+    top: 30px; /* Align with updated top nav height */
     left: -20%;
     width: 20%;
-    height: calc(100% - 80px);
+    height: calc(100% - 60px); /* Adjusted to account for updated nav/footer */
     background-color: #212624;
     overflow-y: auto;
     transition: left 0.3s ease;

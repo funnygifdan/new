@@ -3,18 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hacker Themed 3D Cube Carousel</title>
+    <title>Responsive Hacker Site</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
-    <!-- Matrix Background -->
+    <!-- Hacker Matrix Background -->
     <canvas id="matrixCanvas"></canvas>
 
     <!-- Top Navigation -->
     <div class="top-nav">
-        <button id="menu-btn">☰ Menu</button>
+        <button id="menu-btn">Menu</button>
     </div>
 
     <!-- Side Menu -->
@@ -26,17 +25,17 @@
         <div class="dropdown">
             <button class="dropdown-btn">Services</button>
             <div class="dropdown-content">
-                <a href="#">Web Design</a>
-                <a href="#">Development</a>
-                <a href="#">SEO</a>
+                <a href="#">Web Development</a>
+                <a href="#">Cybersecurity</a>
+                <a href="#">Consulting</a>
             </div>
         </div>
 
         <div class="dropdown">
-            <button class="dropdown-btn">Products</button>
+            <button class="dropdown-btn">Portfolio</button>
             <div class="dropdown-content">
-                <a href="#">Item 1</a>
-                <a href="#">Item 2</a>
+                <a href="#">Projects</a>
+                <a href="#">Case Studies</a>
             </div>
         </div>
 
@@ -44,29 +43,27 @@
             <button class="dropdown-btn">Resources</button>
             <div class="dropdown-content">
                 <a href="#">Blog</a>
-                <a href="#">Docs</a>
-            </div>
-        </div>
-
-        <img src="foodPics/food1.jpeg" alt="Food Image" class="menu-image">
-    </div>
-
-    <!-- Main Content -->
-    <div id="content">
-        <div class="carousel-container">
-            <div class="cube" id="cube">
-                <div class="cube-face cube-front"><img src="foodPics/food1.jpeg" alt="Image 1"></div>
-                <div class="cube-face cube-back"><img src="foodPics/food2.jpeg" alt="Image 2"></div>
-                <div class="cube-face cube-left"><img src="foodPics/food3.jpeg" alt="Image 3"></div>
-                <div class="cube-face cube-right"><img src="foodPics/food4.jpeg" alt="Image 4"></div>
-                <div class="cube-face cube-top"><img src="foodPics/food5.jpeg" alt="Image 5"></div>
-                <div class="cube-face cube-bottom"><img src="foodPics/food6.jpeg" alt="Image 6"></div>
+                <a href="#">White Papers</a>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer">Footer Content Here</div>
+    <!-- 3D Cube Carousel -->
+    <div class="carousel-container">
+        <div class="cube">
+            <div class="cube-face cube-front"><img src="foodPics/food1.jpeg" alt="Food 1"></div>
+            <div class="cube-face cube-back"><img src="foodPics/food2.jpeg" alt="Food 2"></div>
+            <div class="cube-face cube-right"><img src="foodPics/food3.jpeg" alt="Food 3"></div>
+            <div class="cube-face cube-left"><img src="foodPics/food4.jpeg" alt="Food 4"></div>
+            <div class="cube-face cube-top"><img src="foodPics/food5.jpeg" alt="Food 5"></div>
+            <div class="cube-face cube-bottom"><img src="foodPics/food6.jpeg" alt="Food 6"></div>
+        </div>
+    </div>
+
+    <!-- Sticky Footer -->
+    <div class="footer">
+        © 2025 Hacker Theme | All Rights Reserved
+    </div>
 
     <script src="App.js"></script>
 </body>
