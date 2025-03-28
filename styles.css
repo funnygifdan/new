@@ -15,9 +15,8 @@ body {
     color: #39ff14;
     position: sticky;
     top: 0;
-    height: 25px;
+    height: 40px;
     display: flex;
-    align-items: center;
     padding: 5px;
     z-index: 1000;
 }
@@ -67,8 +66,8 @@ body {
 
 /* Carousel */
 .carousel-container {
-    perspective: 1000px;
-    width: 90%; /* Increased width */
+    perspective: 15000px;
+    width: 50%; /* Increased width */
     margin: auto;
 }
 
