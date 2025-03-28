@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* -------------------------
-     Matrix Code Background (Slowed Down)
+     Matrix Code Background (Slowed Down, Black Background)
   -------------------------- */
   let fontSize = 18;
   let columns = Math.floor(window.innerWidth / fontSize);
@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
   ctx.font = `${fontSize}px monospace`;
 
   const drawMatrix = () => {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.15)"; // Darker fade effect
+    // Fill the canvas with a fully opaque black background
+    ctx.fillStyle = "rgba(0, 0, 0, 1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#00FF00";
     const charArray = "01 10 11 00 101 010 011 110 100 111 001".split(" ");
