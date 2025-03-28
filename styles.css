@@ -1,20 +1,12 @@
 /* Set global styles */
 body {
-    font-family: "Comic Sans MS", "Comic Sans", cursive; /* Comic Sans for all text */
+    font-family: "Comic Sans MS", "Comic Sans" /* Comic Sans for all text */
     font-size: 22px; /* Default font size */
     background-color: black; /* Page background black */
     color: #39ff14; /* Hacker green */
     margin: 0;
     padding: 0;
-    height: 100vh; /* Full viewport height */
-    display: flex;
-    flex-direction: column;
     box-sizing: border-box;
-    background-color: black;
-    color: #00FF00; /* Hacker Green */
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 22px; /* Default font size */
-}
 
 /* Top Navigation */
 .top-nav {
@@ -32,25 +24,25 @@ body {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Comic Sans MS"
 }
 
-/* Dropdown Menu */
-.dropdown-menu {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    background-color: darkgray; /* Dark gray menu background */
-    padding: 10px;
 /* Menu Styling */
-.menu {
-    display: none;
+.menu-button {
+    font-size: 18px; /* Smaller font for menu */  display: none;
     position: absolute;
     top: 60px;
     left: 0;
     width: 100%;
     background-color: #333; /* Dark Gray */
     padding: 20px;
-}
+    
+  /* Dropdown Menu */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    background-color: darkgray; /* Dark gray menu background */
+    padding: 10px;
 
 /* Menu Links */
 .dropdown-menu a {
@@ -58,28 +50,14 @@ body {
     color: #39ff14;
     text-decoration: none;
     padding: 8px 0;
-.menu ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.menu ul li {
-    margin: 10px 0;
-}
-
-.menu ul li a {
-    color: #00FF00; /* Hacker Green */
-    text-decoration: none;
-    font-size: 18px; /* Menu font size */
-}
-
+ 
 /* Close Button */
 .close-btn {
     background-color: #333; /* Dark Gray */
     color: #00FF00; /* Hacker Green */
     border: none;
     cursor: pointer;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Comic Sans MS"
 }
 
 /* Centered Paragraph */
@@ -87,7 +65,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh; /* Center vertically */
+    height: 100vh; /* Center vertically */
     text-align: center;
 }
 
@@ -101,7 +79,7 @@ body {
 }
 
 .carousel img {
-    max-width: 30%;
+    max-width: 75%;
     height: auto;
 }
 
@@ -112,7 +90,7 @@ body {
     background-color: #333; /* Dark Gray */
     color: #00FF00; /* Hacker Green */
     padding: 15px;
-    text-align: center;
+    
 }
 
 /* Button Consistency */
@@ -122,3 +100,7 @@ button {
     border: none;
     font-family: "Comic Sans MS", cursive, sans-serif;
 }
+
+
+
+
