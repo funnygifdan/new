@@ -28,7 +28,7 @@
   width: 100%;
   background: rgba(0, 0, 0, 0.8);
   padding: 10px;
-  text-align: left; /* Menu button aligned to left */
+  text-align: left;
   z-index: 1000;
 }
 
@@ -64,7 +64,7 @@
   background: green;
 }
 
-/* 3D Cube Carousel */
+/* 3D Cube */
 .carousel-container {
   display: flex;
   justify-content: center;
