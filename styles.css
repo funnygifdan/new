@@ -158,17 +158,17 @@ button {
 .cube-bottom { background-image: url('hacker6.jpg'); transform: rotateX(-90deg) translateZ(150px); }
 
 /* Satellite (Floating Element) */
-#satellite {
+#hacker1.PNG{
   position: fixed;
   bottom: 50px;
   right: 50px;
   width: 150px;
   opacity: 0.8;
   z-index: 999;
-  animation: floatSatellite 3s infinite ease-in-out;
+  animation: floatHacker1 3s infinite ease-in-out;
 }
 
-@keyframes floatSatellite {
+@keyframes floatHackef1 {
   0% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
   100% { transform: translateY(0); }

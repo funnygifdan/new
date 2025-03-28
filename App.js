@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* -------------------------
-     Satellite Random Movement with Depth
+     hacker1.PNG Random Movement with Depth
   -------------------------- */
   // Set initial position and scale
   let currentX = window.innerWidth / 2;
@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to set a new random target position and scale
   const setRandomTarget = () => {
     // Ensure the satellite remains fully in view
-    targetX = Math.random() * (window.innerWidth - satellite.clientWidth);
-    targetY = Math.random() * (window.innerHeight - satellite.clientHeight);
+    targetX = Math.random() * (window.innerWidth - hacker1.clientWidth);
+    targetY = Math.random() * (window.innerHeight - hacker1.clientHeight);
     // Random scale between 0.5 (far) and 1.5 (close)
     targetScale = 0.5 + Math.random();
   };
@@ -56,18 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
   setRandomTarget();
   setInterval(setRandomTarget, 5000);
 
-  // Animate the satellite moving toward the random target and adjusting its scale
-  const updateSatellite = () => {
+  // Animate the hacker1.PNG moving toward the random target and adjusting its scale
+  const updateHacker1 = () => {
     // Easing factor controls speed of transition (lower values = slower)
     const easing = 0.02;
     currentX += (targetX - currentX) * easing;
     currentY += (targetY - currentY) * easing;
     currentScale += (targetScale - currentScale) * easing;
 
-    satellite.style.transform = `translate(${currentX}px, ${currentY}px) scale(${currentScale})`;
-    requestAnimationFrame(updateSatellite);
+    hacker1.style.transform = `translate(${currentX}px, ${currentY}px) scale(${currentScale})`;
+    requestAnimationFrame(updatehacker1);
   };
-  updateSatellite();
+  updateHacker1();
 
   /* -------------------------
      3D Cube Rotation Animation
