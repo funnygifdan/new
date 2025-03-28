@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Menu Elements
   const menuButton = document.getElementById("menu-button");
   const closeButton = document.getElementById("close-menu");
   const sideMenu = document.querySelector(".side-menu");
@@ -11,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Dropdown Functionality
   dropdownButtons.forEach(button => {
     button.addEventListener("click", function () {
-      // Toggle dropdown visibility
       const dropdownContent = this.nextElementSibling;
       const isActive = dropdownContent.style.display === "block";
       document.querySelectorAll(".dropdown-container").forEach(container => container.style.display = "none");
