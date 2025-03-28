@@ -1,50 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Sidebar Toggle
-    const menuButton = document.getElementById("menu-button");
-    const sideMenu = document.querySelector(".side-menu");
-    const closeButton = document.getElementById("close-menu");
-    const mainContent = document.getElementById("main-content");
-    const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  const menuButton = document.getElementById("menu-button");
+  const sideMenu = document.getElementById("side-menu");
+  const closeMenuButton = document.getElementById("close-menu-button");
+  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  const content = document.getElementById("content");
 
-    // Open Menu
-    menuButton.addEventListener("click", toggleMenu);
-        sideMenu.classList.toggle("active");
-        mainContent.classList.toggle("menu-open");
-    });
-
-    // Close Menu
-    closeButton.addEventListener("click", () => {
-        
-        
-    });
-
-    // Dropdown Functionality (One Open at a Time)
-    dropdownButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            const dropdownContent = this.nextElementSibling;
-            const isActive = dropdownContent.style.display === "block";
-
-            // Close all dropdowns
-            document.querySelectorAll(".dropdown-container").forEach(container => {
-                container.style.display = "none";
-            });
-
-            // Toggle the current one
-            dropdownContent.style.display = isActive ? "none" : "block";
-        });
-    });
-});
-
-  // Toggle Menu and Push Down Content
-  function toggleMenu() {
+  // Toggle Sidebar
+  menuButton.addEventListener("click", () => {
     sideMenu.classList.toggle("active");
-    mainContent.classList.toggle("menu-open");
-  }
+    adjustContent();
+  });
 
-  menuButton.addEventListener("click", toggleMenu);
-  closeButton.addEventListener("click", toggleMenu);
+  closeMenuButton.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+    adjustContent();
+  });
 
-  // Dropdown Logic - Only one open at a time
+  // Manage Dropdown Menus
   dropdownButtons.forEach(button => {
     button.addEventListener("click", function () {
       const dropdownContent = this.nextElementSibling;
@@ -55,12 +27,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      dropdownContent.style.display =
-        dropdownContent.style.display === "block" ? "none" : "block";
+      dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+      adjustContent();
     });
   });
 
-  // Carousel Logic
+  // Adjust content position
+  function adjustContent() {
+    if (sideMenu.classList.contains("active")) {
+      content.style.marginLeft = "300px";
+    } else {
+      content.style.marginLeft = "0";
+    }
+  }
+
+  // Carousel Functionality
   let slideIndex = 0;
   const slides = document.querySelectorAll(".carousel-item");
 
@@ -80,18 +61,4 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   showSlides(slideIndex);
-
-  // Touch Swipe Support
-  const carousel = document.getElementById("carousel");
-  let touchStartX = 0;
-
-  carousel.addEventListener("touchstart", (e) => {
-    touchStartX = e.touches[0].clientX;
-  });
-
-  carousel.addEventListener("touchend", (e) => {
-    const touchEndX = e.changedTouches[0].clientX;
-    if (touchEndX < touchStartX) nextSlide();
-    else if (touchEndX > touchStartX) prevSlide();
-  });
 });

@@ -6,81 +6,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Funcryptology</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <!-- Top Navbar (Sticky) -->
-    <div class="top-navbar">
-        <button id="menu-button">☰</button>
-    </div>
+  <!-- Top Navbar -->
+  <div class="top-navbar">
+    <button id="menu-button">☰</button>
+  </div>
 
   <!-- Sidebar/Menu -->
-    <div class="side-menu" id="side-menu">
-        <img src="foodPics/food1.jpeg" alt="Menu Image" class="menu-image">
-        <a href="https://linktr.ee/funnygifdan">My Linktree</a>
-        <a href="linknew.html">NewHome</a>
-        <a href="cyberaware.html">Cyber Awareness</a>
+  <div class="side-menu" id="side-menu">
+    <img src="foodPics/menuImage.jpeg" alt="Menu Image" class="menu-image">
+    <a href="https://linktr.ee/funnygifdan">My Linktree</a>
+    <a href="linknew.html">NewHome</a>
+    <a href="cyberaware.html">Cyber Awareness</a>
+    <a href="important.html">Important Links</a>
 
-        <!-- Dropdown: SIP -->
-        <button class="dropdown-btn">SIP ▼</button>
-        <div class="dropdown-container">
-            <a href="sip.html">SIP</a>
-            <a href="production.html">Production/Design</a>
-        </div>
+    <!-- Dropdown: SIP -->
+    <button class="dropdown-btn">SIP <i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+      <a href="sip.html">SIP</a>
+      <a href="production.html">Production/Design</a>
+      <a href="systems.html">Systems/Processes</a>
+    </div>
 
-      <!-- Dropdown: Networking -->
-        <button class="dropdown-btn">Networking ▼</button>
-        <div class="dropdown-container">
-            <a href="porthead.html">Ports/Header Info</a>
-            <a href="subnetting.html">Subnetting</a>
-        </div>
+    <!-- Dropdown: Networking -->
+    <button class="dropdown-btn">Networking <i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-container">
+      <a href="porthead.html">Ports/Header Information</a>
+      <a href="subnetting.html">Subnetting</a>
+      <a href="systems.html">Systems</a>
+    </div>
 
     <!-- Dropdown: Linux Commands -->
-    <button class="dropdown-btn">Linux ▼</button>
+    <button class="dropdown-btn">Linux <i class="fa fa-caret-down"></i></button>
     <div class="dropdown-container">
       <a href="linuxcom.html">Linux Commands</a>
     </div>
 
-          <!-- Close Menu Button -->
-        <button id="close-menu">Close Menu</button>
-    </div>
+    <!-- Close Menu Button -->
+    <button id="close-menu-button">Close</button>
+  </div>
 
- <!-- Main Content -->
-    <div class="main-content" id="main-content">
-        <div class="paragraph-box">
-            <p>Welcome to Funcryptology! Learn about cybersecurity and network security.</p>
-        </div>
-    </div>
+  <!-- Main Content: Paragraph Box with Carousel -->
+  <div class="paragraph-box" id="content">
+    <p>Welcome to Funcryptology! Learn about cybersecurity and network security.</p>
 
-      <!-- Image Carousel -->
-      <div class="carousel" id="carousel">
-        <div class="carousel-inner" id="carousel-inner">
-          <script>
-            for (let i = 1; i <= 10; i++) {
-              document.write(`
-                <div class="carousel-item ${i === 1 ? 'active' : ''}">
-                  <img src="foodPics/food${i}.jpeg" alt="Food Image ${i}">
-                </div>
-              `);
-            }
-          </script>
-        </div>
-
-        <!-- Navigation Arrows -->
-        <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
-        <a class="carousel-control next" onclick="nextSlide()">&#10095;</a>
+    <!-- Image Carousel -->
+    <div class="carousel" id="carousel">
+      <div class="carousel-inner">
+        <!-- Dynamically Load Images -->
+        <script>
+          for (let i = 1; i <= 10; i++) {
+            document.write(`
+              <div class="carousel-item ${i === 1 ? 'active' : ''}">
+                <img src="foodPics/food${i}.jpeg" alt="Food Image ${i}">
+              </div>
+            `);
+          }
+        </script>
       </div>
+
+      <!-- Navigation Arrows -->
+      <a class="carousel-control prev" onclick="prevSlide()">&#10094;</a>
+      <a class="carousel-control next" onclick="nextSlide()">&#10095;</a>
     </div>
   </div>
 
-      <!-- Footer (Sticky) -->
-    <div class="footer">
-        <marquee behavior="scroll" direction="left">&copy; 2025 Funcryptology. All rights reserved.</marquee>
-    </div>
+  <!-- Footer with Scrolling Text -->
+  <div class="footer">
+    <marquee behavior="scroll" direction="left">&copy; 2025 Funcryptology. All rights reserved.</marquee>
+  </div>
 
-
-
-  <!-- JavaScript -->
   <script src="App.js"></script>
 
 </body>

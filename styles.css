@@ -1,130 +1,92 @@
-/* Ensure HTML and Body take full height */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: "Comic Sans MS", sans-serif;
-    font-size: 20px;
-    background: black;
-    color: #30FF00;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+/* General Page Styling */
+body {
+  font-family: "Comic Sans MS", sans-serif;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #30FF00;
+  box-sizing: border-box;
 }
 
-/* Top Navbar - Sticky to the top */
+/* Navbar */
 .top-navbar {
-    position: sticky;
-    top: 0;
-    background: black;
-    padding: 10px;
-    z-index: 1000; /* Ensure it stays on top */
+  position: sticky;
+  top: 0;
+  background-color: #000;
+  padding: 10px;
+  z-index: 1000;
 }
 
-/* Side Menu Styles */
+/* Side Menu */
 .side-menu {
-  width: 250px;
+  background-color: #000;
+  color: #30FF00;
+  width: 300px;
   position: fixed;
-  left: -250px;
   top: 0;
+  left: -300px;
   height: 100%;
-  background: black; 
   overflow-y: auto;
-  transition: left 0.3s ease;
+  transition: left 0.3s;
 }
 
 .side-menu.active {
   left: 0;
 }
 
-/* Main content should grow to fill available space */
-.main-content {
-    flex: 1; /* Makes the content expand and push the footer down */
-    transition: margin-top 0.3s ease; /* Smooth movement */
-}
-
-/* When menu is open, push down content */
-.main-content.menu-open {
-  margin-top: 300px; /* Push down when the menu is open */
-}
-
-/* Menu Links and Dropdowns */
-.side-menu a, .dropdown-btn, #close-menu {
+.side-menu img {
+  width: 50%;
   display: block;
-  padding: 15px;
-  text-decoration: none;
+  margin: 20px auto;
+}
+
+.side-menu a, .dropdown-btn, #close-menu-button {
+  display: block;
+  background: #000;
   color: #30FF00;
+  text-decoration: none;
+  padding: 15px;
+  border: none;
+  text-align: left;
+  width: 100%;
   font-size: 20px;
-  background: black;
 }
 
 /* Dropdown Containers */
 .dropdown-container {
   display: none;
-  background: black;
-}
-
-/* Paragraph Box */
-.paragraph-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
+  background: #444;
 }
 
 /* Carousel */
 .carousel {
-  width: 80%;
-  max-width: 600px;
-  position: relative;
-  perspective: 1000px;
+  max-width: 90%;
+  margin: 20px auto;
 }
 
 .carousel-inner {
   display: flex;
-  transform-style: preserve-3d;
+  overflow: hidden;
 }
 
 .carousel-item {
   min-width: 100%;
-  backface-visibility: hidden;
+  transition: transform 0.5s ease;
 }
 
-.carousel img {
-  width: 100%;
-}
-
-/* Carousel Controls */
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 34px;
-  color: #30FF00;
-  cursor: pointer;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-/* Footer - Sticky to the bottom */
+/* Footer */
 .footer {
-    background: black;
-    color: #30FF00;
-    text-align: center;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
+  position: sticky;
+  bottom: 0;
+  background-color: #000;
+  padding: 10px;
+  text-align: center;
 }
-    
-  
-/* Sidebar Menu Adjustment - Push Content Down */
-.main-content.menu-open {
-    margin-top: 300px; /* Push down when the menu is open */
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  body {
+    font-size: 18px;
+  }
 }
