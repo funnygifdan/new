@@ -1,71 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Responsive Hacker Site</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Hacker Theme with 3D Cube & AI Alien</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- Hacker Matrix Background -->
-    <canvas id="matrixCanvas"></canvas>
+  <!-- Matrix Background Canvas (Optional, remove if not needed) -->
+  <canvas id="matrixCanvas"></canvas>
 
-    <!-- Top Navigation -->
-    <div class="top-nav">
-        <button id="menu-btn">Menu</button>
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <button id="menu-btn" class="menu-button">Menu</button>
+  </nav>
+
+  <!-- Side Menu -->
+  <div id="menu" class="menu">
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    
+    <div class="dropdown">
+      <button class="dropdown-btn">Services</button>
+      <div class="dropdown-content">
+        <a href="web.html">Web Design</a>
+        <a href="cyber.html">Cybersecurity</a>
+        <a href="consult.html">Consulting</a>
+      </div>
     </div>
 
-    <!-- Side Menu -->
-    <div id="menu" class="menu">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-
-        <div class="dropdown">
-            <button class="dropdown-btn">Services</button>
-            <div class="dropdown-content">
-                <a href="#">Web Development</a>
-                <a href="#">Cybersecurity</a>
-                <a href="#">Consulting</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button class="dropdown-btn">Portfolio</button>
-            <div class="dropdown-content">
-                <a href="#">Projects</a>
-                <a href="#">Case Studies</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button class="dropdown-btn">Resources</button>
-            <div class="dropdown-content">
-                <a href="#">Blog</a>
-                <a href="#">White Papers</a>
-            </div>
-        </div>
+    <div class="dropdown">
+      <button class="dropdown-btn">Portfolio</button>
+      <div class="dropdown-content">
+        <a href="proj.html">Projects</a>
+        <a href="cases.html">Case Studies</a>
+      </div>
     </div>
 
+    <div class="dropdown">
+      <button class="dropdown-btn">Resources</button>
+      <div class="dropdown-content">
+        <a href="blog.html">Blog</a>
+        <a href="docs.html">Docs</a>
+      </div>
+    </div>
+
+    <img src="foodPics/food1.jpeg" alt="Menu Image" class="menu-image">
+  </div>
+
+  <!-- Main Content -->
+  <div id="content">
     <!-- 3D Cube Carousel -->
     <div class="carousel-container">
-        <div class="cube">
-            <div class="cube-face cube-front"><img src="foodPics/food1.jpeg" alt="Food 1"></div>
-            <div class="cube-face cube-back"><img src="foodPics/food2.jpeg" alt="Food 2"></div>
-            <div class="cube-face cube-right"><img src="foodPics/food3.jpeg" alt="Food 3"></div>
-            <div class="cube-face cube-left"><img src="foodPics/food4.jpeg" alt="Food 4"></div>
-            <div class="cube-face cube-top"><img src="foodPics/food5.jpeg" alt="Food 5"></div>
-            <div class="cube-face cube-bottom"><img src="foodPics/food6.jpeg" alt="Food 6"></div>
+      <div class="cube" id="cube">
+        <div class="cube-face cube-front">
+          <img src="foodPics/food1.jpeg" alt="Food 1">
         </div>
+        <div class="cube-face cube-back">
+          <img src="foodPics/food2.jpeg" alt="Food 2">
+        </div>
+        <div class="cube-face cube-right">
+          <img src="foodPics/food3.jpeg" alt="Food 3">
+        </div>
+        <div class="cube-face cube-left">
+          <img src="foodPics/food4.jpeg" alt="Food 4">
+        </div>
+        <div class="cube-face cube-top">
+          <img src="foodPics/food5.jpeg" alt="Food 5">
+        </div>
+        <div class="cube-face cube-bottom">
+          <img src="foodPics/food6.jpeg" alt="Food 6">
+        </div>
+      </div>
     </div>
 
-    <!-- Sticky Footer -->
-    <div class="footer">
-        © 2025 Hacker Theme | All Rights Reserved
-    </div>
+    <!-- Centered Paragraph -->
+    <p class="content-text">Welcome to our hacker-themed site with a 3D cube carousel!</p>
+  </div>
 
-    <script src="App.js"></script>
+  <!-- AI Alien -->
+  <img id="alien" src="alien.png" alt="Alien" />
+
+  <!-- Sticky Footer -->
+  <footer class="footer">
+    © 2025 Hacker Theme | All Rights Reserved
+  </footer>
+
+  <script src="App.js"></script>
 </body>
-
 </html>
