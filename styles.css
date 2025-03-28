@@ -1,102 +1,98 @@
-/* General Page Styling */
+/* General Styles */
 body {
-    font-family: "Comic Sans MS", sans-serif;
-    font-size: 20px;
-    margin: 0;
-    padding: 0;
-    background-color: #000;
-    color: #30FF00;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-/* Top Navbar - Sticky and Dark Gray */
+/* Navbar */
 .top-navbar {
-    position: sticky;
-    top: 0;
-    background-color: #444;
-    padding: 10px;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #30FF00;
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  padding: 10px;
+  z-index: 1000;
 }
 
-/* Side Menu */
+/* Menu Button */
+#menu-button {
+  font-size: 18px;
+  color: #00ff00;
+  background: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Sidebar */
 .side-menu {
-    background-color: #000;
-    color: #30FF00;
-    width: 300px;
-    position: fixed;
-    top: 0;
-    left: -300px;
-    height: 100%;
-    overflow-y: auto;
-    transition: left 0.3s;
+  position: fixed;
+  left: -300px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: black;
+  overflow-y: auto;
+  transition: left 0.3s ease;
 }
 
 .side-menu.active {
-    left: 0;
+  left: 0;
 }
 
-/* Menu Buttons and Dropdown */
+.side-menu img.menu-image {
+  width: 50%;
+}
+
 .side-menu a,
-.dropdown-btn,
-#close-menu-button {
-    display: block;
-    background: #000;
-    color: #30FF00;
-    text-decoration: none;
-    padding: 15px;
-    border: none;
-    text-align: left;
-    width: 100%;
-    font-size: 18px;
+.dropdown-btn {
+  display: block;
+  color: #00ff00;
+  font-size: 18px;
+  padding: 10px 20px;
+  text-decoration: none;
 }
 
 .dropdown-container {
-    display: none;
-    background: #444;
+  display: none;
 }
 
-/* Main Content */
-.main-content {
-    flex: 1;
+#close-menu {
+  position: sticky;
+  bottom: 0;
+  font-size: 18px;
+  background: black;
+  color: #00ff00;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
 }
 
-/* Carousel (Responsive) */
+/* Carousel */
 .carousel {
-    max-width: 90%;
-    margin: 20px auto;
-    overflow: hidden;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
 }
 
 .carousel-inner {
-    display: flex;
-    transition: transform 0.5s ease;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
-.carousel-item {
-    min-width: 100%;
+.carousel-item img {
+  width: 100%;
 }
 
-/* Footer - Sticky and Dark Gray */
+/* Footer */
 .footer {
-    position: sticky;
-    bottom: 0;
-    background-color: #444;
-    padding: 10px;
-    text-align: center;
-    color: #30FF00;
-    width: 100%;
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    body {
-        font-size: 18px;
-    }
+  position: sticky;
+  bottom: 0;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
 }
