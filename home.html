@@ -4,44 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Page</title>
+    <title>Responsive Food Carousel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <!-- Top Navigation -->
-    <header class="navbar">
-        <button id="menu-button" onclick="toggleMenu()">Menu</button>
-        <nav id="menu" class="menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="top-nav">
+        <button class="menu-button" id="menuButton">Menu</button>
+        <div class="menu" id="menu">
+            <button class="dropdown-button">Item 1</button>
+            <button class="dropdown-button">Item 2</button>
+            <button class="dropdown-button">Item 3</button>
+        </div>
+    </div>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <h1>Welcome to My Website</h1>
-        <p>This paragraph is centered and responsive.</p>
+    <div class="content-container">
+        <h1>Welcome to Our Food Gallery</h1>
+        <p>Explore our delicious menu through our interactive 3D carousel!</p>
 
-        <!-- Image Carousel -->
+        <!-- 3D Image Carousel -->
         <div class="carousel-container">
-            <button onclick="prevSlide()">❮</button>
-            <div class="carousel">
+            <div class="carousel" id="carousel">
                 <img src="foodPics/food1.jpg" alt="Food 1">
                 <img src="foodPics/food2.jpg" alt="Food 2">
                 <img src="foodPics/food3.jpg" alt="Food 3">
+                <img src="foodPics/food4.jpg" alt="Food 4">
+                <img src="foodPics/food5.jpg" alt="Food 5">
+                <img src="foodPics/food6.jpg" alt="Food 6">
+                <img src="foodPics/food7.jpg" alt="Food 7">
+                <img src="foodPics/food8.jpg" alt="Food 8">
+                <img src="foodPics/food9.jpg" alt="Food 9">
+                <img src="foodPics/food10.jpg" alt="Food 10">
             </div>
-            <button onclick="nextSlide()">❯</button>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Your Website</p>
-    </footer>
+    <div class="footer">
+        <p>&copy; 2025 Food Carousel. All rights reserved.</p>
+    </div>
 
     <script src="App.js"></script>
 </body>

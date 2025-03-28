@@ -1,39 +1,27 @@
-// JavaScript for Menu Toggle and Carousel
+// Menu Toggle Logic
+document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById("menuButton");
+    const menu = document.getElementById("menu");
 
-// Menu Toggle
-const menu = document.getElementById('menu');
-const menuButton = document.getElementById('menu-button');
+    menuButton.addEventListener("click", () => {
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
 
-function toggleMenu() {
-    menu.classList.toggle('open');
-}
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!menu.contains(e.target) && !menuButton.contains(e.target)) {
-        menu.classList.remove('open');
-    }
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target) && e.target !== menuButton) {
+            menu.style.display = "none";
+        }
+    });
 });
 
-// Carousel Logic
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel img');
+// 3D Carousel Rotation
+const carousel = document.querySelector(".carousel");
+let angle = 0;
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.style.display = i === index ? 'block' : 'none';
-    });
+function rotateCarousel() {
+    angle += 36;
+    carousel.style.transform = `rotateY(${angle}deg)`;
 }
 
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}
-
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-}
-
-// Initialize carousel
-showSlide(currentSlide);
+setInterval(rotateCarousel, 3000);
