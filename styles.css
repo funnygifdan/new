@@ -1,51 +1,147 @@
-// Menu Toggle Logic
-const menuToggle = document.getElementById('menu-toggle');
-const closeMenu = document.getElementById('close-menu');
-const menu = document.getElementById('menu');
-
-// Open Menu
-menuToggle.addEventListener('click', () => {
-    menu.classList.add('open');
-});
-
-// Close Menu
-closeMenu.addEventListener('click', () => {
-    menu.classList.remove('open');
-});
-
-// Close Menu on Click Outside
-document.addEventListener('click', (e) => {
-    if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
-        menu.classList.remove('open');
-    }
-});
-
-// 3D Cube Interaction
-let cube = document.getElementById('cube');
-let currentAngle = 0;
-
-function rotateCube(direction) {
-    if (direction === 'left') {
-        currentAngle += 90;
-    } else {
-        currentAngle -= 90;
-    }
-    cube.style.transform = `rotateY(${currentAngle}deg)`;
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Comic Sans MS", sans-serif;
+    background-color: black;
+    color: #00FF00;
+    overflow-x: hidden;
 }
 
-// Swipe Detection for Cube Rotation
-let startX = 0;
-let endX = 0;
+/* Sticky Top Navigation */
+.top-nav {
+    position: sticky;
+    top: 0;
+    height: 40px;
+    background-color: #212624;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
 
-document.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-});
+/* Sticky Footer */
+.footer {
+    position: sticky;
+    bottom: 0;
+    height: 40px;
+    background-color: #212624;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
 
-document.addEventListener('touchend', (e) => {
-    endX = e.changedTouches[0].clientX;
-    if (endX < startX) {
-        rotateCube('left');
-    } else if (endX > startX) {
-        rotateCube('right');
+/* Menu Button */
+#menu-btn {
+    font-size: 20px;
+    color: #00FF00;
+    background-color: #212624;
+    border: none;
+    cursor: pointer;
+}
+
+/* Side Menu */
+.menu {
+    position: fixed;
+    top: 40px;
+    left: -20%;
+    width: 20%;
+    height: calc(100% - 80px);
+    background-color: #212624;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    padding: 20px;
+}
+
+.menu.open {
+    left: 0;
+}
+
+.menu a {
+    display: block;
+    color: #00FF00;
+    text-decoration: none;
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+/* Dropdown */
+.dropdown {
+    margin: 10px 0;
+}
+
+.dropdown-btn {
+    font-size: 20px;
+    color: #00FF00;
+    background-color: #212624;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    flex-direction: column;
+}
+
+.dropdown.open .dropdown-content {
+    display: block;
+}
+
+.menu-image {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Cube Carousel */
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    perspective: 1000px;
+}
+
+.cube {
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: rotateCube 10s infinite linear;
+}
+
+.cube-face {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: black;
+}
+
+.cube img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Cube Faces */
+.cube-front  { transform: translateZ(150px); }
+.cube-back   { transform: rotateY(180deg) translateZ(150px); }
+.cube-right  { transform: rotateY(90deg) translateZ(150px); }
+.cube-left   { transform: rotateY(-90deg) translateZ(150px); }
+.cube-top    { transform: rotateX(90deg) translateZ(150px); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+/* Cube Animation */
+@keyframes rotateCube {
+    from { transform: rotateX(0) rotateY(0); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu {
+        width: 50%;
     }
-});
+    .cube {
+        width: 200px;
+        height: 200px;
+    }
+}

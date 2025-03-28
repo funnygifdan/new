@@ -3,58 +3,68 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Image Cube</title>
+    <title>Responsive 3D Cube Carousel with Menu</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <!-- Top Navigation -->
-    <nav>
-        <button id="menu-toggle">Menu</button>
-    </nav>
+    <div class="top-nav">
+        <button id="menu-btn">☰ Menu</button>
+    </div>
 
-    <!-- Sidebar Menu -->
-    <div class="menu" id="menu">
-        <button class="close-menu" id="close-menu">Close</button>
-        <a href="home.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+    <!-- Side Menu -->
+    <div id="menu" class="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+
+        <div class="dropdown">
+            <button class="dropdown-btn">Services</button>
+            <div class="dropdown-content">
+                <a href="#">Web Design</a>
+                <a href="#">Development</a>
+                <a href="#">SEO</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropdown-btn">Products</button>
+            <div class="dropdown-content">
+                <a href="#">Item 1</a>
+                <a href="#">Item 2</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <button class="dropdown-btn">Resources</button>
+            <div class="dropdown-content">
+                <a href="#">Blog</a>
+                <a href="#">Docs</a>
+            </div>
+        </div>
+
+        <img src="foodPics/food1.jpeg" alt="Food Image" class="menu-image">
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <h1>Welcome to the 3D Image Cube</h1>
-
-        <!-- 3D Cube Carousel -->
+    <div id="content">
         <div class="carousel-container">
-            <div class="carousel" id="cube">
-                <div class="carousel-face" style="transform: rotateY(0deg) translateZ(150px);">
-                    <img src="foodPics/food1.jpeg" alt="Food 1">
-                </div>
-                <div class="carousel-face" style="transform: rotateY(90deg) translateZ(150px);">
-                    <img src="foodPics/food2.jpeg" alt="Food 2">
-                </div>
-                <div class="carousel-face" style="transform: rotateY(180deg) translateZ(150px);">
-                    <img src="foodPics/food3.jpeg" alt="Food 3">
-                </div>
-                <div class="carousel-face" style="transform: rotateY(270deg) translateZ(150px);">
-                    <img src="foodPics/food4.jpeg" alt="Food 4">
-                </div>
-                <div class="carousel-face" style="transform: rotateX(90deg) translateZ(150px);">
-                    <img src="foodPics/food5.jpeg" alt="Food 5">
-                </div>
-                <div class="carousel-face" style="transform: rotateX(-90deg) translateZ(150px);">
-                    <img src="foodPics/food6.jpeg" alt="Food 6">
-                </div>
+            <div class="cube" id="cube">
+                <div class="cube-face cube-front"><img src="foodPics/food1.jpeg" alt="Image 1"></div>
+                <div class="cube-face cube-back"><img src="foodPics/food2.jpeg" alt="Image 2"></div>
+                <div class="cube-face cube-left"><img src="foodPics/food3.jpeg" alt="Image 3"></div>
+                <div class="cube-face cube-right"><img src="foodPics/food4.jpeg" alt="Image 4"></div>
+                <div class="cube-face cube-top"><img src="foodPics/food5.jpeg" alt="Image 5"></div>
+                <div class="cube-face cube-bottom"><img src="foodPics/food6.jpeg" alt="Image 6"></div>
             </div>
         </div>
     </div>
 
-    <!-- Sticky Footer -->
-    <footer>
-        &copy; 2025 Your Website. All rights reserved.
-    </footer>
+    <!-- Footer -->
+    <div class="footer">
+        Footer Content Here
+    </div>
 
     <script src="App.js"></script>
 </body>
