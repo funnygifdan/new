@@ -4,39 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Cube Carousel</title>
+    <title>3D Image Cube</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <!-- Top Navigation -->
-    <nav class="top-nav">
-        <button id="menuButton" class="menu-button">Menu</button>
-        <div id="menu" class="menu">
-            <a href="#">Home</a>
-            <a href="#">Gallery</a>
-            <a href="#">Contact</a>
-        </div>
+    <nav>
+        <button id="menu-toggle">Menu</button>
     </nav>
 
-    <!-- 3D Cube Carousel -->
-    <div class="carousel-container">
-        <div class="cube" id="cube">
-            <div class="face front"><img src="foodPics/food1.jpeg" alt="Food 1"></div>
-            <div class="face back"><img src="foodPics/food2.jpeg" alt="Food 2"></div>
-            <div class="face right"><img src="foodPics/food3.jpeg" alt="Food 3"></div>
-            <div class="face left"><img src="foodPics/food4.jpeg" alt="Food 4"></div>
-            <div class="face top"><img src="foodPics/food5.jpeg" alt="Food 5"></div>
-            <div class="face bottom"><img src="foodPics/food6.jpeg" alt="Food 6"></div>
+    <!-- Sidebar Menu -->
+    <div class="menu" id="menu">
+        <button class="close-menu" id="close-menu">Close</button>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Welcome to the 3D Image Cube</h1>
+
+        <!-- 3D Cube Carousel -->
+        <div class="carousel-container">
+            <div class="carousel" id="cube">
+                <div class="carousel-face" style="transform: rotateY(0deg) translateZ(150px);">
+                    <img src="foodPics/food1.jpeg" alt="Food 1">
+                </div>
+                <div class="carousel-face" style="transform: rotateY(90deg) translateZ(150px);">
+                    <img src="foodPics/food2.jpeg" alt="Food 2">
+                </div>
+                <div class="carousel-face" style="transform: rotateY(180deg) translateZ(150px);">
+                    <img src="foodPics/food3.jpeg" alt="Food 3">
+                </div>
+                <div class="carousel-face" style="transform: rotateY(270deg) translateZ(150px);">
+                    <img src="foodPics/food4.jpeg" alt="Food 4">
+                </div>
+                <div class="carousel-face" style="transform: rotateX(90deg) translateZ(150px);">
+                    <img src="foodPics/food5.jpeg" alt="Food 5">
+                </div>
+                <div class="carousel-face" style="transform: rotateX(-90deg) translateZ(150px);">
+                    <img src="foodPics/food6.jpeg" alt="Food 6">
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Paragraph Section -->
-    <p class="content">Welcome to our delicious food gallery!</p>
-
     <!-- Sticky Footer -->
-    <footer class="footer">
-        © 2025 Food Gallery
+    <footer>
+        &copy; 2025 Your Website. All rights reserved.
     </footer>
 
     <script src="App.js"></script>
