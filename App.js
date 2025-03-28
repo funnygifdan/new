@@ -194,3 +194,62 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const glitchSound = document.getElementById("glitchSound"); // make sure this exists
+
+  function loadPage(url, pushState = true) {
+    fetch(url)
+      .then(res => res.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const bodyContent = doc.querySelector("body");
+
+        if (bodyContent) {
+          const mainContainer = document.querySelector(".w3-main");
+          if (mainContainer) {
+            // Animate out old content
+            mainContainer.classList.remove("glitch-in");
+            mainContainer.classList.add("glitch-out");
+
+            setTimeout(() => {
+              mainContainer.innerHTML = bodyContent.innerHTML;
+
+              // Animate in new content
+              mainContainer.classList.remove("glitch-out");
+              mainContainer.classList.add("glitch-in");
+
+              // Play glitch sound
+              if (glitchSound) {
+                glitchSound.currentTime = 0;
+                glitchSound.play();
+              }
+
+              // Push to history
+              if (pushState) {
+                history.pushState({ url }, '', url);
+              }
+            }, 300);
+          }
+        }
+      });
+  }
+
+  // Listen to nav links
+  document.querySelectorAll('a[href="porthead.html"]').forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      loadPage("porthead.html");
+    });
+  });
+
+  // Handle back/forward
+  window.addEventListener("popstate", (e) => {
+    if (e.state && e.state.url) {
+      loadPage(e.state.url, false);
+    }
+  });
+});
+</script>
