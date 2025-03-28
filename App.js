@@ -1,53 +1,63 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Sidebar Toggle
   const menuButton = document.getElementById("menu-button");
-  const closeButton = document.getElementById("close-menu");
   const sideMenu = document.querySelector(".side-menu");
+  const closeButton = document.getElementById("close-menu");
   const dropdownButtons = document.querySelectorAll(".dropdown-btn");
 
-  // Toggle Sidebar
   menuButton.addEventListener("click", () => {
     sideMenu.classList.toggle("active");
-
-    // Close all dropdowns when the menu is opened
-    if (sideMenu.classList.contains("active")) {
-      closeAllDropdowns();
-    }
   });
 
-  // Close Menu Button
-  closeButton.addEventListener("click", () => sideMenu.classList.remove("active"));
+  closeButton.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+  });
 
-  // Dropdown Functionality: Allow only one dropdown open at a time
   dropdownButtons.forEach(button => {
     button.addEventListener("click", function () {
       const dropdownContent = this.nextElementSibling;
-      const isOpen = dropdownContent.style.display === "block";
+      const isActive = dropdownContent.style.display === "block";
 
-      // Close all dropdowns before opening a new one
-      closeAllDropdowns();
+      document.querySelectorAll(".dropdown-container").forEach(container => {
+        container.style.display = "none";
+      });
 
-      // Toggle current dropdown
-      if (!isOpen) {
-        dropdownContent.style.display = "block";
-      }
+      dropdownContent.style.display = isActive ? "none" : "block";
     });
   });
 
-  // Helper Function: Close all dropdowns
-  function closeAllDropdowns() {
-    document.querySelectorAll(".dropdown-container").forEach(container => {
-      container.style.display = "none";
-    });
+  // Carousel Functionality
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".carousel-item");
+
+  function showSlides(index) {
+    slides.forEach(slide => (slide.style.display = "none"));
+    slides[index].style.display = "block";
   }
 
-  // 3D Carousel Setup
-  const carousel = document.getElementById("carousel-3d");
-  const items = carousel.getElementsByClassName("carousel-item");
-  const radius = 350; // Distance from center
-  const angle = 360 / items.length;
+  window.nextSlide = function () {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlides(slideIndex);
+  };
 
-  Array.from(items).forEach((item, index) => {
-    const theta = angle * index;
-    item.style.transform = `rotateY(${theta}deg) translateZ(${radius}px)`;
+  window.prevSlide = function () {
+    slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+    showSlides(slideIndex);
+  };
+
+  showSlides(slideIndex);
+
+  // Touch Swipe Support
+  const carousel = document.getElementById("carousel");
+  let touchStartX = 0;
+
+  carousel.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener("touchend", (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    if (touchEndX < touchStartX) nextSlide();
+    else if (touchEndX > touchStartX) prevSlide();
   });
 });

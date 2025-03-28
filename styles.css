@@ -1,154 +1,117 @@
-/* Global Styling - Comic Sans with font-size 20px */
-* {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 20px;
-    box-sizing: border-box;
-}
-
+/* Global Styles */
 body {
-    color: #30FF00;
-    background: black;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Sans MS", sans-serif;
+  font-size: 20px;
+  background: black;
+  color: #30FF00;
+  box-sizing: border-box;
 }
 
-/* Top Navbar (Sticky) */
+/* Navbar Styles */
 .top-navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background: black;
+  position: sticky;
+  top: 0;
+  background: black;
+  padding: 10px;
+  z-index: 10;
 }
 
-/* Menu Button */
-#menu-button {
-    background: black;
-    color: #30FF00;
-    border: none;
-    cursor: pointer;
-}
-
-/* Sidebar Menu */
+/* Side Menu Styles */
 .side-menu {
-    width: 300px;
-    position: fixed;
-    top: 0;
-    left: -300px;
-    height: 100%;
-    background: black;
-    transition: left 0.3s;
-    padding-top: 60px;
-    overflow-y: auto;
+  width: 250px;
+  position: fixed;
+  left: -250px;
+  top: 0;
+  height: 100%;
+  background: black;
+  overflow-y: auto;
+  transition: left 0.3s ease;
 }
 
 .side-menu.active {
-    left: 0;
+  left: 0;
 }
 
 .side-menu a, .dropdown-btn, #close-menu {
-    display: block;
-    background: black;
-    color: #30FF00;
-    text-decoration: none;
-    padding: 15px;
-    border: none;
-    text-align: left;
-    cursor: pointer;
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #30FF00;
+  font-size: 20px;
+  background: black;
 }
 
-/* Image in Menu */
+.dropdown-container {
+  display: none;
+}
+
 .menu-image {
-    width: 50%;
-    margin: 10px auto;
-    display: block;
+  width: 50%;
+  display: block;
+  margin: 10px auto;
 }
 
-/* Main Content */
-.main-content {
-    margin-left: 320px;
-    padding: 20px;
+#close-menu {
+  position: sticky;
+  bottom: 0;
 }
 
 /* Paragraph Box */
 .paragraph-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 50vh;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
 }
 
-/* 3D Carousel */
-.carousel-3d {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    margin: 50px auto;
-    transform-style: preserve-3d;
-    animation: rotateCarousel 20s linear infinite;
+/* Carousel */
+.carousel {
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.carousel-inner {
+  display: flex;
+  transform-style: preserve-3d;
 }
 
 .carousel-item {
-    position: absolute;
-    width: 80%;
-    height: auto;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.9;
+  min-width: 100%;
+  backface-visibility: hidden;
 }
 
-.carousel-item img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+.carousel img {
+  width: 100%;
 }
 
-/* 3D Rotation Animation */
-@keyframes rotateCarousel {
-    from { transform: rotateY(0deg); }
-    to { transform: rotateY(360deg); }
+/* Carousel Controls */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 34px;
+  color: #30FF00;
+  cursor: pointer;
 }
 
-/* Footer (Sticky) */
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Footer */
 .footer {
-    position: sticky;
-    bottom: 0;
-    background: black;
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .side-menu {
-        width: 250px;
-    }
-    .main-content {
-        margin-left: 270px;
-    }
-    .carousel-3d {
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    #menu-button {
-        font-size: 18px;
-    }
-    .side-menu a, .dropdown-btn, #close-menu {
-        font-size: 18px;
-    }
-    .carousel-3d {
-        max-width: 250px;
-    }
+  position: sticky;
+  bottom: 0;
+  background: black;
+  color: #30FF00;
+  text-align: center;
 }
