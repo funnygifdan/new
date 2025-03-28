@@ -59,21 +59,20 @@ document.addEventListener("DOMContentLoaded", () => {
   requestAnimationFrame(drawMatrix);
 
   /* -------------------------
-     Moving Hacker1 Randomly with Depth Effect
+     Moving Hacker1 Randomly
   -------------------------- */
   const moveHacker1 = () => {
-    // Limit positions to keep image within viewport (with a buffer)
     const maxX = window.innerWidth - 120;
     const maxY = window.innerHeight - 120;
     const newX = Math.random() * maxX;
     const newY = Math.random() * maxY;
-    const scale = Math.random() * 1.5 + 0.5;   // Vary scale to simulate depth
-    const opacity = Math.random() * 0.6 + 0.4;   // Vary opacity for fade effect
+    const scale = Math.random() * 1.5 + 0.5; // Simulate depth effect
+    const opacity = Math.random() * 0.6 + 0.4; // Vary opacity
 
     hacker1.style.transform = `translate(${newX}px, ${newY}px) scale(${scale})`;
     hacker1.style.opacity = opacity;
 
-    setTimeout(moveHacker1, 2000); // Update position every 2 seconds
+    setTimeout(moveHacker1, 2000); // Change position every 2 seconds
   };
 
   moveHacker1();
