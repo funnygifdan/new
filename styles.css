@@ -1,15 +1,17 @@
 /* Matrix Background */
 #matrixCanvas {
+  background-color: black;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: -10;
-  background-color: black;
+  pointer-events: none;
+  opacity: 1;
 }
 
-/* Moving Hacker Image */
+/* Floating Hacker Image */
 #hacker1 {
   position: absolute;
   width: 100px;
@@ -30,14 +32,37 @@
   z-index: 1000;
 }
 
-/* Menu Button */
-.menu-button {
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: white;
+/* Neon Glow Buttons & Links */
+button, .menu a, .dropdown-btn {
+  background: black;
+  color: #00FF00;
+  border: 1px solid #00FF00;
+  font-family: inherit;
+  font-size: inherit;
   cursor: pointer;
   padding: 10px 20px;
+  text-decoration: none;
+  position: relative;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
+  animation: neonPulse 2s infinite alternate;
+}
+
+button:hover, .menu a:hover, .dropdown-btn:hover {
+  background: #001100;
+  color: #00FF00;
+  box-shadow:
+    0 0 10px #00FF00,
+    0 0 20px #00FF00,
+    0 0 30px #00FF00,
+    0 0 40px #00FF00;
+  transform: scale(1.03);
+}
+
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00; }
+  50% { box-shadow: 0 0 15px #00FF00, 0 0 25px #00FF00; }
+  100% { box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00; }
 }
 
 /* Side Menu */
@@ -53,13 +78,19 @@
   left: 0;
 }
 .menu a {
-  color: white;
   display: block;
   padding: 10px;
-  text-decoration: none;
 }
-.menu a:hover {
-  background: green;
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  background-color: black;
+  border: 1px solid #00FF00;
+  margin-top: 5px;
+}
+.dropdown.open .dropdown-content {
+  display: block;
 }
 
 /* 3D Cube Carousel */
@@ -83,15 +114,6 @@
   border: 1px solid black;
 }
 
-/* Ad Section */
-.ad-container {
-  text-align: center;
-  margin-top: 20px;
-  padding: 10px;
-  background: #000;
-  color: white;
-}
-
 /* Footer */
 .footer {
   position: fixed;
@@ -99,6 +121,6 @@
   width: 100%;
   text-align: center;
   background: black;
-  color: white;
+  color: #00FF00;
   padding: 10px;
 }
