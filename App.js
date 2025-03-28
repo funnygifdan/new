@@ -1,182 +1,131 @@
-/* Global Styles */
-body, h1, h2, h3, h4, h5, h6, .w3-bar-item {
-  font-family: "Rock Salt", sans-serif;
-  background-color: #28343c;
-  color: #00FF00;
-  font-size: 22px;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  line-height: 1.8;
-  margin: 0;
-  padding: 0;
-}
+document.addEventListener("DOMContentLoaded", () => {
+  // Cache commonly used elements
+  const menuButton = document.getElementById("menu-btn");
+  const menu = document.getElementById("menu");
+  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  const topNav = document.querySelector(".top-nav");
+  const satellite = document.getElementById("satellite");
+  const cube = document.getElementById("cube");
+  const canvas = document.getElementById("matrixCanvas");
+  const ctx = canvas.getContext("2d");
 
-/* Matrix Falling Code Effect */
-#matrixCanvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  opacity: 0.7;
-  pointer-events: none;
-}
+  /* -------------------------
+     Menu & Dropdown Toggle
+  -------------------------- */
+  menuButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
 
-/* Top Navigation */
-.top-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 1);
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.3);
-  border-bottom: 2px solid gray;
-  z-index: 1000;
-  padding: 10px 0;
-  text-align: center;
-  transition: background-color 0.3s ease;
-}
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !menuButton.contains(e.target)) {
+      menu.classList.remove("open");
+    }
+  });
 
-.top-nav.translucent {
-  background-color: rgba(0, 0, 0, 0.5);
-}
+  dropdownButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      btn.parentElement.classList.toggle("open");
+    });
+  });
 
-/* Footer */
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: black;
-  box-shadow: 0 -4px 6px rgba(255, 255, 255, 0.3);
-  border-top: 2px solid gray;
-  color: #00FF00;
-  text-align: center;
-  padding: 10px 0;
-  z-index: 1000;
-}
+  /* -------------------------
+     Satellite Floating Animation
+  -------------------------- */
+  let targetX = window.innerWidth / 2,
+      targetY = window.innerHeight / 2,
+      currentX = targetX,
+      currentY = targetY;
 
-/* Content Wrapper */
-.content-wrapper {
-  padding-top: 80px;  /* Leave room for nav and welcome text */
-  padding-bottom: 80px; /* Leave room for footer */
-  flex: 1;
-}
+  document.addEventListener("mousemove", (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+  });
 
-/* Welcome Paragraph */
-.content-text {
-  margin-top: 80px;
-  text-align: center;
-  padding: 20px;
-}
+  const updateSatellite = () => {
+    currentX += (targetX - currentX) * 0.05;
+    currentY += (targetY - currentY) * 0.05;
 
-/* Button Styles for All Buttons */
-button {
-  background-color: black;
-  color: #00FF00;
-  border: none;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-  padding: 10px 20px;
-}
+    // Prevent the satellite from going out of bounds
+    const maxX = window.innerWidth - satellite.clientWidth;
+    const maxY = window.innerHeight - satellite.clientHeight;
+    currentX = Math.max(0, Math.min(currentX, maxX));
+    currentY = Math.max(0, Math.min(currentY, maxY));
 
-/* Menu & Dropdown Specific */
-.menu {
-  display: none;
-  position: fixed;
-  top: 60px;
-  left: 0;
-  width: 125px;
-  height: calc(100% - 120px);
-  background-color: black;
-  border: 2px solid #696969;
-  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-  overflow-y: auto;
-  transition: left 0.3s ease;
-  z-index: 1001;
-}
+    satellite.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    requestAnimationFrame(updateSatellite);
+  };
+  updateSatellite();
 
-.menu.open {
-  display: block;
-}
+  /* -------------------------
+     3D Cube Rotation Animation
+  -------------------------- */
+  let cubeAngle = 0;
+  const rotateCube = () => {
+    cubeAngle += 0.5; // adjust speed as needed
+    cube.style.transform = `rotateX(${cubeAngle}deg) rotateY(${cubeAngle}deg)`;
+    requestAnimationFrame(rotateCube);
+  };
+  rotateCube();
 
-.menu a {
-  display: block;
-  color: #00FF00;
-  text-decoration: none;
-  padding: 10px;
-}
+  /* -------------------------
+     Matrix Code Falling Effect
+  -------------------------- */
+  let fontSize = 18;
+  let columns = Math.floor(window.innerWidth / fontSize);
+  const drops = Array(columns).fill(1);
+  ctx.font = `${fontSize}px monospace`;
 
-/* Dropdown Content */
-.dropdown-content {
-  display: none;
-  background-color: black;
-  border: 1px solid #696969;
-  margin-top: 5px;
-  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-}
+  const drawMatrix = () => {
+    // Fade the canvas slightly to create trailing effect
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-.dropdown.open .dropdown-content {
-  display: block;
-}
+    ctx.fillStyle = "#00FF00";
+    // Split string into array of characters/numbers
+    const charArray = "01 10 11 00 101 010 011 110 100 111 001".split(" ");
 
-/* 3D Cube Carousel */
-.carousel-container {
-  margin-top: 10000px;  /* Positioned 10,000px from the top */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  perspective: 1000px;
-}
+    for (let i = 0; i < drops.length; i++) {
+      const text = charArray[Math.floor(Math.random() * charArray.length)];
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
+      ctx.fillText(text, x, y);
 
-.cube {
-  width: 300px;
-  height: 300px;
-  transform-style: preserve-3d;
-  transition: transform 2s;
-}
+      // Reset drop to top randomly after reaching bottom
+      if (y > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+    requestAnimationFrame(drawMatrix);
+  };
 
-.cube-face {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background-size: cover;
-  background-position: center;
-  border: 1px solid #00FF00;
-}
+  // Set initial canvas dimensions
+  const setCanvasSize = () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    columns = Math.floor(window.innerWidth / fontSize);
+    // Reset drops array on resize
+    drops.length = 0;
+    for (let i = 0; i < columns; i++) {
+      drops.push(1);
+    }
+  };
+  setCanvasSize();
 
-/* Hacker-themed images for cube faces (update URLs as needed) */
-.cube-front  { background-image: url('hacker1.jpg'); transform: rotateY(0deg) translateZ(150px); }
-.cube-back   { background-image: url('hacker2.jpg'); transform: rotateY(180deg) translateZ(150px); }
-.cube-right  { background-image: url('hacker3.jpg'); transform: rotateY(90deg) translateZ(150px); }
-.cube-left   { background-image: url('hacker4.jpg'); transform: rotateY(-90deg) translateZ(150px); }
-.cube-top    { background-image: url('hacker5.jpg'); transform: rotateX(90deg) translateZ(150px); }
-.cube-bottom { background-image: url('hacker6.jpg'); transform: rotateX(-90deg) translateZ(150px); }
+  // Debounce resize events to optimize performance
+  let resizeTimeout;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(setCanvasSize, 200);
+  });
+  requestAnimationFrame(drawMatrix);
 
-/* Satellite (Floating Element) */
-#satellite {
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
-  width: 150px;
-  opacity: 0.8;
-  z-index: 999;
-  animation: floatSatellite 3s infinite ease-in-out;
-}
-
-@keyframes floatSatellite {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .menu {
-    width: 50%;
-  }
-}
+  /* -------------------------
+     Top Navigation Translucency on Scroll
+  -------------------------- */
+  window.addEventListener("scroll", () => {
+    topNav.classList.toggle("translucent", window.scrollY > 0);
+  });
+});
