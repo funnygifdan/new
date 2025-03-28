@@ -1,16 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Cache commonly used elements
   const menuButton = document.getElementById("menu-btn");
   const menu = document.getElementById("menu");
-  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
-  const topNav = document.querySelector(".top-nav");
-  const satellite = document.getElementById("satellite");
-  const cube = document.getElementById("cube");
   const canvas = document.getElementById("matrixCanvas");
+  const hacker1 = document.getElementById("hacker1");
   const ctx = canvas.getContext("2d");
 
   /* -------------------------
-     Menu & Dropdown Toggle
+     Menu Toggle
   -------------------------- */
   menuButton.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -23,65 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  dropdownButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      btn.parentElement.classList.toggle("open");
-    });
-  });
-
   /* -------------------------
-     hacker1.PNG Random Movement with Depth
-  -------------------------- */
-  // Set initial position and scale
-  let currentX = window.innerWidth / 2;
-  let currentY = window.innerHeight / 2;
-  let currentScale = 1;
-
-  // Set initial target values
-  let targetX = currentX;
-  let targetY = currentY;
-  let targetScale = currentScale;
-
-  // Function to set a new random target position and scale
-  const setRandomTarget = () => {
-    // Ensure the satellite remains fully in view
-    targetX = Math.random() * (window.innerWidth - hacker1.clientWidth);
-    targetY = Math.random() * (window.innerHeight - hacker1.clientHeight);
-    // Random scale between 0.5 (far) and 1.5 (close)
-    targetScale = 0.5 + Math.random();
-  };
-
-  // Set a new target every 5 seconds
-  setRandomTarget();
-  setInterval(setRandomTarget, 5000);
-
-  // Animate the hacker1.PNG moving toward the random target and adjusting its scale
-  const updateHacker1 = () => {
-    // Easing factor controls speed of transition (lower values = slower)
-    const easing = 0.02;
-    currentX += (targetX - currentX) * easing;
-    currentY += (targetY - currentY) * easing;
-    currentScale += (targetScale - currentScale) * easing;
-
-    hacker1.style.transform = `translate(${currentX}px, ${currentY}px) scale(${currentScale})`;
-    requestAnimationFrame(updatehacker1);
-  };
-  updateHacker1();
-
-  /* -------------------------
-     3D Cube Rotation Animation
-  -------------------------- */
-  let cubeAngle = 0;
-  const rotateCube = () => {
-    cubeAngle += 0.5; // Adjust speed as needed
-    cube.style.transform = `rotateX(${cubeAngle}deg) rotateY(${cubeAngle}deg)`;
-    requestAnimationFrame(rotateCube);
-  };
-  rotateCube();
-
-  /* -------------------------
-     Matrix Code Falling Effect
+     Matrix Code Background (Slowed Down)
   -------------------------- */
   let fontSize = 18;
   let columns = Math.floor(window.innerWidth / fontSize);
@@ -89,45 +28,52 @@ document.addEventListener("DOMContentLoaded", () => {
   ctx.font = `${fontSize}px monospace`;
 
   const drawMatrix = () => {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+    ctx.fillStyle = "rgba(0, 0, 0, 0.15)"; // Darker fade effect
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#00FF00";
     const charArray = "01 10 11 00 101 010 011 110 100 111 001".split(" ");
+    
     for (let i = 0; i < drops.length; i++) {
       const text = charArray[Math.floor(Math.random() * charArray.length)];
-      const x = i * fontSize;
-      const y = drops[i] * fontSize;
-      ctx.fillText(text, x, y);
-      if (y > canvas.height && Math.random() > 0.975) {
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      
+      // Slower falling effect
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
         drops[i] = 0;
       }
-      drops[i]++;
+      drops[i] += 0.5; // Slower movement
     }
-    requestAnimationFrame(drawMatrix);
+
+    setTimeout(() => requestAnimationFrame(drawMatrix), 50); // Adjusted speed
   };
 
-  // Set initial canvas dimensions and update on resize
   const setCanvasSize = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     columns = Math.floor(window.innerWidth / fontSize);
-    drops.length = 0;
-    for (let i = 0; i < columns; i++) {
-      drops.push(1);
-    }
+    drops.fill(1);
   };
+
   setCanvasSize();
-  let resizeTimeout;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(setCanvasSize, 200);
-  });
+  window.addEventListener("resize", setCanvasSize);
   requestAnimationFrame(drawMatrix);
 
   /* -------------------------
-     Top Navigation Translucency on Scroll
+     Moving Hacker1 Randomly
   -------------------------- */
-  window.addEventListener("scroll", () => {
-    topNav.classList.toggle("translucent", window.scrollY > 0);
-  });
+  const moveHacker1 = () => {
+    const maxX = window.innerWidth - 120;
+    const maxY = window.innerHeight - 120;
+    const newX = Math.random() * maxX;
+    const newY = Math.random() * maxY;
+    const scale = Math.random() * 1.5 + 0.5; // Simulate depth effect
+    const opacity = Math.random() * 0.6 + 0.4; // Vary opacity
+
+    hacker1.style.transform = `translate(${newX}px, ${newY}px) scale(${scale})`;
+    hacker1.style.opacity = opacity;
+
+    setTimeout(moveHacker1, 2000); // Change position every 2 seconds
+  };
+
+  moveHacker1();
 });

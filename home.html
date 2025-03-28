@@ -7,18 +7,18 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Matrix effect canvas covers the full viewport -->
+  <!-- Matrix Effect Canvas -->
   <canvas id="matrixCanvas"></canvas>
 
-  <!-- image (used for floating effect) -->
-  <img id="hacker1.PNG" src="hacker1.PNG" alt="Hacker1" />
+  <!-- Floating Hacker Image -->
+  <img id="hacker1" src="hacker1.PNG" alt="Hacker1" />
 
-  <!-- Top Navigation (sticky) -->
+  <!-- Top Navigation -->
   <nav class="top-nav">
     <button id="menu-btn" class="menu-button">☰ Menu</button>
   </nav>
 
-  <!-- Welcome paragraph moved directly below the top nav -->
+  <!-- Welcome Message -->
   <p class="content-text">Welcome to our hacker-themed site with a 3D cube carousel!</p>
 
   <!-- Side Menu -->
@@ -35,7 +35,7 @@
     </div>
   </div>
 
-  <!-- Main Content Wrapper with the cube far down the page -->
+  <!-- 3D Cube Section -->
   <main class="content-wrapper">
     <div class="carousel-container">
       <div class="cube" id="cube">
@@ -49,10 +49,10 @@
     </div>
   </main>
 
-  <!-- Sticky Footer -->
+  <!-- Footer -->
   <footer class="footer">© 2025 Funcryptology</footer>
 
-  <!-- Defer script execution until after the document has parsed -->
+  <!-- Load JavaScript -->
   <script src="App.js" defer></script>
 </body>
 </html>
