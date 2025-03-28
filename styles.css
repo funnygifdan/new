@@ -1,21 +1,24 @@
-/* Global Styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Comic Sans MS", sans-serif;
-  font-size: 20px;
-  background: black;
-  color: #30FF00;
-  box-sizing: border-box;
+/* Ensure HTML and Body take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 20px;
+    background: black;
+    color: #30FF00;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Navbar Styles */
+/* Top Navbar - Sticky to the top */
 .top-navbar {
-  position: sticky;
-  top: 0;
-  background: black;
-  padding: 10px;
-  z-index: 10;
+    position: sticky;
+    top: 0;
+    background: black;
+    padding: 10px;
+    z-index: 1000; /* Ensure it stays on top */
 }
 
 /* Side Menu Styles */
@@ -25,7 +28,7 @@ body {
   left: -250px;
   top: 0;
   height: 100%;
-  background: black;
+  background: black; 
   overflow-y: auto;
   transition: left 0.3s ease;
 }
@@ -34,6 +37,18 @@ body {
   left: 0;
 }
 
+/* Main content should grow to fill available space */
+.main-content {
+    flex: 1; /* Makes the content expand and push the footer down */
+    transition: margin-top 0.3s ease; /* Smooth movement */
+}
+
+/* When menu is open, push down content */
+.main-content.menu-open {
+  margin-top: 300px; /* Push down when the menu is open */
+}
+
+/* Menu Links and Dropdowns */
 .side-menu a, .dropdown-btn, #close-menu {
   display: block;
   padding: 15px;
@@ -43,19 +58,10 @@ body {
   background: black;
 }
 
+/* Dropdown Containers */
 .dropdown-container {
   display: none;
-}
-
-.menu-image {
-  width: 50%;
-  display: block;
-  margin: 10px auto;
-}
-
-#close-menu {
-  position: sticky;
-  bottom: 0;
+  background: black;
 }
 
 /* Paragraph Box */
@@ -107,11 +113,18 @@ body {
   right: 10px;
 }
 
-/* Footer */
+/* Footer - Sticky to the bottom */
 .footer {
-  position: sticky;
-  bottom: 0;
-  background: black;
-  color: #30FF00;
-  text-align: center;
+    background: black;
+    color: #30FF00;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+    
+  
+/* Sidebar Menu Adjustment - Push Content Down */
+.main-content.menu-open {
+    margin-top: 300px; /* Push down when the menu is open */
 }
