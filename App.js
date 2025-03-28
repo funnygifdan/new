@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("menu");
   const canvas = document.getElementById("matrixCanvas");
   const hacker1 = document.getElementById("hacker1");
+  const glitchText = document.getElementById("glitchText");
+  const glitchSound = document.getElementById("glitchSound");
+  const terminalLog = document.getElementById("terminalLog");
   const ctx = canvas.getContext("2d");
 
   // Menu toggle
@@ -26,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Matrix background
-  let fontSize = 14;
+  let fontSize = 24;
   let columns;
   let drops;
   const charArray = "01".split("");
@@ -42,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", setCanvasSize);
   ctx.font = `${fontSize}px monospace`;
   ctx.textBaseline = "top";
+  ctx.textAlign = "center";
 
   const drawMatrix = () => {
     ctx.fillStyle = "rgba(0, 0, 0, 1)";
@@ -51,8 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const x = i * fontSize;
       const y = drops[i] * fontSize;
       const opacity = 1 - y / canvas.height;
-      ctx.fillStyle = `rgba(0, 255, 0, ${opacity})`;
 
+      ctx.fillStyle = `rgba(144, 255, 144, ${opacity})`;
       const char = charArray[Math.floor(Math.random() * charArray.length)];
       ctx.fillText(char, x, y);
 
@@ -66,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   requestAnimationFrame(drawMatrix);
 
-  // Floating hacker1
+  // Floating hacker image
   const moveHacker1 = () => {
     const maxX = window.innerWidth - 120;
     const maxY = window.innerHeight - 120;
@@ -82,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   moveHacker1();
 
-  // Glitch text cycling with sound
+  // Glitch text cycling with typing + sound + terminal log
   const messages = [
     "ACCESS GRANTED",
     "TRACE ROUTE ACTIVE",
@@ -93,19 +97,39 @@ document.addEventListener("DOMContentLoaded", () => {
     "TRANSMISSION INJECTED"
   ];
 
-  const glitchText = document.getElementById("glitchText");
-  const glitchSound = document.getElementById("glitchSound");
   let currentIndex = 0;
 
+  const typeMessage = (text, callback) => {
+    glitchText.setAttribute("data-text", "");
+    glitchText.textContent = "";
+    let i = 0;
+
+    const type = () => {
+      if (i < text.length) {
+        glitchText.textContent += text[i];
+        glitchText.setAttribute("data-text", glitchText.textContent);
+        i++;
+        setTimeout(type, 50);
+      } else {
+        callback();
+      }
+    };
+    type();
+  };
+
   const cycleGlitchMessage = () => {
+    const msg = messages[currentIndex];
+
     glitchSound.currentTime = 0;
     glitchSound.play();
 
-    glitchText.setAttribute("data-text", messages[currentIndex]);
-    glitchText.textContent = messages[currentIndex];
-
-    currentIndex = (currentIndex + 1) % messages.length;
-    setTimeout(cycleGlitchMessage, 3500);
+    typeMessage(msg, () => {
+      const logEntry = document.createElement("div");
+      logEntry.textContent = `> ${msg}`;
+      terminalLog.prepend(logEntry);
+      currentIndex = (currentIndex + 1) % messages.length;
+      setTimeout(cycleGlitchMessage, 3500);
+    });
   };
 
   cycleGlitchMessage();
