@@ -1,4 +1,4 @@
-/* Ensure full layout with flexbox */
+/* Ensure the entire layout uses flexbox */
 html, body {
     height: 100%;
     margin: 0;
@@ -16,25 +16,34 @@ html, body {
 .top-nav {
     position: sticky;
     top: 0;
-    background-color: #212624; /* Dark gray */
+    background-color: #212624; /* Updated dark gray */
     color: #00FF00; /* Hacker green */
     padding: 15px;
-    z-index: 1000;
+    z-index: 1000; /* Ensure it stays on top */
+    text-align: center;
+}
+
+/* Main Content - Expandable */
+.content-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
 /* Footer - Sticky */
 .footer {
-    background-color: #212624; /* Dark gray */
+    background-color: #212624; /* Updated dark gray */
     color: #00FF00; /* Hacker green */
     padding: 15px;
     text-align: center;
-    margin-top: auto;
 }
 
 /* Menu Button */
 .menu-button {
-    background-color: #212624; /* Dark gray */
+    background-color: #212624; /* Updated dark gray */
     color: #00FF00; /* Hacker green */
     border: none;
     padding: 10px 20px;
@@ -44,64 +53,18 @@ html, body {
 
 /* Menu Background */
 .menu {
-    display: none;
-    background-color: #212624; /* Dark gray */
+    background-color: #212624; /* Updated dark gray */
     color: #00FF00; /* Hacker green */
     padding: 10px;
+    border: none;
 }
 
 /* Dropdown Buttons */
 .dropdown-button {
-    background-color: #212624; /* Dark gray */
+    background-color: #212624; /* Updated dark gray */
     color: #00FF00; /* Hacker green */
     border: none;
     padding: 10px;
     cursor: pointer;
     font-size: 18px;
-    display: block;
-}
-
-/* Carousel Container */
-.carousel-container {
-    perspective: 1000px;
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    overflow: hidden;
-}
-
-/* 3D Image Carousel */
-.carousel {
-    display: flex;
-    transform-style: preserve-3d;
-    animation: rotate 20s linear infinite;
-}
-
-.carousel img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin: 0 10px;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotateY(0deg);
-    }
-    to {
-        transform: rotateY(360deg);
-    }
-}
-
-/* Responsive Paragraph */
-.content-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
 }
