@@ -1,42 +1,50 @@
-// Menu Toggle
-document.addEventListener("DOMContentLoaded", () => {
-    const menuButton = document.getElementById("menuButton");
-    const menu = document.getElementById("menu");
-    const closeMenuButton = document.getElementById("closeMenu");
-    const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+// Handle menu open/close
+document.addEventListener("DOMContentLoaded", function () {
+  const menuButton = document.getElementById("menu-button");
+  const closeMenuButton = document.getElementById("close-menu-button");
+  const sideMenu = document.getElementById("side-menu");
+  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
 
-    // Open menu
-    menuButton.addEventListener("click", () => {
-        menu.classList.add("open");
+  // Toggle menu visibility
+  menuButton.addEventListener("click", () => {
+    sideMenu.classList.toggle("active");
+  });
+
+  // Close menu
+  closeMenuButton.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+  });
+
+  // Close menu if clicking outside
+  document.addEventListener("click", (e) => {
+    if (!sideMenu.contains(e.target) && !menuButton.contains(e.target)) {
+      sideMenu.classList.remove("active");
+    }
+  });
+
+  // Toggle dropdown visibility
+  dropdownButtons.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const dropdownContent = this.nextElementSibling;
+      dropdownContent.style.display =
+        dropdownContent.style.display === "block" ? "none" : "block";
     });
+  });
 
-    // Close menu
-    closeMenuButton.addEventListener("click", () => {
-        menu.classList.remove("open");
-    });
+  // Image carousel functionality
+  let currentIndex = 0;
+  const slides = document.querySelectorAll(".carousel-item");
+  const totalSlides = slides.length;
 
-    // Close menu when clicking outside
-    document.addEventListener("click", (event) => {
-        if (!menu.contains(event.target) && !menuButton.contains(event.target)) {
-            menu.classList.remove("open");
-        }
-    });
+  window.nextSlide = function () {
+    slides[currentIndex].classList.remove("active");
+    currentIndex = (currentIndex + 1) % totalSlides;
+    slides[currentIndex].classList.add("active");
+  };
 
-    // Dropdown logic - allow one open at a time
-    dropdownButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const parent = button.parentElement;
-            const isOpen = parent.classList.contains("open");
-
-            // Close all dropdowns
-            dropdownButtons.forEach((btn) => {
-                btn.parentElement.classList.remove("open");
-            });
-
-            // Toggle current dropdown
-            if (!isOpen) {
-                parent.classList.add("open");
-            }
-        });
-    });
+  window.prevSlide = function () {
+    slides[currentIndex].classList.remove("active");
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    slides[currentIndex].classList.add("active");
+  };
 });
