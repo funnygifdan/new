@@ -38,7 +38,7 @@ body {
 .menu {
     display: none;
     background-color: #212624;
-    width: 15%;
+    width: 25%;
     height: calc(100vh - 15px); /* Full screen height minus nav height */
     position: fixed;
     left: 0;
