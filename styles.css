@@ -1,38 +1,51 @@
 /* General Styles */
 body {
+    background-color: #000;
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 18px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 18px;
-    color: #39ff14;
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    color: #39ff14; /* Hacker green */
 }
 
 /* Top Navigation */
 .top-nav {
+    background-color: #212624;
+    color: #39ff14;
     position: sticky;
     top: 0;
+    height: 15px;
     display: flex;
     align-items: center;
-    background-color: #212624;
-    height: 15px;
-    padding: 0 15px;
+    padding: 5px;
     z-index: 1000;
 }
 
 /* Footer */
 .footer {
+    background-color: #212624;
+    color: #39ff14;
     position: sticky;
     bottom: 0;
-    background-color: #212624;
     height: 15px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 5px;
+    z-index: 1000;
+}
+
+/* Menu */
+.menu {
+    display: none;
+    background-color: #212624;
+    width: 15%;
+    height: calc(100vh - 15px); /* Full screen height minus nav height */
+    position: fixed;
+    left: 0;
+    top: 15px; /* Below the sticky nav */
+    overflow-y: auto; /* In case content overflows */
+    padding: 10px;
 }
 
 /* Menu Button */
@@ -40,43 +53,23 @@ body {
     background-color: #212624;
     color: #39ff14;
     border: none;
-    font-size: 18px;
     cursor: pointer;
 }
 
-/* Menu */
-.menu {
-    display: none;
-    position: absolute;
-    top: 15px; 
-    left: 0;
-    background-color: #212624;
-    flex-direction: column;
-}
-
-/* Dropdown Buttons */
-.dropdown-btn {
-    background-color: #212624;
-    color: #39ff14;
-    border: none;
-    padding: 10px;
-    text-align: left;
-    cursor: pointer;
-}
-
-/* Main Content */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 1; /* Ensures content area grows to fill space */
+/* Paragraph */
+.centered-paragraph {
+    font-size: 24px; /* Increased font size */
+    position: relative;
+    top: 15000px; /* Moves the paragraph 15000px down the page */
+    text-align: center;
+    margin: 20px 0;
 }
 
 /* Carousel */
 .carousel-container {
     perspective: 1000px;
-    width: 80%;
+    width: 90%; /* Increased width */
+    margin: auto;
 }
 
 .carousel {
@@ -87,15 +80,9 @@ body {
 }
 
 .carousel img {
-    width: 300px;
+    width: 400px; /* Increased image width */
     height: auto;
     margin: 0 10px;
-}
-
-/* Paragraph */
-.centered-paragraph {
-    text-align: center;
-    margin: 20px 0;
 }
 
 /* Keyframes for 3D Carousel */
