@@ -1,14 +1,15 @@
 /* Global Settings */
+/* Global Settings */
 html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: black;
-  color: #00FF00; /* Hacker green */
   font-family: "Comic Sans MS", sans-serif;
-  font-size: 24px; /* Body text size */
-}
-
+  background-color: black;
+  color: #00FF00;
+  font-size: 24px;  /* Body text size */
+  overflow-x
+  
 /* Ensure any custom elements inside the page have proper responsive behavior */
 .w3-container {
   max-width: 1200px;

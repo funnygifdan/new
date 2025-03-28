@@ -2,78 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hacker Themed Portfolio</title>
-  <!-- Link to W3CSS Framework -->
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <!-- Your custom styles -->
+  <title>Responsive Hacker Theme with 3D Cube</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Top Navigation using W3CSS classes -->
-  <div class="w3-top">
-    <div class="w3-bar w3-card" style="background-color:#212624; height:60px; font-size:20px;">
-      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right" onclick="w3_open()">
-        <i class="fa fa-bars"></i>
-      </a>
-      <a href="#" class="w3-bar-item w3-button">Home</a>
-      <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small">Portfolio</a>
-      <a href="#contact" class="w3-bar-item w3-button w3-hide-small">Contact</a>
-    </div>
+  <!-- Matrix Background Canvas -->
+  <canvas id="matrixCanvas"></canvas>
+
+  <!-- Sticky Top Navigation -->
+  <div class="top-nav">
+    <button id="menu-btn" class="menu-button">Menu</button>
   </div>
 
-  <!-- Sidebar/ Menu (hidden by default) -->
-  <nav class="w3-sidebar w3-bar-block w3-animate-left" style="display:none; background-color:#212624; width:20%;" id="mySidebar">
-    <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
-    <a href="#" class="w3-bar-item w3-button" style="font-size:20px;">Home</a>
-    <a href="#" class="w3-bar-item w3-button" style="font-size:20px;">About</a>
-    <a href="#" class="w3-bar-item w3-button" style="font-size:20px;">Contact</a>
-    <!-- Dropdown Example -->
-    <div class="w3-bar-item">
-      <button class="w3-button dropdown-btn" style="font-size:20px;">Services</button>
-      <div class="dropdown-content" style="display:none; margin-left:10px;">
-        <a href="#" style="font-size:20px;">Web Design</a>
-        <a href="#" style="font-size:20px;">Cybersecurity</a>
-        <a href="#" style="font-size:20px;">Consulting</a>
+  <!-- Side Menu (Hidden by default) -->
+  <div id="menu" class="menu">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+
+    <div class="dropdown">
+      <button class="dropdown-btn">Services</button>
+      <div class="dropdown-content">
+        <a href="#">Web Development</a>
+        <a href="#">Cybersecurity</a>
+        <a href="#">Consulting</a>
       </div>
     </div>
-  </nav>
+
+    <div class="dropdown">
+      <button class="dropdown-btn">Portfolio</button>
+      <div class="dropdown-content">
+        <a href="#">Projects</a>
+        <a href="#">Case Studies</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropdown-btn">Resources</button>
+      <div class="dropdown-content">
+        <a href="#">Blog</a>
+        <a href="#">White Papers</a>
+      </div>
+    </div>
+
+    <img src="foodPics/food1.jpeg" alt="Food Image" class="menu-image">
+  </div>
 
   <!-- Main Content -->
-  <div class="w3-container" style="margin-top:80px; margin-bottom:80px; text-align:center;">
-    <h1 style="font-size:24px;">Welcome to Our Hacker-Themed Portfolio</h1>
-    <p style="font-size:24px;">This is where your 3D cube carousel and other content would appear.</p>
-    <!-- Here you can integrate your 3D cube carousel code -->
+  <div id="content">
+    <!-- 3D Cube Carousel (Shifted up by 200px) -->
+    <div class="carousel-container">
+      <div class="cube" id="cube">
+        <div class="cube-face cube-front"><img src="foodPics/food1.jpeg" alt="Food 1"></div>
+        <div class="cube-face cube-back"><img src="foodPics/food2.jpeg" alt="Food 2"></div>
+        <div class="cube-face cube-right"><img src="foodPics/food3.jpeg" alt="Food 3"></div>
+        <div class="cube-face cube-left"><img src="foodPics/food4.jpeg" alt="Food 4"></div>
+        <div class="cube-face cube-top"><img src="foodPics/food5.jpeg" alt="Food 5"></div>
+        <div class="cube-face cube-bottom"><img src="foodPics/food6.jpeg" alt="Food 6"></div>
+      </div>
+    </div>
+    <!-- Centered Paragraph -->
+    <p class="content-text">Welcome to our hacker-themed site with a 3D cube carousel!</p>
   </div>
 
   <!-- Sticky Footer -->
-  <footer class="w3-bottom w3-container" style="background-color:#212624; height:60px; font-size:20px; display:flex; align-items:center; justify-content:center;">
+  <div class="footer">
     © 2025 Hacker Theme | All Rights Reserved
-  </footer>
+  </div>
 
-  <!-- Custom Script -->
   <script src="App.js"></script>
-  
-  <!-- Inline script for dropdown functionality in sidebar -->
-  <script>
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-    }
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-    }
-    // Simple dropdown toggle for sidebar (for each dropdown-btn)
-    var dropdowns = document.getElementsByClassName("dropdown-btn");
-    for (var i = 0; i < dropdowns.length; i++) {
-      dropdowns[i].addEventListener("click", function(){
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-          dropdownContent.style.display = "none";
-        } else {
-          dropdownContent.style.display = "block";
-        }
-      });
-    }
-  </script>
 </body>
 </html>
