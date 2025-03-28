@@ -18,7 +18,7 @@
   height: auto;
   opacity: 0.8;
   z-index: 999;
-  transition: transform 2s linear, opacity 1s ease-in-out;
+  transition: transform 3s ease-in-out, opacity 2s ease-in-out;
 }
 
 /* Top Navigation */
@@ -32,10 +32,26 @@
   z-index: 1000;
 }
 
-/* Neon Glow Buttons & Links */
+/* Neon & Glitch Buttons/Links */
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00; }
+  50% { box-shadow: 0 0 15px #00FF00, 0 0 25px #00FF00; }
+  100% { box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00; }
+}
+
+@keyframes glitchFlicker {
+  0% { opacity: 1; transform: translate(0, 0); }
+  10% { opacity: 0.8; transform: translate(-1px, 1px); }
+  20% { opacity: 0.9; transform: translate(1px, -1px); }
+  30% { transform: translate(0, 0); }
+  40% { opacity: 0.7; transform: translate(-1px, 2px); }
+  50% { opacity: 1; transform: translate(1px, -2px); }
+  100% { transform: translate(0, 0); }
+}
+
 button, .menu a, .dropdown-btn {
-  background: black;
-  color: #00FF00;
+  background-color: black;
+  color: #00FF00 !important;
   border: 1px solid #00FF00;
   font-family: inherit;
   font-size: inherit;
@@ -45,24 +61,12 @@ button, .menu a, .dropdown-btn {
   position: relative;
   transition: 0.2s ease-in-out;
   box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
-  animation: neonPulse 2s infinite alternate;
+  animation: neonPulse 2s infinite alternate, glitchFlicker 1.5s infinite steps(4, end);
 }
 
 button:hover, .menu a:hover, .dropdown-btn:hover {
-  background: #001100;
-  color: #00FF00;
-  box-shadow:
-    0 0 10px #00FF00,
-    0 0 20px #00FF00,
-    0 0 30px #00FF00,
-    0 0 40px #00FF00;
+  background-color: #001100;
   transform: scale(1.03);
-}
-
-@keyframes neonPulse {
-  0% { box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00; }
-  50% { box-shadow: 0 0 15px #00FF00, 0 0 25px #00FF00; }
-  100% { box-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00; }
 }
 
 /* Side Menu */
@@ -78,40 +82,81 @@ button:hover, .menu a:hover, .dropdown-btn:hover {
   left: 0;
 }
 .menu a {
-  display: block;
-  padding: 10px;
+  padding: 10px 15px;
 }
 
-/* Dropdown Content */
+/* Dropdown */
 .dropdown-content {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
   background-color: black;
   border: 1px solid #00FF00;
-  margin-top: 5px;
+  flex-direction: column;
+  transition: max-height 0.4s ease-in-out, padding 0.3s ease;
+  padding: 0 0;
 }
 .dropdown.open .dropdown-content {
-  display: block;
+  max-height: 200px;
+  padding: 5px 0;
+}
+.dropdown-content a {
+  padding: 8px 15px;
+  color: #00FF00 !important;
+  text-decoration: none;
+}
+.dropdown-content a:hover {
+  background-color: #001100;
 }
 
-/* 3D Cube Carousel */
-.carousel-container {
+/* Glitching Terminal Text */
+.terminal-glitch {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  align-items: center;
+  height: 300px;
+  margin-top: 60px;
 }
-
-.cube {
-  width: 100px;
-  height: 100px;
-  transform-style: preserve-3d;
+.glitch-text {
+  font-family: 'Courier New', monospace;
+  font-size: 2rem;
+  color: #00FF00;
+  position: relative;
+  text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
+  animation: glitch-flicker 2s infinite;
 }
-
-.cube-face {
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
   position: absolute;
-  width: 100px;
-  height: 100px;
-  background: rgba(0, 255, 0, 0.7);
-  border: 1px solid black;
+  left: 0;
+  width: 100%;
+  color: #00FF00;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+.glitch-text::before {
+  animation: glitchTop 1.5s infinite linear alternate-reverse;
+  text-shadow: 1px 0 red;
+}
+.glitch-text::after {
+  animation: glitchBottom 1.5s infinite linear alternate-reverse;
+  text-shadow: -1px 0 blue;
+}
+@keyframes glitch-flicker {
+  0%, 100% { opacity: 1; }
+  49% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+  51% { opacity: 0.8; }
+}
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  10% { clip: rect(0, 9999px, 20px, 0); transform: translate(-1px, -1px); }
+  20% { clip: rect(0, 9999px, 0, 0); transform: none; }
+}
+@keyframes glitchBottom {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  10% { clip: rect(10px, 9999px, 30px, 0); transform: translate(1px, 1px); }
+  20% { clip: rect(0, 9999px, 0, 0); transform: none; }
 }
 
 /* Footer */

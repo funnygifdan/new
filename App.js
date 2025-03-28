@@ -5,22 +5,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const hacker1 = document.getElementById("hacker1");
   const ctx = canvas.getContext("2d");
 
-  /* Menu Toggle */
+  // Menu toggle
   menuButton.addEventListener("click", (e) => {
     e.stopPropagation();
     menu.classList.toggle("open");
   });
-
   document.addEventListener("click", (e) => {
     if (!menu.contains(e.target) && !menuButton.contains(e.target)) {
       menu.classList.remove("open");
     }
   });
 
-  /* Matrix Code Background */
+  // Dropdown toggle
+  const dropdownButtons = document.querySelectorAll(".dropdown-btn");
+  dropdownButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      btn.parentElement.classList.toggle("open");
+    });
+  });
+
+  // Matrix background
   let fontSize = 14;
   let columns;
   let drops;
+  const charArray = "01".split("");
 
   const setCanvasSize = () => {
     canvas.width = window.innerWidth;
@@ -32,30 +41,32 @@ document.addEventListener("DOMContentLoaded", () => {
   setCanvasSize();
   window.addEventListener("resize", setCanvasSize);
   ctx.font = `${fontSize}px monospace`;
-
-  const charArray = "01 10 11 00 101 010 011 110 100 111 001".split(" ");
+  ctx.textBaseline = "top";
 
   const drawMatrix = () => {
     ctx.fillStyle = "rgba(0, 0, 0, 1)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#00FF00";
 
     for (let i = 0; i < drops.length; i++) {
-      const text = charArray[Math.floor(Math.random() * charArray.length)];
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
+      const opacity = 1 - y / canvas.height;
+      ctx.fillStyle = `rgba(0, 255, 0, ${opacity})`;
 
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+      const char = charArray[Math.floor(Math.random() * charArray.length)];
+      ctx.fillText(char, x, y);
+
+      if (y > canvas.height && Math.random() > 0.975) {
         drops[i] = 0;
       }
-      drops[i] += 1;
+      drops[i]++;
     }
 
-    setTimeout(() => requestAnimationFrame(drawMatrix), 33);
+    requestAnimationFrame(drawMatrix);
   };
-
   requestAnimationFrame(drawMatrix);
 
-  /* Moving Hacker1 with Depth Effect */
+  // Floating hacker1
   const moveHacker1 = () => {
     const maxX = window.innerWidth - 120;
     const maxY = window.innerHeight - 120;
@@ -67,8 +78,35 @@ document.addEventListener("DOMContentLoaded", () => {
     hacker1.style.transform = `translate(${newX}px, ${newY}px) scale(${scale})`;
     hacker1.style.opacity = opacity;
 
-    setTimeout(moveHacker1, 2000);
+    setTimeout(moveHacker1, 3500);
+  };
+  moveHacker1();
+
+  // Glitch text cycling with sound
+  const messages = [
+    "ACCESS GRANTED",
+    "TRACE ROUTE ACTIVE",
+    "DECRYPTING...",
+    "BREACH DETECTED",
+    "FIREWALL OVERRIDDEN",
+    "CONNECTING TO NODE...",
+    "TRANSMISSION INJECTED"
+  ];
+
+  const glitchText = document.getElementById("glitchText");
+  const glitchSound = document.getElementById("glitchSound");
+  let currentIndex = 0;
+
+  const cycleGlitchMessage = () => {
+    glitchSound.currentTime = 0;
+    glitchSound.play();
+
+    glitchText.setAttribute("data-text", messages[currentIndex]);
+    glitchText.textContent = messages[currentIndex];
+
+    currentIndex = (currentIndex + 1) % messages.length;
+    setTimeout(cycleGlitchMessage, 3500);
   };
 
-  moveHacker1();
+  cycleGlitchMessage();
 });
