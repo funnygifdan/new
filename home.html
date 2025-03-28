@@ -3,41 +3,43 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>funcryptology</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Cube Carousel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
     <!-- Top Navigation -->
     <nav class="top-nav">
-        <button id="menuButton" class="menu-btn">Menu</button>
+        <button id="menuButton" class="menu-button">Menu</button>
+        <div id="menu" class="menu">
+            <a href="#">Home</a>
+            <a href="#">Gallery</a>
+            <a href="#">Contact</a>
+        </div>
     </nav>
 
-    <!-- Menu -->
-    <div id="menu" class="menu">
-        <button class="dropdown-btn">Dropdown 1</button>
-        <button class="dropdown-btn">Dropdown 2</button>
-        <button class="dropdown-btn">Dropdown 3</button>
-    </div>
-
-    <!-- Main Content -->
-    <div class="content">
-        <p class="centered-paragraph">Welcome to my responsive 3D carousel website!</p>
-        <div class="carousel">
-            <img src="foodPics/food1.jpeg" alt="Food 1">
-            <img src="foodPics/food2.jpeg" alt="Food 2">
-            <img src="foodPics/food3.jpeg" alt="Food 3">
+    <!-- 3D Cube Carousel -->
+    <div class="carousel-container">
+        <div class="cube" id="cube">
+            <div class="face front"><img src="foodPics/food1.jpeg" alt="Food 1"></div>
+            <div class="face back"><img src="foodPics/food2.jpeg" alt="Food 2"></div>
+            <div class="face right"><img src="foodPics/food3.jpeg" alt="Food 3"></div>
+            <div class="face left"><img src="foodPics/food4.jpeg" alt="Food 4"></div>
+            <div class="face top"><img src="foodPics/food5.jpeg" alt="Food 5"></div>
+            <div class="face bottom"><img src="foodPics/food6.jpeg" alt="Food 6"></div>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Paragraph Section -->
+    <p class="content">Welcome to our delicious food gallery!</p>
+
+    <!-- Sticky Footer -->
     <footer class="footer">
-        <p>Footer Content</p>
+        © 2025 Food Gallery
     </footer>
 
     <script src="App.js"></script>
-
 </body>
 
 </html>

@@ -1,95 +1,105 @@
 /* General Styles */
 body {
-    background-color: #000;
-    font-family: "Comic Sans MS", sans-serif;
-    font-size: 18px;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    color: #39ff14; /* Hacker green */
+    background-color: #000;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: #39ff14;
 }
 
-/* Top Navigation */
+/* Navigation */
 .top-nav {
-    background-color: #212624;
-    color: #39ff14;
     position: sticky;
     top: 0;
-    height: 55px;
+    height: 50px;
+    background: #212624;
     display: flex;
-    padding: 5px;
-    z-index: 1000;
+    align-items: center;
+    padding: 0 15px;
+    z-index: 10;
+}
+
+.menu-button {
+    background: #212624;
+    color: #39ff14;
+    border: none;
+    font-size: 18px;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background: #212624;
+    width: 15%;
+    height: calc(100vh - 50px);
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    color: #39ff14;
+    text-decoration: none;
 }
 
 /* Footer */
 .footer {
-    background-color: #212624;
-    color: #39ff14;
     position: sticky;
     bottom: 0;
-    height: 55px;
+    background: #212624;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+/* 3D Cube Carousel */
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+    margin-top: 100px;
+}
+
+.cube {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: rotateCube 10s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: black;
     display: flex;
     align-items: center;
-    padding: 5px;
-    z-index: 1000;
+    justify-content: center;
 }
 
-/* Menu */
-.menu {
-    display: none;
-    background-color: #212624;
-    width: 25%;
-    height: calc(100vh - 15px); /* Full screen height minus nav height */
-    position: fixed;
-    left: 0;
-    top: 15px; /* Below the sticky nav */
-    overflow-y: auto; /* In case content overflows */
-    padding: 10px;
+.face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Menu Button */
-.menu-btn {
-    background-color: #212624;
-    color: #39ff14;
-    border: none;
-    cursor: pointer;
+.front { transform: translateZ(150px); }
+.back { transform: rotateY(180deg) translateZ(150px); }
+.right { transform: rotateY(90deg) translateZ(150px); }
+.left { transform: rotateY(-90deg) translateZ(150px); }
+.top { transform: rotateX(90deg) translateZ(150px); }
+.bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+@keyframes rotateCube {
+    from { transform: rotateX(0) rotateY(0); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
 }
 
 /* Paragraph */
-.centered-paragraph {
-    font-size: 24px; /* Increased font size */
-    position: relative;
-    top: 15000px; /* Moves the paragraph 15000px down the page */
+.content {
     text-align: center;
-    margin: 20px 0;
-}
-
-/* Carousel */
-.carousel-container {
-    perspective: 15000px;
-    width: 50%; /* Increased width */
-    margin: auto;
-}
-
-.carousel {
-    display: flex;
-    justify-content: center;
-    transform-style: preserve-3d;
-    animation: rotate 15s infinite linear;
-}
-
-.carousel img {
-    width: 10px; /* Increased image width */
-    height: auto;
-    margin: 0 10px;
-}
-
-/* Keyframes for 3D Carousel */
-@keyframes rotate {
-    0% {
-        transform: rotateY(0deg);
-    }
-    100% {
-        transform: rotateY(360deg);
-    }
+    margin: 15000px 0;
+    font-size: 22px;
 }
