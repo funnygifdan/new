@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ambientLoop.play();
   }
 
-  // Matrix canvas setup
+  // Matrix canvas
   const canvas = document.getElementById("matrixCanvas");
   const ctx = canvas.getContext("2d");
   let fontSize = 20;
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   requestAnimationFrame(drawMatrix);
 
-  // Floating hacker image
+  // Floating image
   const hacker1 = document.getElementById("hacker1");
   function moveHacker1() {
     const maxX = window.innerWidth - 120;
@@ -68,20 +68,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   moveHacker1();
 
-  // Terminal startup typing
+  // Terminal boot text
   const terminalOutput = document.getElementById("terminalOutput");
   const terminalPrompt = document.getElementById("terminalPrompt");
   const terminalCursor = document.getElementById("terminalCursor");
 
   const bootSequence = [
     "Initializing Funcryptology shell...",
-    "Loading modules: matrixCore.js, neonNet, glitchFX...",
-    "Establishing secure node connection...",
+    "Loading matrixCore.js, neonNet, glitchFX...",
     "Access Level: GUEST",
-    "Loading PORTS & HEADERS..."
+    "Injecting terminal instance...",
+    "Ready."
   ];
 
   let lineIndex = 0;
+
   function typeLine(line, i = 0) {
     if (i < line.length) {
       terminalOutput.textContent += line[i];
@@ -92,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => typeLine(line, i + 1), 30);
     } else {
       terminalOutput.textContent += "\n";
-      setTimeout(typeNextLine, 300);
+      setTimeout(typeNextLine, 200);
     }
   }
 
@@ -106,58 +107,150 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  setTimeout(typeNextLine, 1000);
+  setTimeout(typeNextLine, 500);
 
-  // Dynamic loading of Ports & Headers page
+  // Dynamic page loading
   const portsLink = document.querySelector('a[href="ports-headers.html"]');
   const mainContainer = document.querySelector(".w3-main");
 
-  if (portsLink && mainContainer) {
+  function loadPage(url, push = true) {
+    fetch(url)
+      .then((res) => res.text())
+      .then((html) => {
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+        const content = temp.querySelector(".terminal-content");
+
+        if (content) {
+          mainContainer.classList.remove("glitch-in");
+          mainContainer.classList.add("glitch-out");
+
+          setTimeout(() => {
+            mainContainer.innerHTML = content.outerHTML;
+            mainContainer.classList.remove("glitch-out");
+            mainContainer.classList.add("glitch-in");
+
+            if (glitchSound) {
+              glitchSound.currentTime = 0;
+              glitchSound.play();
+            }
+
+            if (push) {
+              history.pushState({ url }, '', url);
+            }
+          }, 300);
+        }
+      });
+  }
+
+  if (portsLink) {
     portsLink.addEventListener("click", (e) => {
       e.preventDefault();
-
-      fetch("ports-headers.html")
-        .then((res) => res.text())
-        .then((html) => {
-          const tempDiv = document.createElement("div");
-          tempDiv.innerHTML = html;
-
-          const content = tempDiv.querySelector(".terminal-content");
-          if (content) {
-            mainContainer.classList.remove("glitch-in");
-            mainContainer.classList.add("glitch-out");
-
-            setTimeout(() => {
-              mainContainer.innerHTML = content.outerHTML;
-              mainContainer.classList.remove("glitch-out");
-              mainContainer.classList.add("glitch-in");
-
-              if (glitchSound) {
-                glitchSound.currentTime = 0;
-                glitchSound.play();
-              }
-
-              history.pushState({ url: "ports-headers.html" }, '', "ports-headers.html");
-            }, 300);
-          }
-        });
+      loadPage("ports-headers.html");
     });
   }
 
-  // Handle back/forward navigation
   window.addEventListener("popstate", (e) => {
     if (e.state && e.state.url) {
-      fetch(e.state.url)
-        .then((res) => res.text())
-        .then((html) => {
-          const tempDiv = document.createElement("div");
-          tempDiv.innerHTML = html;
-
-          const content = tempDiv.querySelector(".terminal-content");
-          if (content) {
-            mainContainer.innerHTML = content.outerHTML;
-          }
-        });
+      loadPage(e.state.url, false);
     }
+  });
+
+  // Menu toggle functionality
+  const menuBtn = document.getElementById("menu-btn");
+  const menu = document.getElementById("menu");
+  const dropdownBtn = document.querySelector(".dropdown-btn");
+  const dropdownContent = document.getElementById("resources-dropdown");
+  const dropdown = dropdownBtn ? dropdownBtn.parentElement : null;
+
+  function openMenu() {
+    menu.classList.add("open");
+    menuBtn.setAttribute("aria-expanded", "true");
+    menu.removeAttribute("aria-hidden");
+    // Focus the first link in the menu
+    const firstLink = menu.querySelector("a");
+    if (firstLink) firstLink.focus();
+  }
+
+  function closeMenu() {
+    menu.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menu.setAttribute("aria-hidden", "true");
+    // Close any open dropdown
+    if (dropdown && dropdown.classList.contains("open")) {
+      dropdown.classList.remove("open");
+      dropdownBtn.setAttribute("aria-expanded", "false");
+      if (dropdownContent) dropdownContent.setAttribute("aria-hidden", "true");
+    }
+    // Return focus to menu button
+    menuBtn.focus();
+  }
+
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", () => {
+      if (menu.classList.contains("open")) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+  }
+
+  if (dropdownBtn && dropdown && dropdownContent) {
+    dropdownBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains("open");
+      if (isOpen) {
+        // Close dropdown
+        dropdown.classList.remove("open");
+        dropdownBtn.setAttribute("aria-expanded", "false");
+        dropdownContent.setAttribute("aria-hidden", "true");
+        // Return focus to dropdown button
+        dropdownBtn.focus();
+      } else {
+        // Open dropdown
+        dropdown.classList.add("open");
+        dropdownBtn.setAttribute("aria-expanded", "true");
+        dropdownContent.removeAttribute("aria-hidden");
+        // Focus first dropdown item
+        const firstDropdownLink = dropdownContent.querySelector("a");
+        if (firstDropdownLink) firstDropdownLink.focus();
+      }
+    });
+  }
+
+  // Close menu when clicking outside of it
+  document.addEventListener("click", (e) => {
+    if (menu.classList.contains("open")) {
+      if (!menu.contains(e.target) && e.target !== menuBtn) {
+        closeMenu();
+      }
+    }
+  });
+
+  // Close menu or dropdown on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" || e.key === "Esc") {
+      if (menu.classList.contains("open")) {
+        if (dropdown && dropdown.classList.contains("open")) {
+          dropdown.classList.remove("open");
+          dropdownBtn.setAttribute("aria-expanded", "false");
+          if (dropdownContent) dropdownContent.setAttribute("aria-hidden", "true");
+          dropdownBtn.focus();
+        } else {
+          closeMenu();
+        }
+      }
+    }
+  });
+
+  // Close menu after selecting a menu link (for single-page nav)
+  const menuLinks = menu.querySelectorAll("a");
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      if (menu.classList.contains("open")) {
+        closeMenu();
+      }
+    });
   });
 });

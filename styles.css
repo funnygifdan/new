@@ -55,12 +55,14 @@ html, body {
 .menu {
   position: fixed;
   top: 60px;
+  bottom: 0;
   left: -220px;
   width: 200px;
   background: black;
   border-right: 2px solid #00FF00;
   transition: left 0.3s ease;
-  z-index: 100;
+  z-index: 200;
+  overflow-y: auto;
 }
 .menu.open {
   left: 0;
@@ -73,6 +75,10 @@ html, body {
   font-size: 16px;
   animation: glitchFlicker 1.5s infinite steps(3, end);
 }
+.menu a:hover, .menu a:focus, .dropdown-btn:hover, .dropdown-btn:focus {
+  background: rgba(0, 255, 0, 0.2);
+}
+
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
@@ -85,6 +91,22 @@ html, body {
 .dropdown.open .dropdown-content {
   max-height: 200px;
   opacity: 1;
+}
+
+/* Dropdown button arrow indicator */
+.dropdown-btn {
+  position: relative;
+}
+.dropdown-btn::after {
+  content: "▾";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s;
+}
+.dropdown.open .dropdown-btn::after {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 /* Glitch Text */
@@ -189,4 +211,14 @@ html, body {
 @keyframes scanlines {
   0% { background-position: 0 0; }
   100% { background-position: 0 2px; }
+}
+
+@media (max-width: 600px) {
+  .menu {
+    width: 80%;
+    left: -80%;
+  }
+  .top-nav .menu-button {
+    float: right;
+  }
 }
